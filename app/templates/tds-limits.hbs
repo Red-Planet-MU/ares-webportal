@@ -1,0 +1,52 @@
+{{page-title 'TDS Ability Limits'}}
+
+<h1>TDS Ability Limits</h1>
+
+<p class="alert alert-info">Limits marked with a star (<i class="fa fa-star" aria-label="Star"></i>) are absolute limits, including what you can get with XP.  The rest apply only to Character Creation.</p>
+
+<table class="table table-striped">
+
+<thead>
+    <th>Name</th>
+    <th>Limit</th>
+</thead>
+
+<tbody>
+
+<tr><td>Free Background Skill Points</td><td>{{this.model.tds.free_backgrounds}}</td></tr>
+<tr><td>Free Language Points</td><td>{{this.model.tds.free_languages}}</td></tr>
+<tr><td>Max Ability Points</td><td>{{this.model.tds.max_ap}}</td></tr>
+<tr><td>Max Ability Points on Action Skills</td><td>{{this.model.tds.max_action}}</td></tr>
+<tr><td>Max Ability Points on Attributes</td><td>{{this.model.tds.max_attrs}}</td></tr>
+{{#if this.model.tds.use_advantages}}
+<tr><td>Max Ability Points on Advantages</td><td>{{this.model.tds.max_advantages}}</td></tr>
+{{/if}}
+<tr><td>Max Skill Rating</td><td>{{this.model.tds.max_skill_rating}}</td></tr>
+<tr><td>Max Attribute Rating</td><td>{{this.model.tds.max_attr_rating}}</td></tr>
+<tr><td>Min Background Skills</td><td>{{this.model.tds.min_backgrounds}}</td></tr>
+<tr><td>Min Action Skill Rating</td><td>{{this.model.tds.min_action_skill_rating}}</td></tr>
+<tr><td>Attribute Limits</td>
+  <td><ul>
+    {{#each-in this.model.tds.attr_limits as |lvl numAbilities|}}
+    <li>{{numAbilities}} at or above {{lvl}}</li>
+    {{/each-in}}
+    </ul>
+  </td></tr>
+<tr><td>Action Skill Limits</td>
+  <td>
+    <ul>
+      {{#each-in this.model.tds.skill_limits as |lvl numAbilities|}}
+      <li>{{numAbilities}} at or above {{lvl}}</li>
+      {{/each-in}}
+    </ul>
+  </td></tr>
+
+<tr><td>Max Dots In Action Skills Above "Everyman" w/ XP <i class="fa fa-star" aria-label="Star"></i> </td><td>{{this.model.tds.max_dots_action}}</td></tr>
+<tr><td>Max Dots In Attributes Above "Average" w/ XP <i class="fa fa-star" aria-label="Star"></i> </td><td>{{this.model.tds.max_dots_attrs}}</td></tr>
+{{#if this.model.tds.use_advantages}}
+<tr><td>Max Dots In Advantages w/ XP <i class="fa fa-star" aria-label="Star"></i> </td><td>{{this.model.tds.max_dots_advantages}}</td></tr>
+{{/if}}
+</tbody>
+</table>
+
+{{outlet}}
