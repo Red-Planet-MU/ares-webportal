@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+
+    <TdSAbilityTable @title="Attributes" @list={{this.char.tds.attributes}} @max={{4}} @showSpecs={{false}} />
+    
+  </div>
+  
+  <div class="col col-md-6 col-sm-12">
+  
+    <TdSAbilityTable @title="Action Skills" @list={{this.char.tds.action_skills}} @max={{8}} @showSpecs={{true}} />
+  
+  </div>
+</div>
+
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+    <TdSAbilityTable @title="Background Skills" @list={{this.char.tds.backgrounds}} @max={{3}} />  
+  </div>
+
+  <div class="col col-md-6 col-sm-12">
+
+    <TdSAbilityTable @title="Languages" @list={{this.char.tds.languages}} @max={{3}} />  
+
+  </div>
+</div>
+
+{{#if this.char.tds.use_advantages}}
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+
+    <TdSAbilityTable @title="Advantages" @list={{this.char.tds.advantages}} @max={{3}} />  
+
+  </div>
+</div>
+
+{{/if}}
+
+
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+    <br>
+    <b>Luck Points:</b> {{this.char.tds.luck_points}}
+
+  </div>
+</div>

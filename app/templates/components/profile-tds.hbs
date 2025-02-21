@@ -1,0 +1,18 @@
+{{#if (not this.game.disabled_plugins.tdsskills)}}
+  {{#if this.char.tds.show_sheet}}
+    <div id="systemtdssheet" class="tab-pane fade">
+      <TdSSheet @char={{this.char}} />
+    </div>
+   {{/if}}
+   {{#if this.char.tds.xp}}
+    <div id="systemtdsxp" class="tab-pane fade">
+      <TdSXp @char={{this.char}} @abilityLearned={{action "reloadChar"}} />
+    </div>
+   {{/if}}
+{{/if}}
+
+{{#if (not this.game.disabled_plugins.tdscombat)}}  
+<div id="systemtdsdamage" class="tab-pane fade">
+  <TdSDamage @damage={{this.char.tds.damage}} @damageMod={{this.char.tds.damage_mod}} @showOriginal={{true}} />
+</div>
+{{/if}}

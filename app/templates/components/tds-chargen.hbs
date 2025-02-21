@@ -1,0 +1,155 @@
+     <ul class="nav nav-tabs" role="tablist">
+
+            {{#if this.model.char.tds.reset_needed}}
+           <li role="presentation" class="nav-item"><a href="#tdsreset" aria-controls="tdsreset" role="tab" data-bs-toggle="tab" class="nav-link active">Reset</a></li>
+           {{else}}
+           <li role="presentation" class="nav-item"><a href="#tdsattrs" aria-controls="tdsattrs" role="tab" data-bs-toggle="tab" class="nav-link active">Attributes</a></li>
+           <li role="presentation" class="nav-item"><a href="#tdsaction" aria-controls="tdsaction" role="tab" data-bs-toggle="tab" class="nav-link">Action Skills</a></li>
+           <li role="presentation" class="nav-item"><a href="#tdsbg" aria-controls="tdsbg" role="tab" data-bs-toggle="tab" class="nav-link">Background Skills</a></li>
+           <li role="presentation" class="nav-item"><a href="#tdslang" aria-controls="tdslang" role="tab" data-bs-toggle="tab" class="nav-link">Languages</a></li>
+           {{#if this.model.char.tds.use_advantages}}
+       <li role="presentation" class="nav-item"><a href="#tdsadv" aria-controls="tdsadv" role="tab" data-bs-toggle="tab" class="nav-link">Advantages</a></li>
+            {{/if}}
+       
+           {{/if}}
+           
+         </ul>
+
+     <div class="tab-content">
+
+           
+{{#if this.model.char.tds.reset_needed}}
+  <div role="tabpanel" class="tab-pane active" id="tdsreset">
+  <p>Starting your abilities will set you up with default attribute and skill values.  Your other character information will be saved.</p>
+
+  {{#if this.anyGroupMissing}}
+  <div class="alert alert-warning">If you set your groups first, you'll be given the appropriate starting skills based on your groups.</div>
+  {{/if}}
+
+  <button name="reset" {{action 'reset'}} class="btn btn-primary">Start Abilities</button>
+  </div>
+
+{{else}}
+
+  <div role="tabpanel" class="tab-pane active" id="tdsattrs">
+
+  <div class="card card-default">
+       <div class="card-heading">
+           Attributes
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.model.cgInfo.tds.abilities.attrs_blurb}} /></p>
+
+
+     {{#each this.model.char.tds.tds_attributes as |att|}}
+     <TdSAttrbox @rating={{att.rating}} @ratingName={{att.rating_name}} @maxRating={{this.model.cgInfo.tds.max_attr_rating}} @updated={{action "abilityChanged"}}>
+         <b>{{att.name}}</b> - {{att.desc}}
+     </TdSAttrbox>
+     {{/each}}
+
+   </div>
+  </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="tdsaction">
+
+  <div class="card card-default">
+       <div class="card-heading">
+           Action Skills
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.model.cgInfo.tds.abilities.action_blurb}} /></p>
+     
+     <br>
+   
+     {{#each this.model.char.tds.tds_action_skills as |skill|}}
+     <TdSActionbox @name={{skill.name}} @rating={{skill.rating}} @ratingName={{skill.rating_name}} @maxRating={{this.model.cgInfo.tds.max_skill_rating}} @minRating={{this.model.cgInfo.tds.min_action_skill_rating}} @updated={{action "abilityChanged"}} @specialties={{skill.specialties}}>
+         <b>{{skill.name}}</b> - {{skill.desc}}
+     </TdSActionbox>
+     {{/each}}
+     
+
+   </div>
+  </div>
+
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="tdsbg">
+
+
+  <div class="card card-default">
+       <div class="card-heading">
+           Background Skills
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.model.cgInfo.tds.abilities.background_blurb}} /> To remove a background skill, set its rating to Everyman.</p>
+
+
+     {{#each this.model.char.tds.tds_backgrounds as |skill|}}
+
+     <TdSBgbox @rating={{skill.rating}} @ratingName={{skill.rating_name}} @updated={{action "abilityChanged"}}>
+         <b><Input @type="text" @value={{skill.name}} size={{25}} /></b>
+     </TdSBgbox>
+     {{/each}}
+
+     <button class="btn btn-secondary" id="addbg" {{action (mut this.selectBackgroundSkill) true}}>Add Background Skill</button>
+
+   </div>
+  </div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="tdslang">
+
+   <div class="card card-default">
+       <div class="card-heading">
+           Language Skills
+       </div>
+     <div class="card-body">
+
+
+         <p class="cg-tip"><AnsiFormat @text={{this.model.cgInfo.tds.abilities.language_blurb}} /> To remove a language, set its rating to Everyman.</p>
+
+       {{#each this.model.char.tds.tds_languages as |skill|}}
+       <TdSLangbox @rating={{skill.rating}} @ratingName={{skill.rating_name}} @updated={{action "abilityChanged"}}>
+           <b>{{skill.name}}</b> 
+           {{#if skill.desc}}- {{skill.desc}}{{/if}}
+       </TdSLangbox>
+       {{/each}}
+                
+     </div>
+   </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="tdsadv">
+
+     <div class="card card-default">
+         <div class="card-heading">
+             Advantages
+         </div>
+       <div class="card-body">
+
+
+           <p class="cg-tip"><AnsiFormat @text={{this.model.cgInfo.tds.abilities.advantages_blurb}} /> To remove an advantage, set its rating to Everyman.</p>
+
+         {{#each this.model.char.tds.tds_advantages as |skill|}}
+         <TdSAdvantagebox @rating={{skill.rating}} @ratingName={{skill.rating_name}} @updated={{action "abilityChanged"}}>
+             <b>{{skill.name}}</b> - {{skill.desc}}
+         </TdSAdvantagebox>
+         {{/each}}
+                
+       </div>
+     </div>
+   </div>
+ 
+{{/if}}
+
+</div>
+
+
+<BsModalSimple @title="Add Background Skill" @closeTitle="Cancel" @submitTitle="Add" @size={{null}} @fade={{true}} @open={{this.selectBackgroundSkill}} @onSubmit={{action "addBackgroundSkill"}} @onHide={{action (mut this.selectBackgroundSkill) false}}>
+    <p>Enter a skill name.</p>
+    <Input @type="text" size={{25}} id="bgSkill" @enter={{action "addBackgroundSkill"}} @value={{this.newBgSkill}} />
+
+  </BsModalSimple>

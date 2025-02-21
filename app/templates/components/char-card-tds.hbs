@@ -1,0 +1,71 @@
+<div class="scene-card-tds">
+  <div class="card-ability-title">
+    Attributes
+  </div>
+  <div class="card-abilities">
+    {{#each this.char.tds.attributes as |ability|}}
+      <div class="card-ability">
+        <span class="card-ability-name">{{ability.name}}</span>
+        <TDSDots @rating={{ability.rating}} @max={{4}} />
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="card-ability-title">
+    Action Skills
+  </div>
+  <div class="card-abilities">
+    {{#each this.char.tds.action_skills as |ability|}}
+      <div class="card-ability">
+        <span class="card-ability-name">{{ability.name}}</span>
+        <TDSDots @rating={{ability.rating}} @max={{8}} />
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="card-specialties">
+    {{#each this.char.tds.action_skills as |ability|}}
+      {{#if ability.specialties}}
+        <div class="card-specialty">{{ability.name}}: {{ability.specialties}}</div>
+      {{/if}}
+    {{/each}}
+  </div>
+
+  <div class="card-ability-title">
+    Background Skills
+  </div>
+  <div class="card-abilities">
+    {{#each this.char.tds.backgrounds as |ability|}}
+      <div class="card-ability">
+        <span class="card-ability-name">{{ability.name}}</span>
+        <TDSDots @rating={{ability.rating}} @max={{3}} />
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="card-ability-title">
+    Languages
+  </div>
+  <div class="card-abilities">
+    {{#each this.char.tds.languages as |ability|}}
+      <div class="card-ability">
+        <span class="card-ability-name">{{ability.name}}</span>
+        <TDSDots @rating={{ability.rating}} @max={{3}} />
+      </div>
+    {{/each}}
+  </div>
+
+  {{#if this.char.tds.use_advantages}}
+    <div class="card-ability-title">
+      Advantages
+    </div>
+    <div class="card-abilities">
+      {{#each this.char.tds.advantages as |ability|}}
+        <div class="card-ability">
+          <span class="card-ability-name">{{ability.name}}</span>
+          <TDSDots @rating={{ability.rating}} @max={{3}} />
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>    

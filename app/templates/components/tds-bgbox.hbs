@@ -1,0 +1,21 @@
+<div class="row tds-abilitybox"> 
+  <div class="col col-sm-7">
+    {{yield}}
+  </div>
+
+  <div class="col col-sm-5">
+    <div class="tds-rating-control">
+      <button class="tds-skillbutton" {{action "decrement"}}>-</button>
+
+      <div class="tds-rating-display">
+        <TdSDots @rating={{this.rating}} @max={{3}} />
+        <br>
+        {{this.ratingName}}
+      </div>
+
+      <button class="tds-skillbutton" {{action "increment"}}>+</button>
+    </div>
+    
+  </div>
+</div>
+
