@@ -8,4 +8,5 @@ export default function setupCustomRoutes(router) {
   this.route('tdscombat-gear-detail', { path: '/tdscombat/gear/:type/:name' });
   this.route('tdsskills-abilities', { path: '/tdsskills/abilities' });
   this.route('tdsskills-scan', { path: '/tdsskills/scan' });
+  this.route('custom-chargen-char', { path: '/chargen/:char_id'});
 }
