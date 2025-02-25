@@ -46,7 +46,7 @@
   {{/if}}
   
   <ProfileCustomTabs @char={{this.char}} @game={{this.game}} />
-
+ <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#comps">Comps</a></li>
 </ul>
 
 
@@ -130,5 +130,8 @@
   {{/if}}
   
   <ProfileCustom @char={{this.char}} @game={{this.game}} @reloadChar={{action "reloadChar"}} />
-  
+
+  <div id="comps" class="tab-pane fade ">
+    <CharComps @char={{this.char}}  @reloadChar={{action "reloadChar"}} />
+  </div>
 </div>
