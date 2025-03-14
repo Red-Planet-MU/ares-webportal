@@ -10,8 +10,12 @@
 
 <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
-<a data-bs-toggle="collapse" href="#comp" class="btn btn-primary btn-collapse">Get a Serum</a>
-    <div id="serum" class="card-collapse collapse">
-    </div>
+<button class="btn btn-primary" {{action (mut this.clickGetSerum) true}}>Get a Serum</button>
+
+<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.clickGetSerum}} @onSubmit={{action "getSerum"}} @onHide={{action (mut this.clickGetSerum) false}}>
+  
+  <b>Serum</b> <Input @type="text" size={{25}} id="serumType" @enter={{action "getSerum"}} @value={{this.serumType}} />
+
+</BsModalSimple>
 
 </div>
