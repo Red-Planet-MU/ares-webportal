@@ -1,5 +1,5 @@
 {{#if this.char.custom.serums}}
-  <div id="profileserumstab" class="tab-pane fade">
-    <CharSerums @char={{this.char}} />
-  </div>
+    <div id="profileserumstab" class="tab-pane fade">
+        {{{ansi-format text=this.char.custom.serums}}}
+    </div>
 {{/if}}
