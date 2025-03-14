@@ -1,5 +1,15 @@
 <div id="serum-tabname" class="tab-pane fade">
     {{{text=this.char.custom.v_serums}}}
+    <a data-bs-toggle="collapse" href="#serum-get-button" class="btn btn-secondary btn-collapse">Get a Serum</a>
+    <div id="serum" class="card-collapse collapse">
+    <b>Get a Serum</b>
+    <MarkdownEditor @text={{this.char.comp_msg}} />
+        <div class="action-buttons">
+            <p> <LinkTo @route="creature" @model={{this.model.creature.id}} class="btn btn-secondary">Cancel</LinkTo>
+            <button class="btn btn-primary" {{action 'save'}} >Save</button>
+            </p>
+        </div>
+    </div>
  </div>
 
 
