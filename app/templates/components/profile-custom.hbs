@@ -11,10 +11,10 @@
 <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
 <div class="action-buttons">
-    <button class="btn btn-primary" {{action (mut this.clickGetSerum) true}}>Get a Serum</button>
+    <button class="btn btn-primary" {{action (mut this.showGetSerum) true}}>Get a Serum</button>
 </div>
 
-<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.clickGetSerum}} @onSubmit={{action "getSerum"}} @onHide={{action (mut this.clickGetSerum) false}}>
+<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.showGetSerum}} @onSubmit={{action "getSerum"}} @onHide={{action (mut this.showGetSerum) false}}>
   
   <b>Serum</b> <Input @type="text" size={{25}} id="serumType" @enter={{action "getSerum"}} @value={{this.serumType}} />
 
