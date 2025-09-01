@@ -8,4 +8,9 @@ export default Component.extend({
   reloadChar() {
     this.onReloadChar();
   }
+
+  @action
+  setSelectSerum(value) {
+    this.set('setSelectSerum', value);
+  }
 });
