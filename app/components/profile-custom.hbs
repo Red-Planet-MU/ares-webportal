@@ -10,14 +10,24 @@
 
 <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
-<div class="action-buttons">
+<!-- <div class="action-buttons">
     <button class="btn btn-primary" {{action (mut this.showGetSerum) true}}>Get a Serum</button>
-</div>
+</div> -->
 
-<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.showGetSerum}} @onSubmit={{this.getSerum}} @onHide={{action (mut this.showGetSerum) false}}>
+<button {{on 'click' (fn this.setShowGetSerum true)}}>Get a Serum</button>
+
+<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.showGetSerum}} @onSubmit={{this.getSerum}} @onHide={{(fn this.setShowGetSerum false)}}>
   
   <b>Serum</b> <Input @type="text" size={{25}} id="serumType" @enter={{this.getSerum}} @value={{this.serumType}} />
 
 </BsModalSimple>
+
+<!--
+<BsModalSimple @title="Spend a Luck Point" @closeTitle="Cancel" @submitTitle="Spend" @size={{null}} @fade={{true}} @open={{this.selectSpendLuck}} @onSubmit={{this.spendLuck}} @onHide={{(fn this.setSelectSpendLuck false)}}>
+  
+  <b>Reason:</b> <Input @type="text" size={{25}} id="luckReason" @enter={{this.spendLuck}} @value={{this.luckReason}} />
+
+</BsModalSimple> -->
+
 
 </div>
