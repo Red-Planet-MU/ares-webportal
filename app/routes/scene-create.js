@@ -14,7 +14,7 @@ export default Route.extend(AuthenticatedRoute, {
         return RSVP.hash({
              scene: EmberObject.create({ 
                  scene_type: 'Social',
-                 privacy: 'Open',
+                 privacy: '',
                  location: params['location'],
                  icdate: appModel.game.scene_start_date }),
              sceneOptions: api.requestOne('sceneOptions'),
