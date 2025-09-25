@@ -14,7 +14,7 @@ export default Component.extend({
   @action
   setSelectSerum(value) {
     this.set('setSelectSerum', value);
-  }
+  },
 
   @action
   getSerum() {
