@@ -15,4 +15,24 @@ export default Component.extend({
   setSelectSerum(value) {
     this.set('setSelectSerum', value);
   }
+
+  @action
+  getSerum() {
+    let api = this.gameApi;
+         
+    api.requestOne('getSerum', 
+    { 
+      char_id: this.get('char.id'),
+      serum_type: this.get('char.serumType') 
+    }, null)
+    .then( (response) => {
+      if (response.error) {
+        return;
+      }
+      this.flashMessages.success('Serum got!');
+      this.onReloadChar();
+    });
+  },
+
+
 });
