@@ -32,7 +32,7 @@ export default Component.extend({
       this.flashMessages.success('Serum got!');
       this.onReloadChar();
     });
-  },
+  }
 
 
 });
