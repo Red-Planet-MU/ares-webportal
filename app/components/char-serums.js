@@ -5,6 +5,8 @@ import { action } from '@ember/object';
 export default Component.extend({
   flashMessages: service(),
   gameApi: service(),
+
+  selectSerum: false,
   
   @action
   reloadChar() {
