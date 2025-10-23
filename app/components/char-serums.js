@@ -13,7 +13,7 @@ export default Component.extend({
 
   @action
   setSelectSerum(value) {
-    this.set('setSelectSerum', value);
+    this.set('selectSerum', value);
   },
 
   @action
