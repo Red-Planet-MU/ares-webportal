@@ -7,10 +7,6 @@ export default Component.extend({
   @action
   reloadChar() {
     this.onReloadChar();
-  },
-
-  @action
-  setSelectSerum(value) {
-    this.set('setSelectSerum', value);
   }
+
 });
