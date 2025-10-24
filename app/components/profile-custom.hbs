@@ -23,6 +23,9 @@
     @onHide={{(fn this.setSelectSerum false)}}
     @renderInPlace={{true}}>
       Enter a serum name.
+      <DropdownMenu @id="serumMenu" @title="Serum List">
+        <li>Revitalizer</li>
+      </DropdownMenu>
   </BsModalSimple>
 
 </div>
