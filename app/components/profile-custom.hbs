@@ -1,0 +1,17 @@
+<div id="systemserum" class="tab-pane fade">
+
+  <button class="btn btn-secondary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
+
+  <BsModalSimple 
+    @title="Get a Serum"
+    @closeTitle="Cancel"
+    @submitTitle="Get Serum"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectSerum}}
+    @onSubmit={{this.getSerum}} 
+    @onHide={{(fn this.setSelectSerum false)}}>
+      Enter a serum name.
+  </BsModalSimple>
+
+</div>
