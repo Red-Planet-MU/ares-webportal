@@ -1,4 +1,4 @@
-<!-- <div id="serums-tab" class="tab-pane fade"> -->
+<div id="serums-tab" class="tab-pane fade">
 
 <b>Revitalizer Serums: </b>{{{this.char.custom.v_serums}}} <br />
 
@@ -11,6 +11,8 @@
 <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
 <button class="btn btn-secondary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
+
+</div>
 
 <BsModalSimple 
   @title="Get a Serum"
