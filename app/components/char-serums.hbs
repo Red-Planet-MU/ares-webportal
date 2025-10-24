@@ -27,15 +27,11 @@
   @title="Get a Serum"
   @closeTitle="Cancel"
   @submitTitle="Get Serum"
-  @size=""
-  @closeButton={{true}}
+  @size={{null}}
   @fade={{true}}
-  @backdrop={{true}}
-  @backdropClose={{true}}
   @open={{this.selectSerum}}
   @onSubmit={{this.getSerum}} 
-  @onHide={{(fn this.setSelectSerum false)}}
-  @renderInPlace={{true}}>
+  @onHide={{(fn this.setSelectSerum false)}}>
     Enter a serum name.
 </BsModalSimple>
 
@@ -54,5 +50,5 @@
 
 </BsModalSimple> -->
 
-
+{{outlet}}
 
