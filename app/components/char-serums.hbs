@@ -14,6 +14,9 @@
     <button class="btn btn-primary" {{action (mut this.showGetSerum) true}}>Get a Serum</button>
 </div> -->
 
+<button class="btn btn-secondary">
+  <!---->Open Modal
+</button>
 <!--<button class="btn btn-secondary" id="addbg" {{on 'click' (fn this.setSelectBackgroundSkill true)}}>Add Background Skill</button> -->
 <!--<button class="btn btn-secondary" id="getserum" {{on 'click' (fn this.setSelectSerum true)}}>Get a Serum</button>  -->
 
@@ -34,15 +37,13 @@
   @backdropClose={{true}}
   @open={{true}}
   @onSubmit={{this.getSerum}} 
-  @onHide={{(fn this.setSelectSerum false)}}>
+  @onHide={{(fn this.setSelectSerum false)}}
+  @renderInPlace={{true}}>
     <p>Enter a serum name.</p>
     <b>Serum</b> <Input @type="text" size={{25}} id="serumType" @enter={{this.getSerum}} @value={{this.serumType}} />
 
 </BsModalSimple>
 
-<button class="btn    btn-secondary" type="button">
-  <!---->Open Modal
-</button>
 <BsModalSimple
   @open={{false}}
   @title="Get a Serum"
