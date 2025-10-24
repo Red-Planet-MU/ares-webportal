@@ -7,7 +7,6 @@ export default Component.extend({
   gameApi: service(),
 
   selectSerum: false,
-  showNewConversation: false,
   
   @action
   reloadChar() {
