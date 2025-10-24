@@ -21,8 +21,8 @@
 
 {{#each this.char.custom.comps.pages as |pg|}}
 {{#if (eq pg this.page)}}
-<button class="btn btn-primary" {{on 'click' this.goToPage pg}}>{{pg}}</button>
+<button class="btn btn-primary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
 {{else}}
-<button class="btn btn-secondary" {{on 'click' this.goToPage pg}}>{{pg}}</button>
+<button class="btn btn-secondary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
 {{/if}}
 {{/each}}
