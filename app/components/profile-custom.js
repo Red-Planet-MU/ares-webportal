@@ -21,10 +21,12 @@ export default Component.extend({
       char_id: this.get('char.id'),
       serum_type: this.get('char.serum_type')
     }, null)
+    console.log(char_id)
     .then( (response) => {
         if (response.error) {
             return;
         }
+      console.log(char_id)
       this.flashMessages.success('Serum obtained!');
       this.reloadChar();
     });
