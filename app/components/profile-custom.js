@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 export default Component.extend({
   tagName: '',
  selectSerum: false,
+ serums = ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
  
  @action
   setSelectSerum(value) {

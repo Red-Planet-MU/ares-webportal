@@ -22,10 +22,14 @@
     @onSubmit={{this.webGetSerum}} 
     @onHide={{(fn this.setSelectSerum false)}}
     @renderInPlace={{true}}>
-      Enter a serum name.
-      <DropdownMenu @id="serumMenu" @title="Serum List">
-        <li>Revitalizer</li>
-      </DropdownMenu>
+      <PowerSelect
+        @options={{this.serums}}
+        @onChange={{this.foo}}
+        @labelText="Select a Serum"
+        as |serumToGet|
+      >
+      {{serumToGet}}
+    </PowerSelect>
   </BsModalSimple>
 
 </div>
