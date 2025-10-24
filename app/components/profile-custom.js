@@ -15,7 +15,7 @@ export default Component.extend({
   },
 
   @action
-  getSerum() {
+  webGetSerum() {
     let api = this.get('gameApi');
     api.requestOne('getSerum', {
       char_id: this.get('char.id'),

@@ -1,5 +1,5 @@
 <div id="systemserum" class="tab-pane fade">
-    
+
   <b>Revitalizer Serums: </b>{{{this.char.custom.v_serums}}} <br />
 
   <b>Adreno Serums: </b>{{{this.char.custom.a_serums}}} <br />
@@ -19,8 +19,9 @@
     @size={{null}}
     @fade={{true}}
     @open={{this.selectSerum}}
-    @onSubmit={{this.getSerum}} 
-    @onHide={{(fn this.setSelectSerum false)}}>
+    @onSubmit={{this.webGetSerum}} 
+    @onHide={{(fn this.setSelectSerum false)}}
+    @renderInPlace={{true}}>
       Enter a serum name.
   </BsModalSimple>
 
