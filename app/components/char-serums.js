@@ -7,6 +7,7 @@ export default Component.extend({
   gameApi: service(),
 
   selectSerum: false,
+  showNewConversation: false,
   
   @action
   reloadChar() {
@@ -16,6 +17,11 @@ export default Component.extend({
   @action
   setSelectSerum(value) {
     this.set('selectSerum', value);
+  },
+
+  @action
+  setShowNewConversation(value) {
+    this.set('showNewConversation', value);
   },
 
   @action
