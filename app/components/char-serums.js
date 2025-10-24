@@ -20,11 +20,6 @@ export default Component.extend({
   },
 
   @action
-  setShowNewConversation(value) {
-    this.set('showNewConversation', value);
-  },
-
-  @action
   getSerum() {
     let api = this.gameApi;
          

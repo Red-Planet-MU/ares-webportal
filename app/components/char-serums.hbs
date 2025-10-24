@@ -15,8 +15,8 @@
 </div> -->
 
 <!--<button class="btn btn-secondary" id="addbg" {{on 'click' (fn this.setSelectBackgroundSkill true)}}>Add Background Skill</button> -->
-<button class="btn btn-secondary" id="getserum" {{on 'click' (fn this.setSelectSerum true)}}>Get a Serum</button> 
-<TooltipButton @onClick={{(fn this.setShowNewConversation true)}} @position="right" @message="New Conversation" @icon="fa fa-plus-circle" />
+<button class="btn btn-secondary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
+
 <!--<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.showGetSerum}} @onSubmit={{this.getSerum}} @onHide={{(fn this.setShowGetSerum false)}}>
   
   <b>Serum</b> <Input @type="text" size={{25}} id="serumType" @enter={{this.getSerum}} @value={{this.serumType}} />
@@ -32,52 +32,12 @@
   @fade={{true}}
   @backdrop={{true}}
   @backdropClose={{true}}
-  @open={{true}}
+  @open={{this.selectSerum}}
   @onSubmit={{this.getSerum}} 
   @onHide={{(fn this.setSelectSerum false)}}
   @renderInPlace={{true}}>
     Enter a serum name.
 </BsModalSimple>
-
-<BsModalSimple @title="Start Conversation" @closeTitle="Cancel" @submitTitle="Start" @size={{null}} @fade={{true}} @open={{this.showNewConversation}} @onSubmit={{this.startConversation}}  @onHide={{(fn this.setShowNewConversation false)}}>
-
-
-         <div class="card card-default">
-           <div class="card-body">
-             
-             
-              <div class="form-item">
-               <div class="form-item-label">
-                   To:
-               </div>
-               <div class="form-item-entry">
-                   <PowerSelectMultiple @selected={{this.newConversationList}} @options={{this.model.characters}} @searchEnabled=true  @searchField="name" @onChange={{this.conversationListChanged}} as |char|>
-                 {{char.name}}
-               </PowerSelectMultiple>
-               </div> 
-             </div>
-             
-              <div class="form-item">
-               <div class="form-item-label">
-                   From:
-               </div>
-               <div class="form-item-entry">
-                 <div class="scene-char-select" >
-                   <PowerSelect @selected={{this.poseChar}} @options={{this.model.chat.pose_chars}} @searchField="name" @onChange={{this.poseCharChanged}} as |poseChar|>
-                       <CharIconTiny @char={{poseChar}} />
-                   </PowerSelect>
-                 </div>
-               </div> 
-             </div>
-             
-      
-               <MarkdownEditor @text={{this.newPage}} class="chat-box" @rows="6" @onEnter={{this.startConversation}} />
-      
-           </div>
-         </div>
-         
-         <FlashMessages />
-  </BsModalSimple>
 
 <!--</BsModalSimple>
 
