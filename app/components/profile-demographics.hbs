@@ -11,24 +11,6 @@
 
   <div class="profile-box">
 
-    <div class="profile-item-list profile-demographics">
-      {{#each this.char.demographics as |demo|}}
-          <div class="profile-item">
-            <div class="profile-item-name">
-                    {{demo.name}} 
-            </div>
-            <div class="profile-item-value">
-                    {{demo.value}}
-            </div>
-          </div>
-      {{/each}}
-    </div>
-                          
-  
-    <div class="profile-divider">
-    </div>
-  
-  
     <div class="profile-item-list profile-groups">
       {{#each this.char.groups as |group|}}
         <div class="profile-item">
@@ -42,6 +24,18 @@
       {{/each}}
     </div>
 
+    <div class="profile-item-list profile-demographics">
+      {{#each this.char.demographics as |demo|}}
+          <div class="profile-item">
+            <div class="profile-item-name">
+                    {{demo.name}} 
+            </div>
+            <div class="profile-item-value">
+                    {{demo.value}}
+            </div>
+          </div>
+      {{/each}}
+    </div>
   
     <div class="profile-divider">
     </div>
