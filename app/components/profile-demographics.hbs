@@ -18,7 +18,7 @@
                     {{demo.name}} 
             </div>
             <div class="profile-item-value">
-                    {{#if {{demo.name}} == "Theme_song"}}
+                    {{#if {{this.char.demo.name}} == "Theme_song"}}
                       <a href="{{demo.value}}"></a>
                     {{else}}
                       {{demo.value}}
