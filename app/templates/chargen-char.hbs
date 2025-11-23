@@ -93,7 +93,7 @@
                              <div class="cg-tip">Enter an age or a birthdate in {{this.model.cgInfo.date_format}} format.</div>
                          {{else if (eq key 'song')}}
                              <Input @type="text" size={{25}} @value={{demo.value}} />
-                             <div class="cg-tip">Use `<a href="your URL">Song Title</a>` format.</div>
+                             <div class="cg-tip">Use `&lt;a href="your URL"&gt;Song Title&lt;/a&gt;` format.</div>
                          {{else}}
                              <Input @type="text" size={{25}} @value={{demo.value}} />
                          {{/if}}
