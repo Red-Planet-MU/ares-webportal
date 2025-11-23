@@ -18,10 +18,10 @@
                     {{demo.name}} 
             </div>
             <div class="profile-item-value">
-                    {{#if (eq this.char.demographics.name 'Theme_song')}}
+                    {{#if (eq {{demo.name}} 'Theme_song')}}
                       Test
                     {{else}}
-                      {{demo.value}} {{demo.name}}
+                      {{demo.value}}
                     {{/if}}
             </div>
           </div>
