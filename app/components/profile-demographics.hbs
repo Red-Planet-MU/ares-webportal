@@ -18,7 +18,11 @@
                     {{demo.name}} 
             </div>
             <div class="profile-item-value">
-                    {{demo.value}}
+                    {{#if {{demo.name}} == "Theme_song"}}
+                      <a href="{{demo.value}}"></a>
+                    {{else}}
+                      {{demo.value}}
+                    {{/if}}
             </div>
           </div>
       {{/each}}
