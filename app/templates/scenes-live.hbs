@@ -83,6 +83,157 @@
 </div>
 {{/each}}
 
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#open_scenes_tab">Open Scenes</a></li>
+  <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#private_scenes_tab">Private Scenes</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="open_scenes_tab" class="tab-pane fade show active">
+    {{#each this.model.open_active as |scene| }}
+
+<div class="live-scenes-entry">
+  <div class="live-scenes-heading">
+    <div class="live-scenes-title">
+      {{#if scene.is_unread}}
+      <span class="badge rounded-pill bg-primary"> <i class="fa fa-flag" aria-label="New Activity"></i></span>
+      {{/if}}
+
+      <LinkTo @route="scene-live" @model={{scene.id}} class="scene-title">
+      {{scene.id}} - 
+      {{#if scene.title}}  
+        {{scene.location}} - {{scene.title}}
+      {{else}}
+        {{scene.location}}
+      {{/if}}
+        
+      {{#if scene.content_warning}}
+      <ContentWarningTag @warning={{scene.content_warning}} @position="top" />
+      {{/if}}
+      </LinkTo>
+
+    </div>
+
+    <div class="live-scenes-tags">
+      <ScenePrivacyTag @scene={{scene}} />
+      <ScenePacingTag @scene={{scene}} />
+      <SceneTypeTag @scene={{scene}} />
+    </div> 
+  </div>           
+    
+  <div class="live-scenes-body">
+    <div class="live-scenes-participants">
+        {{#each scene.participants as |char|}}
+        <CharIconInline @char={{char}} />
+        {{/each}}
+    </div>
+    <div class="live-scenes-activity">      
+      <div class="live-scenes-last-pose"><span class="scene-info-label">Last:</span> 
+        {{#if scene.last_posed}}
+          {{scene.last_posed}},
+        {{/if}}
+        {{scene.last_pose_time_str}}</div>
+      <div class="live-scenes-date"><span class="scene-info-label">Date:</span> {{scene.icdate}}</div>
+    </div>
+  </div>
+  
+
+  {{#if scene.limit}}
+  <div class="live-scenes-notes">{{scene.limit}}</div>
+  {{/if}}
+  
+  <div class="live-scenes-controls">
+  
+   {{#if scene.watching}}
+     <button class="btn-link" {{on 'click' (fn this.stopWatching scene.id)}}><i class="fa fa-eye-slash" aria-label="Stop Watching"></i> Unwatch</button>
+
+   {{else}}
+     {{#if scene.can_view}}
+       <button class="btn-link" {{on 'click' (fn this.watchScene scene.id)}}><i class="fa fa-eye" aria-label="Watch"></i> Watch</button>
+  
+       {{#if (not scene.participating) }}
+         <button class="btn-link" {{on 'click' (fn this.joinScene scene.id)}}><i class="fa fa-sign-in-alt" aria-label="Join"></i> Join</button>
+       {{/if}}
+     {{/if}}
+
+   {{/if}}
+   </div>
+</div>
+{{/each}}
+  </div>
+  <div id="private_scenes_tab" class="tab-pane fade show">
+    {{#each this.model.private_active as |scene| }}
+
+<div class="live-scenes-entry">
+  <div class="live-scenes-heading">
+    <div class="live-scenes-title">
+      {{#if scene.is_unread}}
+      <span class="badge rounded-pill bg-primary"> <i class="fa fa-flag" aria-label="New Activity"></i></span>
+      {{/if}}
+
+      <LinkTo @route="scene-live" @model={{scene.id}} class="scene-title">
+      {{scene.id}} - 
+      {{#if scene.title}}  
+        {{scene.location}} - {{scene.title}}
+      {{else}}
+        {{scene.location}}
+      {{/if}}
+        
+      {{#if scene.content_warning}}
+      <ContentWarningTag @warning={{scene.content_warning}} @position="top" />
+      {{/if}}
+      </LinkTo>
+
+    </div>
+
+    <div class="live-scenes-tags">
+      <ScenePrivacyTag @scene={{scene}} />
+      <ScenePacingTag @scene={{scene}} />
+      <SceneTypeTag @scene={{scene}} />
+    </div> 
+  </div>           
+    
+  <div class="live-scenes-body">
+    <div class="live-scenes-participants">
+        {{#each scene.participants as |char|}}
+        <CharIconInline @char={{char}} />
+        {{/each}}
+    </div>
+    <div class="live-scenes-activity">      
+      <div class="live-scenes-last-pose"><span class="scene-info-label">Last:</span> 
+        {{#if scene.last_posed}}
+          {{scene.last_posed}},
+        {{/if}}
+        {{scene.last_pose_time_str}}</div>
+      <div class="live-scenes-date"><span class="scene-info-label">Date:</span> {{scene.icdate}}</div>
+    </div>
+  </div>
+  
+
+  {{#if scene.limit}}
+  <div class="live-scenes-notes">{{scene.limit}}</div>
+  {{/if}}
+  
+  <div class="live-scenes-controls">
+  
+   {{#if scene.watching}}
+     <button class="btn-link" {{on 'click' (fn this.stopWatching scene.id)}}><i class="fa fa-eye-slash" aria-label="Stop Watching"></i> Unwatch</button>
+
+   {{else}}
+     {{#if scene.can_view}}
+       <button class="btn-link" {{on 'click' (fn this.watchScene scene.id)}}><i class="fa fa-eye" aria-label="Watch"></i> Watch</button>
+  
+       {{#if (not scene.participating) }}
+         <button class="btn-link" {{on 'click' (fn this.joinScene scene.id)}}><i class="fa fa-sign-in-alt" aria-label="Join"></i> Join</button>
+       {{/if}}
+     {{/if}}
+
+   {{/if}}
+   </div>
+</div>
+{{/each}}
+  </div>
+</div>
     
 <hr>
 
