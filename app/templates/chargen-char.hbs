@@ -77,6 +77,8 @@
 
                 
                  {{#each-in this.model.char.demographics as |key demo|}}
+                 {{#if (eq key 'steed')}}
+                 {{else}}
                  <div class="form-item">
                      <div class="form-item-label">
                              <b>{{demo.name}}</b> 
@@ -99,6 +101,7 @@
                          {{/if}}
                      </div>
                  </div>
+                 {{/if}}
                  {{/each-in}}   
                  
           </div>
