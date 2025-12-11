@@ -13,8 +13,8 @@
 
     <div class="profile-item-list profile-demographics">
       {{#each this.char.demographics as |demo|}}
-        {{#ifCond demo.name "Theme Song Link" }}
-        {{else if demoIsSongTitle}}
+        {{#if (eq demo.name 'Theme Song Link') }}
+        {{else if (eq demo.name 'Theme Song Title')}}
           <div class="profile-item">
             <div class="profile-item-name">
                     Theme Song
