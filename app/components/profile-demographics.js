@@ -1,11 +1,11 @@
 import Component from '@ember/component';
 
-export default Component.extend({
-    demoIsSongLink: function() {
-        return this.get('demographic') === 'Theme Song Link';
-    }.property('demographic'),
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+        if(v1 === v2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
 
-    demoIsSongTitle: function() {
-        return this.get('demographic') === 'Theme Song Title';
-    }.property('demographic')
+export default Component.extend({
 });
