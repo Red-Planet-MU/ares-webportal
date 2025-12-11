@@ -13,7 +13,7 @@
 
     <div class="profile-item-list profile-demographics">
       {{#each this.char.demographics as |demo|}}
-        {{#if {{demo.name}} === "Theme Song Link" }}
+        {{#if demo.name === "Theme Song Link" }}
         {{else if {{demo.name}} === "Theme Song Title"}}
           <div class="profile-item">
             <div class="profile-item-name">
