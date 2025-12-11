@@ -12,7 +12,7 @@
   <div class="profile-box">
 
     <div class="profile-item-list profile-demographics">
-      {{#each this.char.demographics as |key demo|}}
+      {{#each this.model.char.demographics as |key demo|}}
         {{#if (eq key 'theme song link') }}
         {{else if (eq key 'theme song title')}}
           <div class="profile-item">
