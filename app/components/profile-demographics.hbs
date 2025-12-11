@@ -13,14 +13,14 @@
 
     <div class="profile-item-list profile-demographics">
       {{#each this.char.demographics as |key demo|}}
-        {{#if (eq key 'themesonglink') }}
-        {{else if (eq key 'themesongtitle')}}
+        {{#if (eq key 'theme song link') }}
+        {{else if (eq key 'theme song title')}}
           <div class="profile-item">
             <div class="profile-item-name">
                     Theme Song
             </div>
             <div class="profile-item-value">
-                      <a href="{{this.char.demographic("themesonglink")}}">{{{demo.value}}}</a>
+                      <a href="{{this.char.demographic("theme song link")}}">{{{demo.value}}}</a>
             </div>
           </div>
         {{else}}
