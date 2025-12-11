@@ -12,9 +12,9 @@
   <div class="profile-box">
 
     <div class="profile-item-list profile-demographics">
-      {{#each this.model.char.demographics as |key demo|}}
-        {{#if (eq key 'theme song link') }}
-        {{else if (eq key 'theme song title')}}
+      {{#each this.char.demographics as |demo|}}
+        {{#if {{demo.name}} === "Theme Song Link" }}
+        {{else if {{demo.name}} === "Theme Song Title"}}
           <div class="profile-item">
             <div class="profile-item-name">
                     Theme Song
