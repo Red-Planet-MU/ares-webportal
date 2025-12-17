@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 export default Component.extend({
   tagName: '',
   gameApi: service(),
+  
 
   @action 
     webPalsInvite() {
@@ -16,7 +17,7 @@ export default Component.extend({
         if (response.error) {
             return;
         }
-        this.flashMessages.success('Set to Looking for RP for 1 hour!');
+        
     });
   }
 

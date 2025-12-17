@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 
 export default Component.extend({
   gameApi: service(),
+  flashMessages: service(),
 
   @action
   reloadChar() {
@@ -20,7 +21,7 @@ export default Component.extend({
         if (response.error) {
             return;
         }
-      this.reloadChar();
+      this.flashMessages.success('Set to Looking for RP for 1 hour!');
     });
   },
 });
