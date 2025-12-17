@@ -5,6 +5,8 @@
             {{#each this.custom.looking_for_rp as |char_name|}}
               <LinkTo @route="char" @model={{char_name}}>{{char_name}}</LinkTo>
             {{/each}}
+
+            <a href="#" {{on 'click' this.setLFRP}}>Look for RP</a>
           </div>
     </div>
     <p></p>
