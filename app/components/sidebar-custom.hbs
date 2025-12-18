@@ -3,10 +3,12 @@
         <h2>Looking for RP <i class="fa-solid fa-users"></i></h2>
     </div>
     <div class="looking-for-rp">
+      <div class="lfrp-row">
       {{#each this.custom.lfrp_icons as |char|}}
         <CharIconInline @char={{char}}/>
         {{!--<LinkTo @route="char" @model={{char_name}}>{{char_name}}</LinkTo> --}}
       {{/each}}
+      </div>
       <br>
       <p><a href="#" {{on 'click' this.setLFRP}}>Look for RP</a></p>
     </div>
