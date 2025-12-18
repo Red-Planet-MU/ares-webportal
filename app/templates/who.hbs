@@ -6,7 +6,7 @@
 <div class="who-list">
     {{#each this.model.who as |char|}}
     <div class="who-row">
-        <CharIconInline @char={{char}} />
+        <CharIconInline @char={{char}} /> {{char}}
           {{#if this.model.can_boot}}
             <TooltipButton @onClick={{(fn this.setBootTarget char)}} @position="right" @message="Boot player." @icon="fa-solid fa-user-slash" />
           {{/if}}
