@@ -19,7 +19,7 @@
       {{#each-in char as |field value| }}
         <td>
           {{#if (eq field 'char')}}
-            <CharIconInline @char={{value}} /> {{value}}
+            <CharIconInline @char={{value}} />
           {{else}}
             {{value}}
           {{/if}}

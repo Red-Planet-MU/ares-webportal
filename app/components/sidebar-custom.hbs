@@ -3,7 +3,7 @@
         <h2>Looking for RP <i class="fa-solid fa-users"></i></h2>
     </div>
     <div class="looking-for-rp">
-      {{#each this.custom.looking_for_rp_ids as |char|}}
+      {{#each this.custom.looking_for_rp_chars as |char|}}
         <CharIconInline @char={{char}}/> {{char}}
         {{!--<LinkTo @route="char" @model={{char_name}}>{{char_name}}</LinkTo> --}}
       {{/each}}
