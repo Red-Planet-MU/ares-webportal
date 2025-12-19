@@ -17,8 +17,7 @@ export default Component.extend({
   @action 
     serumToUseChanged(newSerumToUse) {
       this.set('serumToUse', newSerumToUse)
-    }
-  
+    },  
 
   @action 
     webPalsInvite() {
