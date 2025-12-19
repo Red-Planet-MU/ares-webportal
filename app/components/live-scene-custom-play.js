@@ -37,7 +37,7 @@ export default Component.extend({
   @action 
     webUseSerum() {
     let api = this.get('gameApi');
-    let webSerumToUse = this.serumToUse;
+    let webSerumToUse = this.serumToUse.name;
     let webSerumTarget = this.targetName;
 
     if (!webSerumToUse) {
