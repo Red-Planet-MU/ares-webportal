@@ -14,10 +14,11 @@
       <PowerSelect
         @options={{this.serums}}
         @onChange={{this.serumToUseChanged}}
+        @selected={{this.serumToUse}}
         @labelText="Select a Serum"
         as |serumToUse|
       >
-      {{serumToUse}}
+      {{serumToUse.name}}
     </PowerSelect>
     <p><b>List a Target (optional):</b> </p>
     <p>
