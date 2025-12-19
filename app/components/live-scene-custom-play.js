@@ -18,7 +18,7 @@ export default Component.extend({
         if (response.error) {
             return;
         }
-        
+      this.flashMessages.success('Pals invited!');
     });
   }
 
