@@ -10,7 +10,7 @@ export default Component.extend({
   serums: ['Revitalizer'],
  
   @action
-    selectWebUseSerum(value) {
+    setSelectWebUseSerum(value) {
       this.set('selectWebUseSerum', value);
     },
   

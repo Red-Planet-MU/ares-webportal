@@ -1,4 +1,4 @@
-<li><a href="#" {{on 'click' (fn this.selectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li> 
+<li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li> 
 <li><a href="#" {{on 'click' this.webPalsInvite}} class="dropdown-item">Invite Pals</a></li> 
 
 <BsModalSimple 
@@ -7,7 +7,7 @@
     @submitTitle="Use Serum"
     @size={{null}}
     @fade={{true}}
-    @open={{this.selectWebUseSerum}}
+    @open={{this.setSelectWebUseSerum}}
     @onSubmit={{this.webUseSerum}} 
     @onHide={{(fn this.selectWebUseSerum false)}}
     @renderInPlace={{true}}>
