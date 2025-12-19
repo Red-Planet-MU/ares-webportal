@@ -14,6 +14,11 @@ export default Component.extend({
       this.set('selectWebUseSerum', value);
     },
   
+  @action 
+    serumToUseChanged(newSerumToUse) {
+      this.set('serumToUse', newSerumToUse)
+    }
+  
 
   @action 
     webPalsInvite() {
