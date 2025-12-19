@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 export default Component.extend({
   tagName: '',
   gameApi: service(),
+  flashMessages: service(),
   
 
   @action 
