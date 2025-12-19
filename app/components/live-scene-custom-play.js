@@ -21,6 +21,21 @@ export default Component.extend({
         }
       this.flashMessages.success('Pals invited!');
     });
+  },
+
+  @action 
+    webUseSerum() {
+    let api = this.get('gameApi');
+    api.requestOne('webUseSerum', {
+      id: this.get('scene.id'),
+      char_id: this.get('char.id')
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+      this.flashMessages.success('Pals invited!');
+    });
   }
 
 });

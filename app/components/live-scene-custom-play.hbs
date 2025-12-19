@@ -1,1 +1,22 @@
+<li><a href="#" {{on 'click' (fn this.selectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li> 
 <li><a href="#" {{on 'click' this.webPalsInvite}} class="dropdown-item">Invite Pals</a></li> 
+
+<BsModalSimple 
+    @title="Use a Serum"
+    @closeTitle="Cancel"
+    @submitTitle="Use Serum"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectWebUseSerum}}
+    @onSubmit={{this.webUseSerum}} 
+    @onHide={{(fn this.selectWebUseSerum false)}}
+    @renderInPlace={{true}}>
+      <PowerSelect
+        @options={{this.serums}}
+        @onChange={{this.foo}}
+        @labelText="Select a Serum"
+        as |serumToUse|
+      >
+      {{serumToUse}}
+    </PowerSelect>
+  </BsModalSimple>
