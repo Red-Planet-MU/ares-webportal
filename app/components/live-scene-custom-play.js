@@ -44,6 +44,7 @@ export default Component.extend({
             this.flashMessages.danger("You haven't selected a serum to use.");
             return;
         }
+    this.set('selectWebUseSerum', false);
 
     api.requestOne('webUseSerum', {
       id: this.get('scene.id'),
