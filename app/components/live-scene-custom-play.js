@@ -33,15 +33,25 @@ export default Component.extend({
   @action 
     webUseSerum() {
     let api = this.get('gameApi');
+    let webSerumToUse = this.serumToUse;
+    let webSerumTarget = this.targetName;
+
+    if (!webSerumToUse) {
+            this.flashMessages.danger("You haven't selected a serum to use.");
+            return;
+        }
+
     api.requestOne('webUseSerum', {
       id: this.get('scene.id'),
-      char_id: this.get('char.id')
+      char_id: this.get('char.id'),
+      target_name: webSerumTarget,
+      serum_name: webSerumToUse
     }, null)
     .then( (response) => {
         if (response.error) {
             return;
         }
-      this.flashMessages.success('Pals invited!');
+      
     });
   }
 
