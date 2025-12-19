@@ -6,6 +6,13 @@ export default Component.extend({
   tagName: '',
   gameApi: service(),
   flashMessages: service(),
+  selectWebUseSerum: false,
+  serums: ['Revitalizer'],
+ 
+  @action
+    selectWebUseSerum(value) {
+      this.set('selectWebUseSerum', value);
+    },
   
 
   @action 
