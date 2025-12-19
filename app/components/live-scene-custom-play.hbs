@@ -7,10 +7,10 @@
     @submitTitle="Use Serum"
     @size={{null}}
     @fade={{true}}
-    @open={{this.setSelectWebUseSerum}}
+    @open={{this.selectWebUseSerum}}
     @onSubmit={{this.webUseSerum}} 
     @onHide={{(fn this.setSelectWebUseSerum false)}}
-    @renderInPlace={{true}}>
+    >
       <PowerSelect
         @options={{this.serums}}
         @onChange={{this.foo}}
@@ -19,4 +19,4 @@
       >
       {{serumToUse}}
     </PowerSelect>
-  </BsModalSimple>
+</BsModalSimple>
