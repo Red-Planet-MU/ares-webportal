@@ -11,6 +11,7 @@ export default Component.extend({
     webPalsInvite() {
     let api = this.get('gameApi');
     api.requestOne('webPalsInvite', {
+      id: this.get('scene.id'),
       char_id: this.get('char.id')
     }, null)
     .then( (response) => {
