@@ -25,10 +25,11 @@
       <PowerSelect
         @options={{this.serums}}
         @onChange={{this.serumToGetChanged}}
+        @selected={{this.serumToGet}}
         @labelText="Select a Serum"
-        as |serumToGet|
+        as |serum|
       >
-      {{serumToGet}}
+      {{serum.name}}
     </PowerSelect>
   </BsModalSimple>
 

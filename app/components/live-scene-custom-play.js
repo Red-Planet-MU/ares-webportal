@@ -7,7 +7,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   selectWebUseSerum: false,
-  serums: ['Revitalizer'],
+  serums: [name: 'Revitalizer'],
  
   @action
     setSelectWebUseSerum(value) {
