@@ -7,6 +7,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   selectSerum: false,
+  selectSerumGive: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
  
   @action
@@ -29,6 +30,11 @@ export default Component.extend({
       this.set('serumToGive', newSerumToGive)
     },  
   
+  @action 
+    changeGiveTarget(newSerumGiveTarget) {
+      this.set('selectedGiveTarget', newSelectedGiveTarget)
+    },  
+
   @action
     reloadChar() {
       this.onReloadChar();

@@ -54,10 +54,10 @@
       {{serum}}
       </PowerSelect>
       <PowerSelect 
-        @selected={{this.selectedInvitee}} 
+        @selected={{this.selectedGiveTarget}} 
         @options={{this.characters}} 
         @searchField="name"  
-        @onChange={{this.changeInvitee}}
+        @onChange={{this.changeGiveTarget}}
         @labelText="Select a Target" 
         as |char|>
         {{char.name}}
