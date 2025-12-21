@@ -10,7 +10,8 @@
 
   <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
-  <button class="btn btn-secondary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
+  <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
+  <button class="btn btn-secondary" id="giveserum" {{on "click" (fn this.setSelectSerumGive true)}}>Give a Serum</button> 
 
   <BsModalSimple 
     @title="Get a Serum"
@@ -31,6 +32,36 @@
       >
       {{serum}}
     </PowerSelect>
+  </BsModalSimple>
+
+    <BsModalSimple 
+    @title="Give a Serum"
+    @closeTitle="Cancel"
+    @submitTitle="Give Serum"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectSerumGive}}
+    @onSubmit={{this.webGiveSerum}} 
+    @onHide={{(fn this.setSelectSerumGive false)}}
+    @renderInPlace={{true}}>
+      <PowerSelect
+        @options={{this.serums}}
+        @onChange={{this.serumToGiveChanged}}
+        @selected={{this.serumToGive}}
+        @labelText="Select a Serum"
+        as |serum|
+      >
+      {{serum}}
+      </PowerSelect>
+      <PowerSelect 
+        @selected={{this.selectedInvitee}} 
+        @options={{this.characters}} 
+        @searchField="name"  
+        @onChange={{this.changeInvitee}}
+        @labelText="Select a Target" 
+        as |char|>
+        {{char.name}}
+      </PowerSelect>
   </BsModalSimple>
 
 </div>

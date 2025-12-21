@@ -18,6 +18,16 @@ export default Component.extend({
     serumToGetChanged(newSerumToGet) {
       this.set('serumToGet', newSerumToGet)
     },  
+
+  @action
+    setSelectSerumGive(value) {
+      this.set('selectSerumGive', value);
+    },
+  
+  @action 
+    serumToGiveChanged(newSerumToGive) {
+      this.set('serumToGive', newSerumToGive)
+    },  
   
   @action
     reloadChar() {
@@ -41,6 +51,27 @@ export default Component.extend({
         }
     console.log(char_id)
     this.flashMessages.success('Serum obtained!');
+    this.reloadChar();
+    });
+  }
+
+  @action
+    webGiveSerum() {
+    let api = this.get('gameApi');
+    let webSerumToGive = this.serumToGive;
+    this.set('selectSerumGive', false);
+    api.requestOne('giveSerum', {
+      char_id: this.get('char.id'),
+      char: this.get('char.name'),
+      serum_type: webSerumToGive
+    }, null)
+    console.log(char_id)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    console.log(char_id)
+    this.flashMessages.success('Serum given!');
     this.reloadChar();
     });
   }
