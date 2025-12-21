@@ -31,6 +31,7 @@ export default Component.extend({
     this.set('selectSerum', false);
     api.requestOne('getSerum', {
       char_id: this.get('char.id'),
+      char: this.get('char.name')
       serum_type: webSerumToGet
     }, null)
     console.log(char_id)
