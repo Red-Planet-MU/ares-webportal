@@ -18,6 +18,7 @@ export default Component.extend({
   @action
   webGetSerum() {
     let api = this.get('gameApi');
+    this.set('selectSerum', false);
     api.requestOne('getSerum', {
       char_id: this.get('char.id'),
       serum_type: this.get('char.serum_type')
