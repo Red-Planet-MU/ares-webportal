@@ -4,6 +4,8 @@ import { action } from '@ember/object';
 
 export default Component.extend({
   tagName: '',
+  gameApi: service(),
+  flashMessages: service(),
   selectSerum: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
  
@@ -25,11 +27,11 @@ export default Component.extend({
   @action
     webGetSerum() {
     let api = this.get('gameApi');
-    let webSerumToGet = this.serumToGet
+    let webSerumToGet = this.serumToGet;
     this.set('selectSerum', false);
     api.requestOne('getSerum', {
       char_id: this.get('char.id'),
-      serum_type: this.serumToGet
+      serum_type: webSerumToGet
     }, null)
     console.log(char_id)
     .then( (response) => {
