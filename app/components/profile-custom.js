@@ -9,7 +9,6 @@ export default Component.extend({
   selectSerum: false,
   selectSerumGive: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
-  characters: this.model.characters,
  
   @action
     setSelectSerum(value) {
