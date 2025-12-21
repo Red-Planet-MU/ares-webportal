@@ -12,6 +12,11 @@ export default Component.extend({
       this.set('selectSerum', value);
     },
   
+  @action 
+    serumToGetChanged(newSerumToGet) {
+      this.set('serumToGet', newSerumToGet)
+    },  
+  
   @action
     reloadChar() {
       this.onReloadChar();
@@ -20,10 +25,11 @@ export default Component.extend({
   @action
     webGetSerum() {
     let api = this.get('gameApi');
+    let webSerumToGet = this.serumToGet
     this.set('selectSerum', false);
     api.requestOne('getSerum', {
       char_id: this.get('char.id'),
-      serum_type: this.get('char.serum_type')
+      serum_type: this.serumToGet
     }, null)
     console.log(char_id)
     .then( (response) => {
