@@ -53,7 +53,7 @@ export default Component.extend({
     this.flashMessages.success('Serum obtained!');
     this.reloadChar();
     });
-  }
+  },
 
   @action
     webGiveSerum() {
