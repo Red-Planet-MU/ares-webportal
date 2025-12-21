@@ -1,22 +1,24 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default Component.extend({
   tagName: '',
- selectSerum: false,
- serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
+  selectSerum: false,
+  serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
  
- @action
-  setSelectSerum(value) {
-    this.set('selectSerum', value);
-  },
   @action
-  reloadChar() {
-    this.onReloadChar();
-  },
+    setSelectSerum(value) {
+      this.set('selectSerum', value);
+    },
+  
+  @action
+    reloadChar() {
+      this.onReloadChar();
+    },
 
   @action
-  webGetSerum() {
+    webGetSerum() {
     let api = this.get('gameApi');
     this.set('selectSerum', false);
     api.requestOne('getSerum', {
@@ -25,12 +27,12 @@ export default Component.extend({
     }, null)
     console.log(char_id)
     .then( (response) => {
-        if (response.error) {
-            return;
+       if (response.error) {
+             return;
         }
-      console.log(char_id)
-      this.flashMessages.success('Serum obtained!');
-      this.reloadChar();
+    console.log(char_id)
+    this.flashMessages.success('Serum obtained!');
+    this.reloadChar();
     });
   }
 });
