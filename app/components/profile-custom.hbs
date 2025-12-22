@@ -91,5 +91,9 @@
 </div>
 
 <div id="systempals" class="tab-pane fade">
-  <Socializer @enactor={{this.char}} />
+  {{#each this.char.custom.pals as |char|}}
+    <div class="pals-row">
+      <CharIconInline @char={{char}}/>
+    </div>
+  {{/each}}
 </div>
