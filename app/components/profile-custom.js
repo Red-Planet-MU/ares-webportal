@@ -55,7 +55,7 @@ export default Component.extend({
        if (response.error) {
              return;
         }
-    console.log(char_id)
+    console.log(char_id);
     this.flashMessages.success('Serum obtained!');
     this.reloadChar();
     });
