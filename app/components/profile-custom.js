@@ -108,4 +108,44 @@ export default Component.extend({
     this.reloadChar();
     });
   },
+
+  @action
+    webAddPal() {
+    let api = this.get('gameApi');
+    let webPalToAdd = this.palsTargetName
+    this.set('palsTargetName', '')
+    this.set('selectManagePals', false);
+    api.requestOne('addPal', {
+      char_id: this.get('char.id'),
+      char: this.get('char.name'),
+      target: webPalToAdd
+    }, null)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Pal added!');
+    this.reloadChar();
+    });
+  },
+
+  @action
+    webRemovePal() {
+    let api = this.get('gameApi');
+    let webPalToRemove = this.palsTargetName
+    this.set('palsTargetName', '')
+    this.set('selectManagePals', false);
+    api.requestOne('removePal', {
+      char_id: this.get('char.id'),
+      char: this.get('char.name'),
+      target: webPalToRemove
+    }, null)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Pal Removed!');
+    this.reloadChar();
+    });
+  },
 });
