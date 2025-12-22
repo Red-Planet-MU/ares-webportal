@@ -1,2 +1,5 @@
 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#systemhorse">Horse</a></li> 
 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#systemserum">Serums</a></li> 
+{{#if (eq this.char.name this.char.custom.viewer_name)}}
+<li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#systempals">Pals</a></li> 
+{{/if}}
