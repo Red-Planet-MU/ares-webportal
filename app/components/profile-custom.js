@@ -56,12 +56,10 @@ export default Component.extend({
       char: this.get('char.name'),
       serum_type: webSerumToGet
     }, null)
-    console.log(char_id)
     .then( (response) => {
        if (response.error) {
              return;
         }
-    console.log(char_id)
     this.flashMessages.success('Serum obtained!');
     this.reloadChar();
     });
@@ -79,12 +77,10 @@ export default Component.extend({
       serum_type: webSerumToGive,
       target: webSerumGiveTarget
     }, null)
-    console.log(char_id)
     .then( (response) => {
        if (response.error) {
              return;
         }
-    console.log(char_id)
     this.flashMessages.success('Serum given!');
     this.reloadChar();
     });
