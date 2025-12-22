@@ -155,7 +155,7 @@ export default Component.extend({
     api.requestOne('updateHorse', {
       char_id: this.get('char.id'),
       char: this.get('char.name'),
-      horse_desc: this.get('char.custom.horse_desc')
+      horse_desc: this.get('char.custom.horse_desc'),
       horse_name: this.get('char.custom.horse_name')
     }, null)
     .then( (response) => {
