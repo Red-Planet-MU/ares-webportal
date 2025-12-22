@@ -9,6 +9,8 @@
   <b>Glass Cannon Serums: </b>{{{this.char.custom.gc_serums}}} <br />
 
   <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
+  
+  {{flash-messages}}
 
   <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
   <button class="btn btn-secondary" id="giveserum" {{on "click" (fn this.setSelectSerumGive true)}}>Give a Serum</button> 
