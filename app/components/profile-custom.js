@@ -9,7 +9,7 @@ export default Component.extend({
   selectSerum: false,
   selectSerumGive: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
-  targetChars: ['this.char.custom.approved_char'],
+  targetChars: this.char.custom.approved_chars,
  
   @action
     setSelectSerum(value) {
