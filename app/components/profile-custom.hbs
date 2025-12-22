@@ -96,4 +96,21 @@
       <CharIconInline @char={{char}}/>
     </div>
   {{/each}}
+  <div class="action-buttons">
+    <button class="btn btn-primary" id="addpal" {{on "click" (fn this.setSelectManagePals true)}}>Manage Pals</button> 
+  </div>
+
+  <BsModalSimple 
+    @title="Manage Pals"
+    @closeTitle="Cancel"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectManagePals}}
+    @onSubmit={{this.webGetHorse}} 
+    @onHide={{(fn this.setSelectGetHorse false)}}
+    @renderInPlace={{true}}>
+    Character: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webManagePal"}} @value={{this.targetName}} />
+    <button class="btn btn-primary" id="addpal" {{on "click" (fn this.webAddPal)}}>Add Pal</button>
+    <button class="btn btn-secondary" id="removepall" {{on "click" (fn this.webRemovePal)}}>Remove Pal</button>
+  </BsModalSimple>
 </div>

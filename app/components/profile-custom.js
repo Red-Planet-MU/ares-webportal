@@ -9,6 +9,7 @@ export default Component.extend({
   selectSerum: false,
   selectSerumGive: false,
   selectGetHorse: false,
+  selectManagePals: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
  
   @action
@@ -29,6 +30,11 @@ export default Component.extend({
   @action
     setSelectSerumGive(value) {
       this.set('selectSerumGive', value);
+    },
+
+  @action
+    setSelectManagePals(value) {
+      this.set('selectManagePals', value);
     },
   
   @action 
