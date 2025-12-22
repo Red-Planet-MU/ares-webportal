@@ -10,8 +10,6 @@
 
   <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
-  {{flash-messages}}
-
   <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
   <button class="btn btn-secondary" id="giveserum" {{on "click" (fn this.setSelectSerumGive true)}}>Give a Serum</button> 
 
@@ -69,18 +67,21 @@
   <b>Temperament: </b>{{{this.char.custom.horse_temperament}}} <br />
   <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
 
-  <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
-
+  {{#if this.char.custom.horse_color}}
+  <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
+  {{else}}
+  <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
+  {{/if}}
   <BsModalSimple 
     @title="Get a Horse"
     @closeTitle="Cancel"
-    @submitTitle="Get Horse"
+    @submitTitle="Yes, Get a New Horse"
     @size={{null}}
     @fade={{true}}
     @open={{this.selectGetHorse}}
     @onSubmit={{this.webGetHorse}} 
     @onHide={{(fn this.setSelectGetHorse false)}}
     @renderInPlace={{true}}>
-    <p></p>
+    <p>Are you sure you want to get a new horse? If you already have one, this will cost 1 Luck Point, set your horse's properties (except their description) to something new, and cannot be undone. It does not reset your Horse Bond stat.</p>
   </BsModalSimple>
 </div>

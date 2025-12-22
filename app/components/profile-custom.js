@@ -84,5 +84,22 @@ export default Component.extend({
     this.flashMessages.success('Serum given!');
     this.reloadChar();
     });
-  }
+  },
+
+  @action
+    webGetHorse() {
+    let api = this.get('gameApi');
+    this.set('selectGetHorse', false);
+    api.requestOne('getHorse', {
+      char_id: this.get('char.id'),
+      char: this.get('char.name')
+    }, null)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Horse obtained!');
+    this.reloadChar();
+    });
+  },
 });
