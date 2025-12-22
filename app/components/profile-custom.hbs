@@ -10,9 +10,6 @@
 
   <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
-  {{this.characters}} This Characters
-  {{this.model.characters}} This model characters 
-
   <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
   <button class="btn btn-secondary" id="giveserum" {{on "click" (fn this.setSelectSerumGive true)}}>Give a Serum</button> 
 
@@ -58,7 +55,7 @@
       </PowerSelect>
       <PowerSelect 
         @selected={{this.selectedGiveTarget}} 
-        @options={{this.characters}} 
+        @options={{this.targetChars}} 
         @searchField="name"  
         @onChange={{this.changeGiveTarget}}
         @labelText="Select a Target" 
