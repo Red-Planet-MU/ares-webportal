@@ -70,11 +70,22 @@
   <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
 
   <div class="action-buttons">
-  {{#if this.char.custom.horse_color}}
-  <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
-  {{else}}
-  <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
-  {{/if}}
+    {{#if this.char.custom.horse_color}}
+    <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
+    {{else}}
+    <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
+    {{/if}}
+    <a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Edit Horse</a>
+    <div id="horse-edit" class="card-collapse collapse">
+    <b>Horse Name</b>
+    <Input @type="text" @size={{15}} @id="horseName" @enter={{action "saveHorseDetails"}} @value={{this.char.custom.horse_name}} />
+    <b>Horse Description</b>
+    <MarkdownEditor @text={{this.char.custom.horse_desc}} />
+      <div class="action-buttons">
+          <button class="btn btn-primary" {{on 'click' this.saveHorseDetails}} >Save</button>
+          </p>
+      </div>
+    </div>
   </div>
   <BsModalSimple 
     @title="Get a Horse"
