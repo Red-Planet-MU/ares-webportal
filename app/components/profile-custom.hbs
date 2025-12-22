@@ -9,7 +9,7 @@
   <b>Glass Cannon Serums: </b>{{{this.char.custom.gc_serums}}} <br />
 
   <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
-  
+
   {{flash-messages}}
 
   <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
@@ -69,4 +69,18 @@
   <b>Temperament: </b>{{{this.char.custom.horse_temperament}}} <br />
   <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
 
+  <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
+
+  <BsModalSimple 
+    @title="Get a Horse"
+    @closeTitle="Cancel"
+    @submitTitle="Get Horse"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectGetHorse}}
+    @onSubmit={{this.webGetHorse}} 
+    @onHide={{(fn this.setSelectGetHorse false)}}
+    @renderInPlace={{true}}>
+    <p></p>
+  </BsModalSimple>
 </div>

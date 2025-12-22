@@ -8,8 +8,14 @@ export default Component.extend({
   flashMessages: service(),
   selectSerum: false,
   selectSerumGive: false,
+  selectGetHorse: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
  
+  @action
+    setSelectGetHorse(value) {
+      this.set('selectGetHorse', value);
+    },
+
   @action
     setSelectSerum(value) {
       this.set('selectSerum', value);
@@ -55,7 +61,7 @@ export default Component.extend({
        if (response.error) {
              return;
         }
-    console.log(char_id);
+    console.log(char_id)
     this.flashMessages.success('Serum obtained!');
     this.reloadChar();
     });
@@ -78,7 +84,7 @@ export default Component.extend({
        if (response.error) {
              return;
         }
-    console.log(char_id);
+    console.log(char_id)
     this.flashMessages.success('Serum given!');
     this.reloadChar();
     });
