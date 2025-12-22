@@ -55,7 +55,7 @@
       </PowerSelect>
       <PowerSelect 
         @selected={{this.selectedGiveTarget}} 
-        @options={{this.targetChars}} 
+        @options={{this.char.custom.approved_chars}} 
         @searchField="name"  
         @onChange={{this.changeGiveTarget}}
         @labelText="Select a Target" 
