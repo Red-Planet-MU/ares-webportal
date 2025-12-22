@@ -53,15 +53,10 @@
       >
       {{serum}}
       </PowerSelect>
-      <PowerSelect 
-        @selected={{this.selectedGiveTarget}} 
-        @options={{this.char.custom.approved_chars}} 
-        @searchField="name"  
-        @onChange={{this.changeGiveTarget}}
-        @labelText="Select a Target" 
-        as |char|>
-        {{char.name}}
-      </PowerSelect>
+      <p><b>Who Do You Want to Give a Serum To?</b> </p>
+      <p>
+      Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webGiveSerum"}} @value={{this.targetName}} />
+      </p>
   </BsModalSimple>
 
 </div>

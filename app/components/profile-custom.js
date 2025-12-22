@@ -65,11 +65,13 @@ export default Component.extend({
     webGiveSerum() {
     let api = this.get('gameApi');
     let webSerumToGive = this.serumToGive;
+    let webSerumGiveTarget = this.targetName;
     this.set('selectSerumGive', false);
     api.requestOne('giveSerum', {
       char_id: this.get('char.id'),
       char: this.get('char.name'),
-      serum_type: webSerumToGive
+      serum_type: webSerumToGive,
+      target: webSerumGiveTarget
     }, null)
     console.log(char_id)
     .then( (response) => {
