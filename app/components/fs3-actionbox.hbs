@@ -22,11 +22,7 @@
   {{#if this.specialties}}
     <div class="fs3-specialty-select">
 
-      {{#if (gt this.rating 2)}}
-      <div class="cg-tip">Specialty is required for ratings 3+.</div>
-      {{else}}
-      <div class="cg-tip">Specialty is optional for ratings 1-2.</div>
-      {{/if}}
+      <div class="cg-tip">Specialty is optional, costs 1 AP, and confers a +1 bonus on related rolls.</div>
        
         {{#each this.specialties as |spec|}}
       
