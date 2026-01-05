@@ -4,7 +4,7 @@
 {{#if (eq this.poseOrderType 'normal') }}
 <TooltipButton @onClick={{(fn this.switchPoseOrderType '3-per')}} @position="right" @message="Regular Order, click to switch to 3-Per" @icon="fa fa-user" />
 {{else}}
-<TooltipIcon @position="left" @message="3-Per Order" @icon="fa fa-users" />
+<TooltipButton @onClick={{(fn this.switchPoseOrderType 'normal')}} @position="right" @message="3-Per, click to switch to Regular Order" @icon="fa fa-users" />
 {{/if}}
 
 {{#each this.poseOrder as |po|}}
