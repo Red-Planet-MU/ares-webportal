@@ -3,12 +3,14 @@ import Component from '@ember/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { timeDiff } from 'ares-webportal/helpers/time-diff';
+import { set, computed } from '@ember/object';
 
 export default Component.extend({
   time: null,
   tagName: 'span',
   timerId: null,
   gameApi: service(),
+  managePoseOrder: false,
   
   watchOrder: observer('poseOrder.@each.time', function(){
     this.updateTime();
