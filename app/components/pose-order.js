@@ -32,5 +32,18 @@ export default Component.extend({
     this._super(...arguments);
     window.clearInterval(this.timerId);
     this.set('timerId', null);
-  }
+  },
+
+  @action
+  switchPoseOrderType(newType) {
+    let api = this.gameApi;
+    api.requestOne('switchPoseOrder', { id: this.get('scene.id'), type: newType }, null)
+    .then( (response) => {
+      this.set('managePoseOrder', false);
+      if (response.error) {
+        return;
+      }
+      this.set('scene.pose_order_type', newType);
+    });
+  },
 });
