@@ -17,9 +17,7 @@
 
     
      <div class="play-scene-controls-wrap">
-       <div class="play-scene-context-prompt">
-         {{this.scene.location.name}} - {{this.scene.icdate}}
-       </div>
+       <LiveSceneContext @scene={{this.scene}} />
     
        <div class="live-scene-controls">
          <TooltipButton @position="right" @message="Show scene details." @icon="fa fa-info-circle" @onClick={{(fn this.setShowSceneInfo true)}} />
