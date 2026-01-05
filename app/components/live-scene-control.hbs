@@ -192,9 +192,7 @@
              
              <DropdownMenu @id="playMenu" @title="Play"  @dropup={{true}} class="scene-menu">
                {{#if this.scene.can_edit}}
-                   <li><button {{on 'click' (fn this.setSelectLocation true)}} class="dropdown-item">Change Location</button></li>
                    <li><button {{on 'click' (fn this.setShowInvitation true)}} class="dropdown-item">Invite Character</button></li>
-                   <li><button {{on 'click' (fn this.setManagePoseOrder true)}} class="dropdown-item">Manage Pose Order</button></li>
                {{/if}}
 
                <LiveScenePlaces @scene={{this.scene}} />
@@ -244,6 +242,8 @@
                      <li><LinkTo @route="scene-edit" @model={{this.scene.id}} class="dropdown-item">Edit Scene</LinkTo></li>
                      {{#if (not this.scene.completed)}}
                          <li><button {{on 'click' (fn this.changeSceneStatus 'stop')}} class="dropdown-item">Stop Scene</button></li> 
+                         <li><button {{on 'click' (fn this.setSelectLocation true)}} class="dropdown-item">Change Location</button></li>
+                         <li><button {{on 'click' (fn this.setManagePoseOrder true)}} class="dropdown-item">Manage Pose Order</button></li>
                      {{else}}
                          <li><button {{on 'click' (fn this.changeSceneStatus 'restart')}} class="dropdown-item">Restart Scene</button></li> 
                          <li><button {{on 'click' (fn this.changeSceneStatus 'share')}} class="dropdown-item">Share Scene</button></li> 
