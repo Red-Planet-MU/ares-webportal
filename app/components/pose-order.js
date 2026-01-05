@@ -1,5 +1,6 @@
 import { observer, set } from '@ember/object';
 import Component from '@ember/component';
+import { action } from '@ember/object';
 import { timeDiff } from 'ares-webportal/helpers/time-diff';
 
 export default Component.extend({
