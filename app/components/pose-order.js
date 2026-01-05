@@ -41,7 +41,7 @@ export default Component.extend({
   @action
   switchPoseOrderType(newType) {
     let api = this.gameApi;
-    api.requestOne('switchPoseOrder', { id: this.model.get('scene.id'), type: newType }, null)
+    api.requestOne('switchPoseOrder', { id: this.get('scene.id'), type: newType }, null)
     .then( (response) => {
       this.set('managePoseOrder', false);
       if (response.error) {
