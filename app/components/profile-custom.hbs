@@ -64,40 +64,41 @@
 </div>
 
 <div id="systemhorse" class="tab-pane fade">
-  <b>Name: </b>{{{this.char.custom.horse_name}}} <br />
-  <b>Color: </b>{{{this.char.custom.horse_color}}} <br />
-  <b>Temperament: </b>{{{this.char.custom.horse_temperament}}} <br />
-  <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
-
-  <div class="action-buttons">
-    {{#if this.char.custom.horse_color}}
-    <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
-    {{else}}
-    <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
-    {{/if}}
-    <a data-bs-toggle="collapse" href="#horse-edit" class="btn btn-secondary btn-collapse">Edit Horse</a>
-    <div id="horse-edit" class="card-collapse collapse">
-    <b>Horse Name</b>
-    <Input @type="text" @size={{15}} @id="horseName" @enter={{action "saveHorseDetails"}} @value={{this.char.custom.horse_name}} />
-    <b>Horse Description</b>
-    <MarkdownEditor @text={{this.char.custom.horse_desc}} />
-      <div class="action-buttons">
-          <button class="btn btn-primary" {{on 'click' this.saveHorseDetails}}>Save</button>
+  <div id="horseoverview" class="collapse show" data-bs-parent="#systemhorse">
+    <b>Name: </b>{{{this.char.custom.horse_name}}} <br />
+    <b>Color: </b>{{{this.char.custom.horse_color}}} <br />
+    <b>Temperament: </b>{{{this.char.custom.horse_temperament}}} <br />
+    <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
+  </div>
+    <div class="action-buttons">
+      {{#if this.char.custom.horse_color}}
+      <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
+      {{else}}
+      <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
+      {{/if}}
+      <a data-bs-toggle="collapse" href="#horse-edit" class="btn btn-secondary btn-collapse">Edit Horse</a>
+      <div id="horse-edit" class="card-collapse collapse">
+      <b>Horse Name</b>
+      <Input @type="text" @size={{15}} @id="horseName" @enter={{action "saveHorseDetails"}} @value={{this.char.custom.horse_name}} />
+      <b>Horse Description</b>
+      <MarkdownEditor @text={{this.char.custom.horse_desc}} />
+        <div class="action-buttons">
+            <button class="btn btn-primary" {{on 'click' this.saveHorseDetails}}>Save</button>
+        </div>
       </div>
     </div>
-  </div>
-  <BsModalSimple 
-    @title="Get a Horse"
-    @closeTitle="Cancel"
-    @submitTitle="Yes, Get a New Horse"
-    @size={{null}}
-    @fade={{true}}
-    @open={{this.selectGetHorse}}
-    @onSubmit={{this.webGetHorse}} 
-    @onHide={{(fn this.setSelectGetHorse false)}}
-    @renderInPlace={{true}}>
-    <p>Are you sure you want to get a new horse? This will cost 1 Luck Point, set your horse's properties (except their description) to something new, and cannot be undone. It does not reset your Horse Bond stat.</p>
-  </BsModalSimple>
+    <BsModalSimple 
+      @title="Get a Horse"
+      @closeTitle="Cancel"
+      @submitTitle="Yes, Get a New Horse"
+      @size={{null}}
+      @fade={{true}}
+      @open={{this.selectGetHorse}}
+      @onSubmit={{this.webGetHorse}} 
+      @onHide={{(fn this.setSelectGetHorse false)}}
+      @renderInPlace={{true}}>
+      <p>Are you sure you want to get a new horse? This will cost 1 Luck Point, set your horse's properties (except their description) to something new, and cannot be undone. It does not reset your Horse Bond stat.</p>
+    </BsModalSimple>
 </div>
 
 <div id="systempals" class="tab-pane fade">
