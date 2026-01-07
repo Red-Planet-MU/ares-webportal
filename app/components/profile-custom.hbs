@@ -77,7 +77,7 @@
       <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
       {{/if}}
       <a data-bs-toggle="collapse" href="#horse-edit" class="btn btn-secondary btn-collapse">Edit Horse</a>
-      <div id="horse-edit" class="card-collapse collapse">
+      <div id="horse-edit" class="card-collapse collapse" data-bs-parent="#systemhorse">
       <b>Horse Name</b>
       <Input @type="text" @size={{15}} @id="horseName" @enter={{action "saveHorseDetails"}} @value={{this.char.custom.horse_name}} />
       <b>Horse Description</b>
