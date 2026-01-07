@@ -69,13 +69,14 @@
     <b>Color: </b>{{{this.char.custom.horse_color}}} <br />
     <b>Temperament: </b>{{{this.char.custom.horse_temperament}}} <br />
     <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
-  </div>
     <div class="action-buttons">
       {{#if this.char.custom.horse_color}}
       <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
       {{else}}
       <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
       {{/if}}
+    </div>
+  </div>
       <a data-bs-toggle="collapse" href="#horse-edit" class="btn btn-secondary btn-collapse">Edit Horse</a>
       <div id="horse-edit" class="card-collapse collapse" data-bs-parent="#systemhorse">
       <b>Horse Name</b>
@@ -86,7 +87,6 @@
             <button class="btn btn-primary" {{on 'click' this.saveHorseDetails}}>Save</button>
         </div>
       </div>
-    </div>
     <BsModalSimple 
       @title="Get a Horse"
       @closeTitle="Cancel"
