@@ -16,8 +16,7 @@ export default Route.extend(AuthenticatedRoute, {
                  scene_type: 'Social',
                  privacy: '',
                  location: params['location'],
-                 icdate: appModel.game.scene_start_date,
-                 scene_pacing: 'Traditional' }),
+                 icdate: appModel.game.scene_start_date }),
              sceneOptions: api.requestOne('sceneOptions'),
              plots: api.requestMany('plots'),
              characters: api.requestMany('characters', { select: 'include_staff' }),
@@ -27,8 +26,8 @@ export default Route.extend(AuthenticatedRoute, {
            .then((model) => EmberObject.create(model));
     },
     
-    //afterModel: function(model) {
-    //  model.set('scene.scene_type', model.sceneOptions.scene_types[0].name);
-    //  model.set('scene.scene_pacing', model.sceneOptions.scene_pacing[0]);
-    //}
+    afterModel: function(model) {
+      model.set('scene.scene_type', model.sceneOptions.scene_types[0].name);
+      model.set('scene.scene_pacing', model.sceneOptions.scene_pacing[0]);
+    }
 });
