@@ -29,7 +29,7 @@
             {{#if this.scene.location.can_use_fortune}}
               {{#if (eq detail.name "Fortunes")}}
                 <div class="fortunes_detail">
-                <p><i><a {{on 'click' (fn this.webGetFortune)}}></a>Fortunes:</a></i> <AnsiFormat @text={{detail.desc}} /></p>
+                <p><i><a {{on 'click' (fn this.webGetFortune)}}>Fortunes:</a></i> <AnsiFormat @text={{detail.desc}} /></p>
                 </div>
               {{/if}}
             {{else}}
