@@ -26,7 +26,13 @@
           {{/if}}
     
           {{#each this.scene.location.details as |detail|}}
-          <p><i>{{detail.name}}:</i> <AnsiFormat @text={{detail.desc}} /></p>
+            {{#if this.scene.location.can_use_fortune}}
+              {{#if (eq detail.name "Fortunes")}}
+                <p><i>Fortunes 2:</i> <AnsiFormat @text={{detail.desc}} /></p>
+              {{/if}}
+            {{else}}
+            <p><i>{{detail.name}}:</i> <AnsiFormat @text={{detail.desc}} /></p>
+            {{/if}}
           {{/each}}
         
           {{#if this.scene.location.scene_set}}
