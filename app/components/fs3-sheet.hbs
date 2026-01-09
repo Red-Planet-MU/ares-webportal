@@ -21,8 +21,19 @@
 
 <div class="row">
   <div class="col col-md-6 col-sm-12">
-    HORSE BOND
-    <Fs3Dots @rating={{this.char.fs3.horse_bond}} @max={{8}} @abilityType="action"  />
+    <div class="fs3-ability-table">
+      <div class="char-ability-title">Horse</div>
+      <table class="char-ability-list fs3-ability-list action">
+        <tr>
+          <td>
+            Horse Bond
+          </td>
+          <td>
+            <Fs3Dots @rating={{this.char.fs3.horse_bond}} @max={{8}} @abilityType="action"  />
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 
 </div>
