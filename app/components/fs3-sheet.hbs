@@ -19,6 +19,14 @@
 
 </div>
 
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+    HORSE BOND
+    <Fs3Dots @rating={{this.char.fs3.horse_bond}} @max={{8}} @abilityType="action"  />
+  </div>
+
+</div>
+
 {{#if this.char.fs3.use_advantages}}
 
     <Fs3AbilityTable @title="Advantages" @list={{this.char.fs3.advantages}} @max={{3}} @abilityType="advantage" />  
