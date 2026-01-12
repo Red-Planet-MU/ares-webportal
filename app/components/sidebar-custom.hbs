@@ -10,7 +10,11 @@
       </div>
       {{/each}}
       <br>
-      <p><a href="#" {{on 'click' this.setLFRP}}>Look for RP</a></p>
+      {{if this.custom.is_looking_for_rp}}
+        <p><a href="#" {{on 'click' this.unsetLFRP}}>Stop Looking for RP</a></p>
+      {{else}}
+        <p><a href="#" {{on 'click' this.setLFRP}}>Look for RP</a></p>
+      {{#/if}}
     </div>
     <p></p>
   </div>
