@@ -151,6 +151,7 @@ export default Controller.extend({
       if (response.alerts) {
         response.alerts.forEach( r => pushObject(this.charErrors, r, this, 'charErrors') );
       }
+      this.send('reloadModel');
       this.flashMessages.success('Saved!');
     }); 
   },
