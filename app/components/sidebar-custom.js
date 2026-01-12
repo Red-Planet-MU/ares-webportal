@@ -24,4 +24,18 @@ export default Component.extend({
       this.flashMessages.success('Set to Looking for RP for 1 hour!');
     });
   },
+
+  @action
+  unsetLFRP() {
+    let api = this.get('gameApi');
+    api.requestOne('unsetLFRP', {
+      char_id: this.get('char.id'),
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+      this.flashMessages.success('No longer Looking for RP!');
+    });
+  },
 });
