@@ -17,6 +17,7 @@ export default Component.extend({
     this.reloadChar();
   },
 
+
   @action
   setLFRP() {
     let api = this.get('gameApi');

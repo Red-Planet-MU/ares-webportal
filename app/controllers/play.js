@@ -413,17 +413,5 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     this.set('showAllChannels', value);
   },
 
-  @action
-  setLFRP() {
-    let api = this.get('gameApi');
-    api.requestOne('setLFRP', {
-      char_id: this.get('char.id'),
-    }, null)
-    .then( (response) => {
-        if (response.error) {
-            return;
-        }
-      this.flashMessages.success('Set to Looking for RP for 1 hour!');
-    });
-  },
+
 });
