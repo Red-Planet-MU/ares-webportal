@@ -8,7 +8,7 @@
   </div>
 
 <div class="looking-for-rp">
-  {{#if (or channel.is_recent this.showLFRP)}}
+  {{#if this.showLFRP}}
     {{#each this.custom.lfrp_icons as |char|}}
       <div class="lfrp-row">
         <CharIconInline @char={{char}}/>
