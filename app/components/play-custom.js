@@ -44,7 +44,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
-      this.refresh();
+      refresh('play');
     });
   },
 });
