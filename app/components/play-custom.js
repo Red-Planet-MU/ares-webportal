@@ -6,6 +6,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   showLFRP: false,
+  
 
   @action
   setShowLFRP(value) {
@@ -43,6 +44,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
+      this.refresh();
     });
   },
 });
