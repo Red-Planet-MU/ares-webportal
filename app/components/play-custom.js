@@ -6,7 +6,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   showLFRP: false,
-  router: service()
+  router: service(),
   
 
   @action
