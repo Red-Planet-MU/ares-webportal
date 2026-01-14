@@ -46,7 +46,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
-      this.get('target.router').refresh();
+      this.modelFor('play').refresh();
     });
   },
 });
