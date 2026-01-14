@@ -6,6 +6,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   showLFRP: false,
+  router: service()
   
 
   @action
@@ -30,6 +31,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('Set to Looking for RP for 1 hour!');
+      this.get('target.router').refresh();
     });
   },
 
@@ -44,7 +46,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
-      refresh('play');
+      this.get('target.router').refresh();
     });
   },
 });
