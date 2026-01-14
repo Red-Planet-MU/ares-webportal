@@ -32,10 +32,9 @@
 
            <TooltipButton @position="right" @message="Create Scene" @icon="fa fa-plus-circle" @route="scene-create" />
 
-           <TooltipButton @position="right" @message="Unshared Scenes" @icon="fa fa-share-square" @route="scenes-unshared" />
+           <TooltipButton @position="right" @message="Look for RP" @icon="fa fa-binoculars" @onClick="{{(fn this.setLFRP)}}" />
          {{/if}}
 
-         <TooltipButton @position="right" @message="Who's Online" @icon="fa fa-users" @route="who" />
 
        </div>  
 
