@@ -31,7 +31,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('Set to Looking for RP for 1 hour!');
-      this.get('target.router').refresh();
+      this.modelFor('play').refresh();
     });
   },
 
