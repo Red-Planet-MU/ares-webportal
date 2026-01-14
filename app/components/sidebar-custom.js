@@ -12,6 +12,12 @@ export default Component.extend({
   },
 
   @action
+  refresh() {
+    this.resetOnExit();
+    this.send('reloadModel');
+  },
+
+  @action
   setLFRP() {
     let api = this.get('gameApi');
     api.requestOne('setLFRP', {
@@ -22,6 +28,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('Set to Looking for RP for 1 hour!');
+      this.refresh()
     });
   },
 
@@ -36,6 +43,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
+      this.refresh()
     });
   },
 });
