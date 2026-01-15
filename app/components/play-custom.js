@@ -31,7 +31,6 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('Set to Looking for RP for 1 hour!');
-      this.refresh();
     });
   },
 
@@ -46,7 +45,6 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
-      this.refresh();
     });
   },
 });
