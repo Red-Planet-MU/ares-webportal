@@ -17,7 +17,7 @@ export default Component.extend({
 
   @action 
   closeNavbar() {
-    ('.navbar-toggler').click();
+    this.('.navbar-toggler').click();
   },
   
   @action
