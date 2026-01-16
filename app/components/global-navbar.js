@@ -19,7 +19,7 @@ export default Component.extend({
   linkClickHandler: function(event) {
     //Do as you wish
     ('.navbar-toggler').click();
-  }
+  },
 
   @action 
   closeNavbar() {
