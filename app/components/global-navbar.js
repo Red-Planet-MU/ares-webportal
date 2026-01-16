@@ -13,11 +13,12 @@ export default Component.extend({
   //    ('.navbar-toggler').click();
   //  }
   //},
-  
+ 
 
   @action 
   closeNavbar() {
-    this.('.navbar-toggler').click();
+    let element = document.getElementByClassName(".navbar-toggler");
+    element.click();
   },
   
   @action
