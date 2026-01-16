@@ -5,6 +5,14 @@ import { action } from '@ember/object';
 export default Component.extend({
   session: service(),
   showAltSelection: false,
+  element = '.dropdown-item',
+
+  closeNavbar: function() {
+    let element = '.dropdown-item';
+    element.onclick = function() {
+      ('.navbar-toggler').click();
+    }
+  },
   
   @action
   setAltSelectionVisible(visible) {
