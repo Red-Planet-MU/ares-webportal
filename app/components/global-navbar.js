@@ -5,13 +5,18 @@ import { action } from '@ember/object';
 export default Component.extend({
   session: service(),
   showAltSelection: false,
-  element = '.dropdown-item',
+  //element = '.dropdown-item',
 
-  closeNavbar: function() {
-    let element = '.dropdown-item';
-    element.onclick = function() {
-      ('.navbar-toggler').click();
-    }
+  //closeNavbar: function() {
+  //  let element = '.dropdown-item';
+  //  element.onclick = function() {
+  //    ('.navbar-toggler').click();
+  //  }
+  //},
+
+  @action 
+  closeNavbar() {
+    ('.navbar-toggler').click();
   },
   
   @action

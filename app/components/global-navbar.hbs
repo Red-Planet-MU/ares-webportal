@@ -51,11 +51,11 @@
                   {{else}}
                     <li>
                     {{#if navItem.id}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}} data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</LinkTo>
+                      <LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}} {{on 'click' (fn this.clickNavbarToggle)}}>{{{navItem.title}}}</LinkTo>
                     {{else if navItem.ids}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}} data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</LinkTo>
+                      <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}} {{on 'click' (fn this.clickNavbarToggle)}}>{{{navItem.title}}}</LinkTo>
                     {{else}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</LinkTo>
+                      <LinkTo class="dropdown-item" @route={{navItem.route}} {{on 'click' (fn this.clickNavbarToggle)}}>{{{navItem.title}}}</LinkTo>
                     {{/if}}
                     </li>
                   {{/if}}
