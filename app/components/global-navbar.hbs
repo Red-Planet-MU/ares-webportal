@@ -45,7 +45,7 @@
               <ul class="dropdown-menu  dropdown-menu-end">
                 {{#each sec.menu as |navItem|}}
                   {{#if navItem.url}}
-                      <li><a class="dropdown-item" href="{{navItem.url}}" target="{{navItem.target}}">{{{navItem.title}}}</a></li>
+                      <li><a class="dropdown-item" href="{{navItem.url}}" target="{{navItem.target}}" data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</a></li>
                   {{else if navItem.divider}}
                       <li><hr class="dropdown-divider"></li>
                   {{else}}
