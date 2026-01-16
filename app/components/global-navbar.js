@@ -13,6 +13,13 @@ export default Component.extend({
   //    ('.navbar-toggler').click();
   //  }
   //},
+  didInsertElement: function() {
+    this.$().delegate('.link-class', 'click', this.linkClickHandler);
+  },
+  linkClickHandler: function(event) {
+    //Do as you wish
+    ('.navbar-toggler').click();
+  }
 
   @action 
   closeNavbar() {
