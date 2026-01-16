@@ -187,7 +187,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
       if (chatWindow) {
           $('#chat-window').stop().animate({
               scrollTop: chatWindow.scrollHeight
-          }, 400);    
+          }, 0);    
       }  
         
       let sceneWindow = $('#live-scene-log')[0];
