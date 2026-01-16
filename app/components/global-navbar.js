@@ -1,11 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import LinkComponent from '@ember/routing/link-component';
 
-export default LinkComponent.extend({
-
-}),
 export default Component.extend({
   session: service(),
   showAltSelection: false,
