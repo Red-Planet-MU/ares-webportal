@@ -17,7 +17,7 @@ export default Component.extend({
 
   @action
   closeNavbar() {
-    let element = document.getElementsByClassName(".navbar-toggler")[0];
+    let element = document.getElementsByClassName("navbar-toggler")[0];
     element.click();
   },
   
