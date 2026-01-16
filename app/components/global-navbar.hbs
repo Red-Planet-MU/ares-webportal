@@ -45,17 +45,17 @@
               <ul class="dropdown-menu  dropdown-menu-end">
                 {{#each sec.menu as |navItem|}}
                   {{#if navItem.url}}
-                      <li><a class="dropdown-item" href="{{navItem.url}}" target="{{navItem.target}}" data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</a></li>
+                      <li><a class="dropdown-item" href="{{navItem.url}}" target="{{navItem.target}}">{{{navItem.title}}}</a></li>
                   {{else if navItem.divider}}
                       <li><hr class="dropdown-divider"></li>
                   {{else}}
                     <li>
                     {{#if navItem.id}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}}>{{{navItem.title}}}</LinkTo>
+                      <LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}} data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</LinkTo>
                     {{else if navItem.ids}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}}>{{{navItem.title}}}</LinkTo>
+                      <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}} data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</LinkTo>
                     {{else}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}}>{{{navItem.title}}}</LinkTo>
+                      <LinkTo class="dropdown-item" @route={{navItem.route}} data-bs-toggle="collapse" data-bs-target="#navbar">{{{navItem.title}}}</LinkTo>
                     {{/if}}
                     </li>
                   {{/if}}
