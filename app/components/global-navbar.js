@@ -18,7 +18,10 @@ export default Component.extend({
   @action
   closeNavbar() {
     let element = document.getElementsByClassName("navbar-toggler")[0];
-    element.click();
+    let elementIsVisible = element.checkVisibility()
+    if (elementIsVisible === true) {
+      element.click();
+    }
   },
   
   @action
