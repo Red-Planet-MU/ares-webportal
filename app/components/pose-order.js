@@ -1,11 +1,15 @@
 import { observer, set } from '@ember/object';
 import Component from '@ember/component';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import { timeDiff } from 'ares-webportal/helpers/time-diff';
 
 export default Component.extend({
   time: null,
   tagName: 'span',
   timerId: null,
+  gameApi: service(),
+  managePoseOrder: false,
   
   watchOrder: observer('poseOrder.@each.time', function(){
     this.updateTime();
@@ -32,5 +36,18 @@ export default Component.extend({
     this._super(...arguments);
     window.clearInterval(this.timerId);
     this.set('timerId', null);
-  }
+  },
+
+  @action
+  switchPoseOrderType(newType) {
+    let api = this.gameApi;
+    api.requestOne('switchPoseOrder', { id: this.get('scene.id'), type: newType }, null)
+    .then( (response) => {
+      this.set('managePoseOrder', false);
+      if (response.error) {
+        return;
+      }
+      this.set('scene.pose_order_type', newType);
+    });
+  },
 });

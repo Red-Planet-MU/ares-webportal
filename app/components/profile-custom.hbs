@@ -1,23 +1,128 @@
-<div id="serum-tab" class="tab-pane fade">
+<div id="systemserum" class="tab-pane fade">
 
-<b>Revitalizer Serums: </b>{{{this.char.custom.v_serums}}} <br />
+  <b>Revitalizer Serums: </b>{{{this.char.custom.v_serums}}} <br />
 
-<b>Adreno Serums: </b>{{{this.char.custom.a_serums}}} <br />
+  <b>Adreno Serums: </b>{{{this.char.custom.a_serums}}} <br />
 
-<b>Quickhand Serums: </b>{{{this.char.custom.qh_serums}}} <br />
+  <b>Quickhand Serums: </b>{{{this.char.custom.qh_serums}}} <br />
 
-<b>Glass Cannon Serums: </b>{{{this.char.custom.gc_serums}}} <br />
+  <b>Glass Cannon Serums: </b>{{{this.char.custom.gc_serums}}} <br />
 
-<b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
+  <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
-<div class="action-buttons">
-    <button class="btn btn-primary" {{action (mut this.showGetSerum) true}}>Get a Serum</button>
+  <div class="action-buttons">
+  <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
+  <button class="btn btn-secondary" id="giveserum" {{on "click" (fn this.setSelectSerumGive true)}}>Give a Serum</button> 
+  </div>
+
+  <BsModalSimple 
+    @title="Get a Serum"
+    @closeTitle="Cancel"
+    @submitTitle="Get Serum"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectSerum}}
+    @onSubmit={{this.webGetSerum}} 
+    @onHide={{(fn this.setSelectSerum false)}}
+    @renderInPlace={{true}}>
+      <PowerSelect
+        @options={{this.serums}}
+        @onChange={{this.serumToGetChanged}}
+        @selected={{this.serumToGet}}
+        @labelText="Select a Serum"
+        as |serum|
+      >
+      {{serum}}
+    </PowerSelect>
+  </BsModalSimple>
+
+    <BsModalSimple 
+    @title="Give a Serum"
+    @closeTitle="Cancel"
+    @submitTitle="Give Serum"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectSerumGive}}
+    @onSubmit={{this.webGiveSerum}} 
+    @onHide={{(fn this.setSelectSerumGive false)}}
+    @renderInPlace={{true}}>
+      <PowerSelect
+        @options={{this.serums}}
+        @onChange={{this.serumToGiveChanged}}
+        @selected={{this.serumToGive}}
+        @labelText="Select a Serum"
+        as |serum|
+      >
+      {{serum}}
+      </PowerSelect>
+      <p><b>Who Do You Want to Give a Serum To?</b> </p>
+      <p>
+      Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webGiveSerum"}} @value={{this.targetName}} />
+      </p>
+  </BsModalSimple>
+
 </div>
 
-<BsModalSimple @title="Get a Serum" @closeTitle="Cancel" @submitTitle="Get" @size={{null}} @fade={{true}} @open={{this.showGetSerum}} @onSubmit={{this.getSerum}} @onHide={{action (mut this.showGetSerum) false}}>
-  
-  <b>Serum</b> <Input @type="text" size={{25}} id="serumType" @enter={{this.getSerum}} @value={{this.serumType}} />
+<div id="systemhorse" class="tab-pane fade">
+  <div id="horseoverview" class="collapse show" data-bs-parent="#systemhorse">
+    <b>Name: </b>{{{this.char.custom.horse_name}}} <br />
+    <b>Color: </b>{{{this.char.custom.horse_color}}} <br />
+    <b>Temperament: </b>{{{this.char.custom.horse_temperament}}} <br />
+    <b>Description: </b>{{{this.char.custom.horse_desc}}} <br />
+    <div class="action-buttons">
+      {{#if this.char.custom.horse_color}}
+      <button class="btn btn-primary" id="getnewhorse" {{on "click" (fn this.setSelectGetHorse true)}}>Get a Horse</button> 
+      {{else}}
+      <button class="btn btn-primary" id="gethorse" {{on "click" (fn this.webGetHorse)}}>Get a Horse</button>
+      {{/if}}
+      <a data-bs-toggle="collapse" href="#horse-edit" class="btn btn-secondary btn-collapse">Edit Horse</a>
+    </div>
+  </div>
+      <div id="horse-edit" class="card-collapse collapse" data-bs-parent="#systemhorse">
+      <b>Horse Name</b>
+      <Input @type="text" @size={{15}} @id="horseName" @enter={{action "saveHorseDetails"}} @value={{this.char.custom.horse_name}} />
+      <b>Horse Description</b>
+      <MarkdownEditor @text={{this.char.custom.horse_desc}} />
+        <div class="action-buttons">
+            <a data-bs-toggle="collapse" href="#horseoverview" class="btn btn-secondary btn-collapse">Cancel</a>
+            <button class="btn btn-primary" {{on 'click' this.saveHorseDetails}}>Save</button>
+        </div>
+      </div>
+    <BsModalSimple 
+      @title="Get a Horse"
+      @closeTitle="Cancel"
+      @submitTitle="Yes, Get a New Horse"
+      @size={{null}}
+      @fade={{true}}
+      @open={{this.selectGetHorse}}
+      @onSubmit={{this.webGetHorse}} 
+      @onHide={{(fn this.setSelectGetHorse false)}}
+      @renderInPlace={{true}}>
+      <p>Are you sure you want to get a new horse? This will cost 1 Luck Point, set your horse's properties (except their description) to something new, and cannot be undone. It does not reset your Horse Bond stat.</p>
+    </BsModalSimple>
+</div>
 
-</BsModalSimple>
+<div id="systempals" class="tab-pane fade">
+  {{#each this.char.custom.pals as |char|}}
+    <div class="pals-row">
+      <CharIconInline @char={{char}}/>
+    </div>
+  {{/each}}
+  <div class="action-buttons">
+    <button class="btn btn-primary" id="addpal" {{on "click" (fn this.setSelectManagePals true)}}>Manage Pals</button> 
+  </div>
 
+  <BsModalSimple 
+    @title="Manage Pals"
+    @closeTitle="Cancel"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectManagePals}}
+    @onSubmit={{this.webGetHorse}} 
+    @onHide={{(fn this.setSelectGetHorse false)}}
+    @renderInPlace={{true}}>
+    Character: <Input @type="text" @size={{15}} @id="palsTargetName" @enter={{action "webManagePal"}} @value={{this.palsTargetName}} />
+    <button class="btn btn-primary" id="addpal" {{on "click" (fn this.webAddPal)}}>Add Pal</button>
+    <button class="btn btn-secondary" id="removepall" {{on "click" (fn this.webRemovePal)}}>Remove Pal</button>
+  </BsModalSimple>
 </div>

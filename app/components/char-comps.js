@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default Component.extend({
   flashMessages: service(),
@@ -24,30 +25,31 @@ export default Component.extend({
     });
   },
 
-  actions: {
-    reloadChar() {
+@action
+  reloadChar() {
+    this.reloadChar();
+  },
+    
+  @action
+  save() {
+    let api = this.get('gameApi');
+    api.requestOne('addComp', {
+      char_id: this.get('char.id'),
+      comp_msg: this.get('char.comp_msg')
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+      this.flashMessages.success('Compliment added!');
       this.reloadChar();
-    },
-    save() {
-      let api = this.get('gameApi');
-      console.log("Did we get here?1");
-      api.requestOne('addComp', {
-        char_id: this.get('char.id'),
-        comp_msg: this.get('char.comp_msg')
-      }, null)
-      .then( (response) => {
-          if (response.error) {
-              return;
-          }
-        console.log("Did we get here?2")
-        this.flashMessages.success('Compliment added!');
-        console.log("Did we get here?")
-        this.reloadChar();
-      });
-    },
-    goToPage(newPage) {
-      this.set('page', newPage);
-      this.updateCompsList();
-    }
+    });
+  },
+    
+  @action
+  goToPage(newPage) {
+    this.set('page', newPage);
+    this.updateCompsList();
   }
+
 });

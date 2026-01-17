@@ -181,8 +181,28 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
       return;
     }
     
-    scrollElementToBottom('chat-window');
-    scrollElementToBottom('live-scene-log');
+    //Trying to fix weird channel scrolling
+    try {
+      let chatWindow = $('#chat-window')[0];
+      if (chatWindow) {
+          $('#chat-window').stop().animate({
+              scrollTop: chatWindow.scrollHeight
+          }, 0);    
+      }  
+        
+      let sceneWindow = $('#live-scene-log')[0];
+      if (sceneWindow) {
+        $('#live-scene-log').stop().animate({
+            scrollTop: $('#live-scene-log')[0].scrollHeight
+        }, 400);           
+      }
+    }
+    catch(error) {
+      // This happens sometimes when transitioning away from screen.
+    }
+
+    //scrollElementToBottom('chat-window');
+    //scrollElementToBottom('live-scene-log');
   },
     
   channelsByActivity: computed('model.chat.channels.@each.last_activity', function() {
@@ -412,4 +432,6 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
   setShowAllChannels(value) {
     this.set('showAllChannels', value);
   },
+
+
 });

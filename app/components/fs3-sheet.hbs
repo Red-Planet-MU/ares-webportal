@@ -1,13 +1,45 @@
-<div class="fs3-sheet">
-  
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+
     <Fs3AbilityTable @title="Attributes" @list={{this.char.fs3.attributes}} @max={{4}} @showSpecs={{false}} @abilityType="attribute" />
     
-    <Fs3AbilityTable @title="Action Skills" @list={{this.char.fs3.action_skills}} @max={{8}} @showSpecs={{true}} @abilityType="action" />
+  </div>
   
+  <div class="col col-md-6 col-sm-12">
+  
+    <Fs3AbilityTable @title="Action Skills" @list={{this.char.fs3.action_skills}} @max={{8}} @showSpecs={{true}}  @abilityType="action"  />
+  
+  </div>
+</div>
+
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
     <Fs3AbilityTable @title="Background Skills" @list={{this.char.fs3.backgrounds}} @max={{3}} @abilityType="background" />  
+  </div>
 
-    <Fs3AbilityTable @title="Languages" @list={{this.char.fs3.languages}} @max={{3}} @abilityType="language" />  
+</div>
 
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+    <div class="fs3-ability-table">
+      <div class="char-ability-title">Horse</div>
+      <table class="char-ability-list fs3-ability-list action">
+        <tr>
+          <td>
+            Horse Bond
+          </td>
+          <td>
+            <Fs3Dots @rating={{this.char.fs3.horse_bond}} @max={{8}} @abilityType="action"  />
+          </td>
+          <td>
+            {{this.char.fs3.horse_rating}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
 
 {{#if this.char.fs3.use_advantages}}
 
@@ -15,7 +47,7 @@
 
 {{/if}}
 
-</div>
+
 
 <div class="fs3-luck">
   <b>Luck Points:</b> {{this.char.fs3.luck_points}}

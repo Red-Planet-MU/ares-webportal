@@ -17,9 +17,7 @@
 
     
      <div class="play-scene-controls-wrap">
-       <div class="play-scene-context-prompt">
-         {{this.scene.location.name}} - {{this.scene.icdate}}
-       </div>
+       <LiveSceneContext @scene={{this.scene}} />
     
        <div class="live-scene-controls">
          <TooltipButton @position="right" @message="Show scene details." @icon="fa fa-info-circle" @onClick={{(fn this.setShowSceneInfo true)}} />
@@ -139,7 +137,7 @@
     </div>
     {{/if}}
     
-
+    <FlashMessages />
     {{#if (not this.isApproved)}}
       <div class="alert alert-warning">You must be approved to join a scene.</div>
       
@@ -149,7 +147,7 @@
 
           {{#if (not this.scene.completed)}}
  
-            <PoseOrder @poseOrder={{this.scene.pose_order}} @playerName={{this.playerName}} @poseOrderType={{this.scene.pose_order_type}} />
+            <PoseOrder @scene={{this.scene}} @poseOrder={{this.scene.pose_order}} @playerName={{this.playerName}} @poseOrderType={{this.scene.pose_order_type}} />
              
              <MarkdownEditor @text={{this.scene.draftPose}} @rows={{6}} class="scene-pose-box" @onEnter={{(fn this.addPose this.poseType.id)}} />
            {{/if}}
@@ -192,9 +190,7 @@
              
              <DropdownMenu @id="playMenu" @title="Play"  @dropup={{true}} class="scene-menu">
                {{#if this.scene.can_edit}}
-                   <li><button {{on 'click' (fn this.setSelectLocation true)}} class="dropdown-item">Change Location</button></li>
                    <li><button {{on 'click' (fn this.setShowInvitation true)}} class="dropdown-item">Invite Character</button></li>
-                   <li><button {{on 'click' (fn this.setManagePoseOrder true)}} class="dropdown-item">Manage Pose Order</button></li>
                {{/if}}
 
                <LiveScenePlaces @scene={{this.scene}} />
@@ -244,6 +240,8 @@
                      <li><LinkTo @route="scene-edit" @model={{this.scene.id}} class="dropdown-item">Edit Scene</LinkTo></li>
                      {{#if (not this.scene.completed)}}
                          <li><button {{on 'click' (fn this.changeSceneStatus 'stop')}} class="dropdown-item">Stop Scene</button></li> 
+                         <li><button {{on 'click' (fn this.setSelectLocation true)}} class="dropdown-item">Change Location</button></li>
+                         <li><button {{on 'click' (fn this.setManagePoseOrder true)}} class="dropdown-item">Manage Pose Order</button></li>
                      {{else}}
                          <li><button {{on 'click' (fn this.changeSceneStatus 'restart')}} class="dropdown-item">Restart Scene</button></li> 
                          <li><button {{on 'click' (fn this.changeSceneStatus 'share')}} class="dropdown-item">Share Scene</button></li> 
@@ -279,7 +277,7 @@
      
     {{/if}}          
 
-    <FlashMessages />
+    {{!--<FlashMessages /> --}}
 
         <hr>
 
@@ -289,7 +287,7 @@
     </BsModalSimple>
     
     <BsModalSimple @title="Confirm Report" @closeTitle="Cancel" @submitTitle="Confirm" @size={{null}} @fade={{true}} @open={{this.confirmReportScene}} @onSubmit={{this.reportScene}} @onHide={{(fn this.setConfirmReportScene false)}}>
-      <p>You can bring this cene to the game admin's attention - along with an automatic, verified log of the scene (including OOC chat).  </p>
+      <p>You can bring this scene to the game admin's attention - along with an automatic, verified log of the scene (including OOC chat).  </p>
       
       <p><b>Reason for Report:</b></p>
       

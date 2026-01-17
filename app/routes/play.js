@@ -33,7 +33,8 @@ export default Route.extend(DefaultRoute, {
       locations: api.request('sceneLocations', { id: params['id'] }),
       chat: api.requestOne('chat'),
       characters: api.requestMany('characters', { select: 'all' }),
-      app: this.modelFor('application')
+      app: this.modelFor('application'),
+      lfrp: api.requestOne('LFRPData')
     })
     .then((model) => EmberObject.create(model));
   },

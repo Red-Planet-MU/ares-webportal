@@ -19,6 +19,7 @@ export default Route.extend(DefaultRoute, {
         return RSVP.hash({
             char: api.requestOne('character', { id: params['id'] }),
             game: this.modelFor('application').game,
+            characters: api.requestMany('characters', { select: 'include_staff' }),
             scenes: api.requestOne('scenes', { char_id: params['id'], filter: 'All', page: 1 }),
             sceneOptions: api.requestOne('sceneOptions') })
             .then((model) => EmberObject.create(model));

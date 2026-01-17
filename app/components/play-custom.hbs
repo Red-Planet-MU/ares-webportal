@@ -1,0 +1,21 @@
+<div class="play-section-title">
+  Looking for RP
+  <TooltipButton @position="right" @message="Look for RP" @icon="fa fa-search-plus" @onClick={{this.setLFRP}} />
+  <TooltipButton @position="right" @message="Stop Looking for RP" @icon="fa fa-search-minus" @onClick={{this.unsetLFRP}} />
+  {{#if this.showLFRP}}
+    <TooltipButton @onClick={{(fn this.setShowLFRP false)}} @position="right" @message="Hide LFRP" @icon="fa fa-caret-square-up" />
+  {{else}}
+    <TooltipButton @onClick={{(fn this.setShowLFRP true)}} @position="right" @message="Show LFRP" @icon="fa fa-caret-square-down" />
+  {{/if}}
+  </div>
+
+<div class="looking-for-rp">
+  {{#if this.showLFRP}}
+    {{#each this.custom_play.lfrp_icons as |char|}}
+    <div class="lfrp-row">
+      <CharIconInline @char={{char}}/>
+    </div>
+    {{/each}}
+      <br>
+  {{/if}}
+</div>

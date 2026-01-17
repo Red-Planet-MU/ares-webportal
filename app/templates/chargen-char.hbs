@@ -77,6 +77,8 @@
 
                 
                  {{#each-in this.model.char.demographics as |key demo|}}
+                 {{#if (eq key 'horse name')}}
+                 {{else}}
                  <div class="form-item">
                      <div class="form-item-label">
                              <b>{{demo.name}}</b> 
@@ -90,12 +92,16 @@
                          
                          {{else if (eq key 'age')}}
                              <Input @type="text" size={{25}} @value={{demo.value}} />
-                             <div class="cg-tip">Enter an age or a birthdate in {{this.model.cgInfo.date_format}} format.</div>
+                             <div class="cg-tip">Enter an age or a birthdate in {{this.model.cgInfo.date_format}} format. Current age: {{this.model.char.age_value}}</div>
+                         {{else if (eq key 'song')}}
+                             <Input @type="text" size={{25}} @value={{demo.value}} />
+                             <div class="cg-tip">Use `&lt;a href="your URL"&gt;Song Title&lt;/a&gt;` format.</div>
                          {{else}}
                              <Input @type="text" size={{25}} @value={{demo.value}} />
                          {{/if}}
                      </div>
                  </div>
+                 {{/if}}
                  {{/each-in}}   
                  
           </div>

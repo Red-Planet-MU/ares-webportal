@@ -1,8 +1,17 @@
+<style>
+  @media screen and (max-width: 1024px) {
+	  .body-wrap {
+		  display: block!important;
+	  }
+  }
+
+  @media screen and (min-width: 1001px) and (max-width: 1470px) {
+	  .body-wrap {
+		  grid-template-columns: minmax(70%, 2150px) auto;
+	  }
+  }
+</style>
 {{page-title 'Play'}}
- 
-<h1 class="play-title">Play</h1>
-
-
 <div class="play-screen">
        
   <div class="play-sidebar">     
@@ -23,10 +32,8 @@
 
            <TooltipButton @position="right" @message="Create Scene" @icon="fa fa-plus-circle" @route="scene-create" />
 
-           <TooltipButton @position="right" @message="Unshared Scenes" @icon="fa fa-share-square" @route="scenes-unshared" />
          {{/if}}
 
-         <TooltipButton @position="right" @message="Who's Online" @icon="fa fa-users" @route="who" />
 
        </div>  
 
@@ -93,7 +100,8 @@
          {{/if}}
        {{/each}}
      </div>
-                         
+
+     <PlayCustom @custom_play={{this.model.app.game.custom_play}} @refresh={{this.refresh}}/>      
    </div>
    
    <div class="play-main">

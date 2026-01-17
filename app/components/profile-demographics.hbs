@@ -13,22 +13,28 @@
 
     <div class="profile-item-list profile-demographics">
       {{#each this.char.demographics as |demo|}}
+        {{#if (eq demo.name 'Theme Song Link') }}
+        {{else if (eq demo.name 'Theme Song Title')}}
+          <div class="profile-item">
+            <div class="profile-item-name">
+                    Theme Song
+            </div>
+            <div class="profile-item-value">
+                      <a href="{{{this.char.custom.song_link}}}">{{{demo.value}}}</a>
+            </div>
+          </div>
+        {{else}}
           <div class="profile-item">
             <div class="profile-item-name">
                     {{demo.name}} 
             </div>
             <div class="profile-item-value">
-                    {{demo.value}}
+                      {{{demo.value}}} 
             </div>
           </div>
+        {{/if}}
       {{/each}}
     </div>
-                          
-  
-    <div class="profile-divider">
-    </div>
-  
-  
     <div class="profile-item-list profile-groups">
       {{#each this.char.groups as |group|}}
         <div class="profile-item">
@@ -41,7 +47,6 @@
         </div>
       {{/each}}
     </div>
-
   
     <div class="profile-divider">
     </div>

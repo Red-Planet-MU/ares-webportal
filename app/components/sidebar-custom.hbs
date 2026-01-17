@@ -1,11 +1,16 @@
   <div class="sidebar-box {{this.boxStyle}}">
     <div class="sidebar-heading">
         <h2>Looking for RP <i class="fa-solid fa-users"></i></h2>
-          <div class="looking-for-rp">
-            {{#each this.custom.looking_for_rp as |char_name|}}
-              <LinkTo @route="char" @model={{char_name}}>{{char_name}}</LinkTo>
-            {{/each}}
-          </div>
+    </div>
+    <div class="looking-for-rp">
+      
+      {{#each this.custom.lfrp_icons as |char|}}
+      <div class="lfrp-row">
+        <CharIconInline @char={{char}}/>
+      </div>
+      {{/each}}
+      <br>
+      <p><a href="#" {{on 'click' this.setLFRP}}>Look for RP</a> | <a href="#" {{on 'click' this.unsetLFRP}}>Stop Looking for RP</a></p>
     </div>
     <p></p>
   </div>

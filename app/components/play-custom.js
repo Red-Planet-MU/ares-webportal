@@ -5,17 +5,20 @@ import { action } from '@ember/object';
 export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
+  showLFRP: false,
+  router: service(),
+  
+
+  @action
+  setShowLFRP(value) {
+    this.set('showLFRP', value);
+  },
 
   @action
   reloadChar() {
     this.reloadChar();
   },
 
-  @action
-  refresh() {
-    this.resetOnExit();
-    this.send('reloadModel');
-  },
 
   @action
   setLFRP() {
@@ -28,7 +31,6 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('Set to Looking for RP for 1 hour!');
-      this.refresh()
     });
   },
 
@@ -43,7 +45,6 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('No longer Looking for RP!');
-      this.refresh()
     });
   },
 });
