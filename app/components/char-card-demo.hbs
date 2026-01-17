@@ -2,15 +2,26 @@
   {{#if (not this.char.is_ooc)}}
     <div class="profile-item-list profile-demographics">
       {{#each this.char.demographics as |demo|}}
+        {{#if (eq demo.name 'Theme Song Link') }}
+        {{else if (eq demo.name 'Theme Song Title')}}
           <div class="profile-item">
             <div class="profile-item-name">
-            {{demo.name}}
+                    Theme Song
             </div>
-            
             <div class="profile-item-value">
-            {{demo.value}}
+                      <a href="{{{this.char.custom.song_link}}}">{{{demo.value}}}</a>
             </div>
-        </div>
+          </div>
+        {{else}}
+          <div class="profile-item">
+            <div class="profile-item-name">
+                    {{demo.name}} 
+            </div>
+            <div class="profile-item-value">
+                      {{{demo.value}}} 
+            </div>
+          </div>
+        {{/if}}
       {{/each}}
     </div>
     {{#if (not this.char.demographics)}}
