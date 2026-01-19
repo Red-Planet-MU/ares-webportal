@@ -25,18 +25,7 @@
   </div>
 {{else}}
 
-{{#if (eq this.editor "Classic")}}
-  <Textarea @value={{this.text}} cols={{80}} rows={{this.rows}} @keydown={{this.keyDown}} aria-label="Markdown Editor" />
-{{else}}
-  <TuiEditor 
-    @value={{this.markdownText}} 
-    @onChange={{this.onChange}} 
-    aria-label="Markdown Editor" 
-    @onInit={{this.onInit}}
-    @height="{{this.height}}"
-    @minHeight="{{this.height}}"
-    />
-{{/if}}
+<Textarea @value={{this.text}} cols={{80}} rows={{this.rows}} @keydown={{this.keyDown}} aria-label="Markdown Editor" />
 
 {{/if}}
 
