@@ -17,11 +17,12 @@
     <button class="btn btn-secondary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
     {{/if}}
     {{/each}}
-    <a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Give a Compliment</a>
+    <div class="action-buttons">
+      <a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Give a Compliment</a>
+    </div>
   </div>
   <div class="action-buttons">
     <div id="comp" class="card-collapse collapse" data-bs-parent="#comp-wrap">
-  </div>
   <b>Give a Compliment</b>
   <MarkdownEditor @text={{this.char.comp_msg}} />
     <div class="action-buttons">
