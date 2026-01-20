@@ -1,7 +1,25 @@
 <h2>Compliments</h2>
 
-<a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Give a Compliment</a>
-<div id="comp" class="card-collapse collapse">
+{{flash-messages}}
+<div id="comps">
+  <div id="comps-holder" class="collapse show" data-bs-parent="#comps">
+    {{#each this.char.custom.comps.comps as |comp|}}
+    <div class="comp" data-bs-parent="#comps">
+    <p class="comp-msg">"<AnsiFormat @text={{comp.msg}} />"</p>
+    <p class="comp-from"><i>From {{comp.from}} on {{comp.date}}</i></p></div>
+    {{/each}}
+
+
+    {{#each this.char.custom.comps.pages as |pg|}}
+    {{#if (eq pg this.page)}}
+    <button class="btn btn-primary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
+    {{else}}
+    <button class="btn btn-secondary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
+    {{/if}}
+    {{/each}}
+    <a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Give a Compliment</a>
+  </div>
+  <div id="comp" class="card-collapse collapse">
   <b>Give a Compliment</b>
   <MarkdownEditor @text={{this.char.comp_msg}} />
     <div class="action-buttons">
@@ -10,19 +28,4 @@
         </p>
     </div>
 </div>
-{{flash-messages}}
-
-{{#each this.char.custom.comps.comps as |comp|}}
-<div class="comp">
- <p class="comp-msg">"<AnsiFormat @text={{comp.msg}} />"</p>
- <p class="comp-from"><i>From {{comp.from}} on {{comp.date}}</i></p></div>
-{{/each}}
-
-
-{{#each this.char.custom.comps.pages as |pg|}}
-{{#if (eq pg this.page)}}
-<button class="btn btn-primary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
-{{else}}
-<button class="btn btn-secondary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
-{{/if}}
-{{/each}}
+</div>
