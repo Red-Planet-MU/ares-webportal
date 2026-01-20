@@ -1,8 +1,8 @@
 <h2>Compliments</h2>
 
 {{flash-messages}}
-<div id="comps">
-  <div id="comps-holder" class="collapse show" data-bs-parent="#comps">
+<div id="comp-wrap">
+  <div id="comps-holder" class="collapse show" data-bs-parent="#comp-wrap">
     {{#each this.char.custom.comps.comps as |comp|}}
     <div class="comp" data-bs-parent="#comps">
     <p class="comp-msg">"<AnsiFormat @text={{comp.msg}} />"</p>
@@ -19,7 +19,7 @@
     {{/each}}
     <a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Give a Compliment</a>
   </div>
-  <div id="comp" class="card-collapse collapse">
+  <div id="comp" class="card-collapse collapse" data-bs-parent="#comp-wrap">
   <b>Give a Compliment</b>
   <MarkdownEditor @text={{this.char.comp_msg}} />
     <div class="action-buttons">
@@ -27,5 +27,5 @@
         <button class="btn btn-primary" {{on 'click' this.save}} >Save</button>
         </p>
     </div>
-</div>
+  </div>
 </div>
