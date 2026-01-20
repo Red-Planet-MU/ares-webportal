@@ -10,7 +10,7 @@ export default Component.extend({
   selectSerumGive: false,
   selectGetHorse: false,
   selectManagePals: false,
-  serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
+  serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand', 'Equine Elixir'],
  
   @action
     setSelectGetHorse(value) {
