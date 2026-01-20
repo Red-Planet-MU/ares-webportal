@@ -5,7 +5,7 @@
   <div id="comps-holder" class="collapse show" data-bs-parent="#comp-wrap">
     {{#each this.char.custom.comps.comps as |comp|}}
     <div class="comp" data-bs-parent="#comps">
-    <p class="comp-msg">"<AnsiFormat @text={{comp.msg}} />"</p>
+    <p class="comp-msg"><AnsiFormat @text={{comp.msg}} /></p>
     <p class="comp-from"><i>From {{comp.from}} on {{comp.date}}</i></p></div>
     {{/each}}
 
