@@ -57,15 +57,12 @@
       >
       {{serum}}
       </PowerSelect>
-      <p><b>Who Do You Want to Give a Serum To?</b> </p>
-      <p>
-      Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webGiveSerum"}} @value={{this.targetName}} />
-      </p>
+
       <PowerSelect
         @options={{this.char.custom.possible_serum_receivers}}
         @onChange={{this.serumTargetChanged}}
         @selected={{this.serumTargetName}}
-        @labelText="Select a Character"
+        @labelText="Who do you want to give a Serum to?"
         as |serumTarget|
       >
       {{serumTarget.name}}
