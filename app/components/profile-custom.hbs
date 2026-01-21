@@ -64,7 +64,7 @@
       <PowerSelect
         @options={{this.char.custom.possible_serum_receivers}}
         @onChange={{this.serumTargetChanged}}
-        @selected={{this.serumTarget}}
+        @selected={{this.serumTarget.name}}
         @labelText="Select a Character"
         as |serumTarget|
       >

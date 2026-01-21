@@ -53,6 +53,11 @@ export default Component.extend({
   },
 
   @action
+  serumTargetChanged(newSerumGiveTarget) {
+    this.set('serumTarget', newSerumGiveTarget);
+  },
+
+  @action
     reloadChar() {
       this.onReloadChar();
     },
