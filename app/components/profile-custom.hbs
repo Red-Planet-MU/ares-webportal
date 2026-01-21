@@ -125,8 +125,10 @@
     @renderInPlace={{true}}>
     <PowerSelect
         @options={{this.char.custom.possible_pals}}
-        @onChange={{this.palToAddChanged}}
-        @selected={{this.palToAdd}}
+        @onChange={{this.palTargetChanged}}
+        @selected={{this.palsTargetName}}
+        @searchEnabled=true 
+        @searchField="name"
         @labelText="Select a Character"
         as |pal|
       >
