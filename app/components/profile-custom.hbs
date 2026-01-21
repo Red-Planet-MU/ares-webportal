@@ -123,10 +123,10 @@
     @onSubmit={{this.webAddPal}} 
     @onHide={{(fn this.setSelectManagePals false)}}
     @renderInPlace={{true}}>
-    <PowerSelect
+    <PowerSelectMultiple
         @options={{this.char.custom.possible_pals}}
         @onChange={{this.palTargetChanged}}
-        @selected={{this.palsTarget}}
+        @selected={{this.char.custom.pals}}
         @searchEnabled=true 
         @searchField="name"
         @labelText="Select a Character"
