@@ -10,6 +10,7 @@ export default Component.extend({
   selectSerumGive: false,
   selectGetHorse: false,
   selectManagePals: false,
+  selectManagePatients: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand', 'Equine Elixir'],
 
   serumTargetName: null,
@@ -38,6 +39,11 @@ export default Component.extend({
     setSelectManagePals(value) {
       this.set('selectManagePals', value);
     },
+
+  @action
+    setSelectManagePatients(value) {
+      this.set('selectManagePatients', value);
+    },
   
   @action 
     serumToGiveChanged(newSerumToGive) {
@@ -52,6 +58,11 @@ export default Component.extend({
   @action
   palsChanged(newPals) {
     this.set('char.custom.pals', newPals);
+  },
+
+  @action
+  patientsChanged(newPatients) {
+    this.set('char.custom.patients', newPatients);
   },
 
   @action
@@ -173,6 +184,21 @@ export default Component.extend({
              return;
         }
     this.flashMessages.success('Pals Updated!');
+    });
+  },
+
+  @action 
+    webManagePatients() {
+      let api = this.get('gameApi');
+      this.set('selectManagePatients', false);
+      api.requestOne('webManagePatients', {
+        pals: (this.get('char.custom.patients') || []).map(p => p.name),
+      }, null)
+      .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Patients Updated!');
     });
   },
 
