@@ -192,7 +192,7 @@ export default Component.extend({
       let api = this.get('gameApi');
       this.set('selectManagePatients', false);
       api.requestOne('webManagePatients', {
-        pals: (this.get('char.custom.patients') || []).map(p => p.name),
+        patients: (this.get('char.custom.patients') || []).map(p => p.name),
       }, null)
       .then( (response) => {
        if (response.error) {
