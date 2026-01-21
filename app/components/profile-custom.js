@@ -168,7 +168,7 @@ export default Component.extend({
     this.flashMessages.success('Pals Updated!');
     this.reloadChar();
     });
-  }
+  },
 
   @action
     saveHorseDetails() {
