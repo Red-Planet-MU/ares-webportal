@@ -11,6 +11,8 @@ export default Component.extend({
   selectGetHorse: false,
   selectManagePals: false,
   serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand', 'Equine Elixir'],
+
+  @tracked serumTargetName: string;
  
   @action
     setSelectGetHorse(value) {
@@ -54,7 +56,7 @@ export default Component.extend({
 
   @action
   serumTargetChanged(newSerumGiveTarget) {
-    this.set('serumTarget', newSerumGiveTarget);
+    this.set('serumTargetName', newSerumGiveTarget);
   },
 
   @action
