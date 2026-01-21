@@ -61,6 +61,14 @@
       <p>
       Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webGiveSerum"}} @value={{this.targetName}} />
       </p>
+      <PowerSelect
+        @options={{this.char.custom.approved_chars}}
+        @onChange={{this.serumTargetChanged}}
+        @selected={{this.serumTarget}}
+        @labelText="Select a Character"
+        as |serumTarget|
+      >
+      {{serumTarget}}
   </BsModalSimple>
 
 </div>
