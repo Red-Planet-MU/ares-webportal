@@ -197,6 +197,7 @@ export default Component.extend({
       .then( (response) => {
        if (response.error) {
              return;
+             this.reloadChar();
         }
     this.flashMessages.success('Patients Updated!');
     });
