@@ -45,7 +45,12 @@ export default Component.extend({
   @action 
     changeGiveTarget(newSerumGiveTarget) {
       this.set('selectedGiveTarget', newSelectedGiveTarget)
-    },  
+    },
+
+  @action
+  palTargetChanged(newPalTarget) {
+    this.set('palsTarget', newPalTarget);
+  },
 
   @action
     reloadChar() {
