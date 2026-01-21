@@ -133,7 +133,7 @@
         as |pal|
       >
       {{pal.name}}
-    </PowerSelect>
+    </PowerSelectMultiple>
     Character: <Input @type="text" @size={{15}} @id="palsTargetName" @enter={{action "webManagePal"}} @value={{this.palsTargetName}} />
     <button class="btn btn-primary" id="addpal" {{on "click" (fn this.webAddPal)}}>Add Pal</button>
     <button class="btn btn-secondary" id="removepall" {{on "click" (fn this.webRemovePal)}}>Remove Pal</button>
