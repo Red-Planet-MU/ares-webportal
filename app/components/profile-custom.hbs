@@ -146,3 +146,38 @@
     <i>Note: No changes are made unless you click 'Update Pals'.</i>
   </BsModalSimple>
 </div>
+
+<div id="systempatients" class="tab-pane fade">
+  {{#each this.char.custom.patients as |char|}}
+    <div class="patients-row">
+      <CharIconInline @char={{char}}/>
+    </div>
+  {{/each}}
+  <div class="action-buttons">
+    <button class="btn btn-primary" id="addpatient" {{on "click" (fn this.setSelectManagePatients true)}}>Manage Patients</button> 
+  </div>
+
+  <BsModalSimple 
+    @title="Manage Patients"
+    @closeTitle="Cancel"
+    @submitTitle="Update Pals"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectManagePatients}}
+    @onSubmit={{this.webManagePatients}} 
+    @onHide={{(fn this.setSelectManagePatients false)}}
+    @renderInPlace={{true}}>
+    <PowerSelectMultiple
+        @options={{this.char.custom.possible_patients}}
+        @selected={{this.char.custom.patients}}
+        @onChange={{this.patientsChanged}}
+        @searchEnabled=true 
+        @searchField="name"
+        @labelText="Select Characters"
+        as |patient|
+      >
+      {{patient.name}}
+    </PowerSelectMultiple>
+    <i>Note: No changes are made unless you click 'Update Pals'.</i>
+  </BsModalSimple>
+</div>
