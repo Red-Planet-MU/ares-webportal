@@ -154,6 +154,22 @@ export default Component.extend({
     });
   },
 
+  @action 
+    webManagePals() {
+      let api = this.get('gameApi');
+      this.set('selectManagePals', false);
+      api.requestOne('webManagePals', {
+        pals: (this.get('char.custom.pals') || []).map(p => p.name),
+      }, null)
+      .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Pals Updated!');
+    this.reloadChar();
+    });
+  }
+
   @action
     saveHorseDetails() {
     let api = this.get('gameApi');

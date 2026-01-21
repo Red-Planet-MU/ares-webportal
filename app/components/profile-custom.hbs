@@ -117,10 +117,11 @@
   <BsModalSimple 
     @title="Manage Pals"
     @closeTitle="Cancel"
+    @submitTitle="Update Pals"
     @size={{null}}
     @fade={{true}}
     @open={{this.selectManagePals}}
-    @onSubmit={{this.webAddPal}} 
+    @onSubmit={{this.webManagePals}} 
     @onHide={{(fn this.setSelectManagePals false)}}
     @renderInPlace={{true}}>
     <PowerSelectMultiple
