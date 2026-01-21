@@ -48,8 +48,8 @@ export default Component.extend({
     },
 
   @action
-  palTargetChanged(newPalTarget) {
-    this.set('palsTarget', newPalTarget);
+  palsChanged(newPals) {
+    this.set('char.custom.pals', newPals);
   },
 
   @action
