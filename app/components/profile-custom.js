@@ -87,7 +87,7 @@ export default Component.extend({
     webGiveSerum() {
     let api = this.get('gameApi');
     let webSerumToGive = this.serumToGive;
-    let webSerumGiveTarget = serumTargetName;
+    let webSerumGiveTarget = this.serumTargetName;
     this.set('selectSerumGive', false);
     api.requestOne('giveSerum', {
       char_id: this.get('char.id'),
