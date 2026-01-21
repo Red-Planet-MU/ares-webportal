@@ -153,6 +153,8 @@
       <CharIconInline @char={{char}}/>
     </div>
   {{/each}}
+  <p><b>Maximum Patients: </b>{{{this.char.custom.max_patients}}}</p>
+  <FlashMessages />
   <div class="action-buttons">
     <button class="btn btn-primary" id="addpatient" {{on "click" (fn this.setSelectManagePatients true)}}>Manage Patients</button> 
   </div>
