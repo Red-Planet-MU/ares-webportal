@@ -166,7 +166,6 @@ export default Component.extend({
              return;
         }
     this.flashMessages.success('Pals Updated!');
-    this.reloadChar();
     });
   },
 
