@@ -148,11 +148,13 @@
 </div>
 
 <div id="systemmedical" class="tab-pane fade">
+  <h3>Current Patients</h3>
   {{#each this.char.custom.patients as |char|}}
     <div class="patients-row">
       <CharIconInline @char={{char}}/>
     </div>
   {{/each}}
+  <br>
   <p><b>Maximum Patients: </b>{{{this.char.custom.max_patients}}}</p>
   <FlashMessages />
   <div class="action-buttons">
