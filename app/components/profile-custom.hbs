@@ -62,6 +62,8 @@
         @options={{this.char.custom.possible_serum_receivers}}
         @onChange={{this.serumTargetChanged}}
         @selected={{this.serumTargetName}}
+        @searchEnabled=true 
+        @searchField="name"
         @labelText="Who do you want to give a Serum to?"
         as |serumTarget|
       >
