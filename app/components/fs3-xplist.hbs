@@ -30,6 +30,12 @@
             At Max
             </div>
           {{/if}}
+          {{#if ability.a_has_spec}}
+            Has specialties
+            {{#if (not ability.c_has_spec)}}
+              Char does not have specialties
+            {{/if}}
+          {{/if}}
         </div>
       {{/each}}
 </div>
