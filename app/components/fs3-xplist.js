@@ -28,4 +28,24 @@ export default Component.extend({
   finishSpecAbility(ability) {
     this.onFinishSpecAbility(ability);
   },
+
+  @action
+    webFinishSpecAbility(ability) {
+    let api = this.get('gameApi');
+    let webSpecToAdd = this.specToAdd;
+    this.set('showFinishSpecAbility', false);
+    api.requestOne('webFinishSpecAbility', {
+      ability: ability.name,
+      char_id: this.get('char.id'),
+      char: this.get('char.name'),
+      spec: webSpecToAdd
+    }, null)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Finished!');
+    this.abilityLearned();
+    });
+  },
 });
