@@ -20,6 +20,20 @@ export default Component.extend({
       this.abilityLearned();
     });
   },
+
+  @action
+  learnSpecAbility(ability) {
+    let api = this.gameApi;
+    api.requestOne('learnSpecAbility', { ability: ability.name, char: this.get('char.name') }, null)
+    .then( (response) => {
+      if (response.error) {
+        return;
+      }
+            
+      this.flashMessages.success('Learned!');
+      this.abilityLearned();
+    });
+  },
         
   @action
   learnNewAbility() {

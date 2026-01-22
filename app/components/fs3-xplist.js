@@ -7,4 +7,9 @@ export default Component.extend({
   learnAbility(ability) {
     this.onLearnAbility(ability);
   }
+
+  @action
+  learnSpecAbility(ability) {
+    this.onLearnSpecAbility(ability);
+  }
 });
