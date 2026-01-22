@@ -6,7 +6,7 @@ export default Component.extend({
   @action
   learnAbility(ability) {
     this.onLearnAbility(ability);
-  }
+  },
 
   @action
   learnSpecAbility(ability) {
