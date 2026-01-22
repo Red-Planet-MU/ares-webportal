@@ -43,7 +43,7 @@
               {{#if (and (gt this.xp 0) (not (eq ability.spec_xp 8)))}}
                 <button class="btn btn-secondary" {{on 'click' (fn this.learnSpecAbility ability)}} >Learn</button>
               {{else if (gt this.xp 0)}}
-                <button class="btn btn-secondary" {{on 'click' (fn this.setShowfinishSpecAbility true)}} >Finish</button>
+                <button class="btn btn-secondary" {{on 'click' (fn this.setShowFinishSpecAbility true)}} >Finish</button>
               {{else}}
                 Out of XP
               {{/if}}
