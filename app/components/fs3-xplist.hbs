@@ -61,7 +61,15 @@
           @onSubmit={{this.webFinishSpecAbility}} 
           @onHide={{(fn this.setShowFinishSpecAbility false)}}
           @renderInPlace={{true}}>
-          Your options are {{ability.a_has_spec}}
+            <PowerSelect
+              @options={{ability.a_has_spec}}
+              @onChange={{this.specToAddChanged}}
+              @selected={{this.specToAdd}}
+              @labelText="Choose a Specialty"
+              as |spec|
+            >
+            {{spec}}
+            </PowerSelect>
         </BsModalSimple>
       {{/each}}
 

@@ -6,8 +6,13 @@ export default Component.extend({
 
   @action
   setShowFinishSpecAbility(value) {
-      this.set('showFinishSpecAbility', value);
-    },
+    this.set('showFinishSpecAbility', value);
+  },
+
+  @action 
+  specToAddChanged(newSpecToAdd) {
+    this.set('specToAdd', newSpecToAdd)
+  },  
    
   @action
   learnAbility(ability) {
