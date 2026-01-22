@@ -33,6 +33,7 @@
           {{#if ability.a_has_spec}}
             {{#if (not ability.c_has_spec)}}
             <br>
+            <div class="xp-specialty-name" style="flex-basis: 20%;"> <i>Specialty:</i></div>
               <div class="xp-progress">
                 <ProgressBar @currentValue={{ability.spec_xp}} @maxValue={{ability.spec_xp_needed}} @bgColor="bg-success" @showLabel=true>
                 </ProgressBar>
