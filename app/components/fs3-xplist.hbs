@@ -51,17 +51,18 @@
             {{/if}}
           {{/if}}
         </div>
+        <BsModalSimple 
+          @title="Select a Specialty"
+          @closeTitle="Cancel"
+          @submitTitle="Finish"
+          @size={{null}}
+          @fade={{true}}
+          @open={{this.showFinishSpecAbility}}
+          @onSubmit={{this.webFinishSpecAbility}} 
+          @onHide={{(fn this.setShowFinishSpecAbility false)}}
+          @renderInPlace={{true}}>
+          Your options are {{ability.a_has_spec}}
+        </BsModalSimple>
       {{/each}}
 
-  <BsModalSimple 
-    @title="Select a Specialty"
-    @closeTitle="Cancel"
-    @submitTitle="Finish"
-    @size={{null}}
-    @fade={{true}}
-    @open={{this.showFinishSpecAbility}}
-    @onSubmit={{this.webFinishSpecAbility}} 
-    @onHide={{(fn this.setShowFinishSpecAbility false)}}
-    @renderInPlace={{true}}>
-  </BsModalSimple>
 </div>
