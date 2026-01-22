@@ -33,19 +33,19 @@
           {{#if ability.a_has_spec}}
             {{#if (not ability.c_has_spec)}}
             <br>
-            <div class="xp-specialty-name" style="flex-basis: 20%;"> <i>Specialty:</i></div>
-              <div class="xp-progress">
-                <ProgressBar @currentValue={{ability.spec_xp}} @maxValue={{ability.spec_xp_needed}} @bgColor="bg-success" @showLabel=true>
-                </ProgressBar>
-                <div class="progress-value">{{ability.spec_xp}} / {{ability.spec_xp_needed}}</div>
-            </div>
-            <div class="xp-learning">
+              <div class="xp-specialty-name" style="flex-basis: 20%;"> <i>Specialty:</i></div>
+                <div class="xp-progress">
+                  <ProgressBar @currentValue={{ability.spec_xp}} @maxValue={{ability.spec_xp_needed}} @bgColor="bg-success" @showLabel=true>
+                  </ProgressBar>
+                  <div class="progress-value">{{ability.spec_xp}} / {{ability.spec_xp_needed}}</div>
+              </div>
+              <div class="xp-learning">
               {{#if (gt this.xp 0)}}
                 <button class="btn btn-secondary" {{on 'click' (fn this.learnSpecAbility ability)}} >Learn</button>
               {{else}}
                 Out of XP
               {{/if}}
-            </div>
+              </div>
             {{/if}}
           {{/if}}
         </div>
