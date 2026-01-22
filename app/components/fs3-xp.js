@@ -34,6 +34,20 @@ export default Component.extend({
       this.abilityLearned();
     });
   },
+
+  @action
+  finishSpecAbility(ability) {
+    let api = this.gameApi;
+    api.requestOne('finishSpecAbility', { ability: ability.name, char: this.get('char.name') }, null)
+    .then( (response) => {
+      if (response.error) {
+        return;
+      }
+            
+      this.flashMessages.success('Finished!');
+      this.abilityLearned();
+    });
+  },
         
   @action
   learnNewAbility() {

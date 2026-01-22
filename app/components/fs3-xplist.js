@@ -11,5 +11,10 @@ export default Component.extend({
   @action
   learnSpecAbility(ability) {
     this.onLearnSpecAbility(ability);
-  }
+  },
+
+  @action
+  finishSpecAbility(ability) {
+    this.onFinishSpecAbility(ability);
+  },
 });
