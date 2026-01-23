@@ -1,8 +1,10 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default Component.extend({
   showFinishSpecAbility: false,
+  gameApi: service(),
 
   @action
   setShowFinishSpecAbility(value) {
