@@ -3,8 +3,9 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 
 export default Component.extend({
-  showFinishSpecAbility: false,
   gameApi: service(),
+  flashMessages: service(),
+  showFinishSpecAbility: false,
 
   @action
   setShowFinishSpecAbility(value) {
@@ -13,7 +14,8 @@ export default Component.extend({
 
   @action 
   specToAddChanged(newSpecToAdd) {
-    this.set('specToAdd', newSpecToAdd)
+    this.set('specToAdd', newSpecToAdd);
+    this.set('webAbility', ability.name)
   },  
    
   @action
@@ -37,7 +39,7 @@ export default Component.extend({
     let webSpecToAdd = this.specToAdd;
     this.set('showFinishSpecAbility', false);
     api.requestOne('webFinishSpecAbility', {
-      ability: ability.name,
+      ability: webAbility,
       char_id: this.get('char.id'),
       char: this.get('char.name'),
       spec: webSpecToAdd
