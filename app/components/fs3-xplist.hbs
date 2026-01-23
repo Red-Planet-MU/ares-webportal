@@ -47,30 +47,29 @@
               {{else}}
                 Out of XP
               {{/if}}
+              <BsModalSimple 
+                @title="Select a Specialty"
+                @closeTitle="Cancel"
+                @submitTitle="Finish"
+                @size={{null}}
+                @fade={{true}}
+                @open={{this.showFinishSpecAbility}}
+                @onSubmit={{this.webFinishSpecAbility}} 
+                @onHide={{(fn this.setShowFinishSpecAbility false)}}
+                @renderInPlace={{true}}>
+                  <PowerSelect
+                    @options={{ability.a_has_spec}}
+                    @onChange={{this.specToAddChanged}}
+                    @selected={{this.specToAdd}}
+                    @labelText="Choose a Specialty"
+                    as |spec|
+                  >
+                  {{spec}}
+                  </PowerSelect>
+              </BsModalSimple>
               </div>
             {{/if}}
           {{/if}}
         </div>
-        <BsModalSimple 
-          @title="Select a Specialty"
-          @closeTitle="Cancel"
-          @submitTitle="Finish"
-          @size={{null}}
-          @fade={{true}}
-          @open={{this.showFinishSpecAbility}}
-          @onSubmit={{this.webFinishSpecAbility}} 
-          @onHide={{(fn this.setShowFinishSpecAbility false)}}
-          @renderInPlace={{true}}>
-            <PowerSelect
-              @options={{ability.a_has_spec}}
-              @onChange={{this.specToAddChanged}}
-              @selected={{this.specToAdd}}
-              @labelText="Choose a Specialty"
-              as |spec|
-            >
-            {{spec}}
-            </PowerSelect>
-        </BsModalSimple>
-      {{/each}}
 
 </div>
