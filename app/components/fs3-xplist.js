@@ -30,7 +30,7 @@ export default Component.extend({
   },
 
   @action
-    webFinishSpecAbility(ability) {
+    webFinishSpecAbility() {
     let api = this.get('gameApi');
     let webSpecToAdd = this.specToAdd;
     this.set('showFinishSpecAbility', false);
