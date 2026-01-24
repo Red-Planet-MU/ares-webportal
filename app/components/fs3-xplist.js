@@ -50,7 +50,7 @@ export default Component.extend({
              return;
         }
     this.flashMessages.success('Finished!');
-    this.abilityLearned();
+    this.send('reloadModel');
     });
   },
 });
