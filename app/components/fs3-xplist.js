@@ -15,7 +15,7 @@ export default Component.extend({
   @action 
   specToAddChanged(newSpecToAdd) {
     this.set('specToAdd', newSpecToAdd);
-    this.set('webAbility', ability.name)
+    //this.set('webAbility', ability.name)
   },  
    
   @action
@@ -34,9 +34,10 @@ export default Component.extend({
   },
 
   @action
-    webFinishSpecAbility2() {
+    webFinishSpecAbility2(ability) {
     let api = this.gameApi;
     let webSpecToAdd = this.specToAdd;
+    let webAbility = ability;
     this.set('showFinishSpecAbility', false);
     api.requestOne('webFinishSpecAbility', {
       ability: webAbility,

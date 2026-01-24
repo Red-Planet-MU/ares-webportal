@@ -54,7 +54,7 @@
                 @size={{null}}
                 @fade={{true}}
                 @open={{this.showFinishSpecAbility}}
-                @onSubmit={{this.webFinishSpecAbility2}} 
+                @onSubmit={{this.webFinishSpecAbility2 ability.name}} 
                 @onHide={{(fn this.setShowFinishSpecAbility false)}}
                 @renderInPlace={{true}}>
                   <PowerSelect
@@ -65,7 +65,6 @@
                     as |spec|
                   >
                   {{spec}}
-                  {{ability.name}}
                   </PowerSelect>
               </BsModalSimple>
               </div>
