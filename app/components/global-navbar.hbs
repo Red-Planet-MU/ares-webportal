@@ -40,7 +40,11 @@
           {{#if sec.menu }}
             <li class="nav-item dropdown">
               <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">             
-                <span class="badge badge-likes"> </span>{{{sec.title}}}
+                {{#if (eq sec.title "World")}}
+                  <span class="badge badge-navnotice"> </span>{{{sec.title}}}
+                {{else}}
+                  {{{sec.title}}}
+                {{/if}}
               </button>
               <ul class="dropdown-menu  dropdown-menu-end">
                 {{#each sec.menu as |navItem|}}
