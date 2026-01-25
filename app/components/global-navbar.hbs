@@ -17,11 +17,11 @@
                     {{/if}}
                     </button>
                     <ul class="dropdown-menu">
-                      <li><LinkTo class="dropdown-item" @route="notifications">Notifications</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="char" @model={{this.currentUser.name}}>Profile</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="mail">Mail</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="jobs">{{#if this.model.jobs_admin}}Jobs{{else}}Requests{{/if}}</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="account">Account</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="notifications" {{on "click" (fn this.closeNavbar)}}>Notifications</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="char" @model={{this.currentUser.name}} {{on "click" (fn this.closeNavbar)}}>Profile</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="mail" {{on "click" (fn this.closeNavbar)}}>Mail</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="jobs" {{on "click" (fn this.closeNavbar)}}>{{#if this.model.jobs_admin}}Jobs{{else}}Requests{{/if}}</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="account" {{on "click" (fn this.closeNavbar)}}>Account</LinkTo></li>
 
                       {{#if this.model.alts}}
                           <li><a class="dropdown-item" href="#" {{on 'click' (fn this.setAltSelectionVisible true)}}>Switch Alt</a></li>
@@ -32,7 +32,7 @@
                     </ul>
                   </li>
                 {{else}}
-                <li class="nav-item d-lg-none"><LinkTo class="nav-link" @route="login" @query={{hash redirect=this.currentRoute}}>Login</LinkTo></li>
+                <li class="nav-item d-lg-none"><LinkTo class="nav-link" @route="login" @query={{hash redirect=this.currentRoute}} {{on "click" (fn this.closeNavbar)}}>Login</LinkTo></li>
                 {{/if}}
 
         

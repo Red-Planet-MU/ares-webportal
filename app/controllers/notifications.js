@@ -16,7 +16,7 @@ export default Controller.extend(AuthenticatedController, {
         return;
       }
       this.flashMessages.success('Notifications marked read.');
-      this.send('reloadModel');
+      this.get('target.target.router').refresh();
     });
   }
 });
