@@ -57,7 +57,13 @@
                   {{else}}
                     <li>
                     {{#if navItem.id}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
+                      {{#if (eq navItem.title "Forum")}}
+                        {{#if this.model.has_unread}}
+                          <span class="badge badge-navnotice"> </span><LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
+                        {{/if}}
+                      {{else}}
+                        <LinkTo class="dropdown-item" @route={{navItem.route}} @model={{navItem.id}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
+                      {{/if}}
                     {{else if navItem.ids}}
                       <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
                     {{else}}
