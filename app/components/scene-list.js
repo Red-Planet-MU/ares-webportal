@@ -6,7 +6,7 @@ export default Component.extend({
   sceneFilters: computed('sceneTypes', 'scenes', function () {
     let types = this.sceneTypes;
     let scene_types = types.map((s) => s.name);
-    let base_filters = ['Recent', 'All', 'Popular'];
+    let base_filters = ['Recent', 'All'];
     return base_filters.concat(scene_types);
   }),
 
