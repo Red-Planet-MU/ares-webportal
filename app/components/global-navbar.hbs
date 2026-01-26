@@ -40,7 +40,7 @@
           {{#if sec.menu }}
             <li class="nav-item dropdown">
               <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">             
-                {{#if (eq sec.title "Game")}}
+                {{#if (and (eq sec.title "Game") this.model.has_unread)}}
                   {{#if this.model.has_unread}}
                     <span class="badge badge-navnotice"> </span>{{{sec.title}}}
                   {{/if}}
@@ -61,12 +61,11 @@
                     {{else if navItem.ids}}
                       <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
                     {{else}}
-                      {{#if (eq navItem.title "Forum")}}
-                        {{#if this.model.has_unread}}
-                          <span class="badge badge-navnotice"> </span><LinkTo class="dropdown-item" @route={{navItem.route}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
-                        {{/if}}
+                      {{#if (and (eq navItem.title "Forum") this.model.has_unread)}}
+                        <span class="badge badge-navnotice"> </span><LinkTo class="dropdown-item" @route={{navItem.route}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
                       {{else}}
                         <LinkTo class="dropdown-item" @route={{navItem.route}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
+                      {{/if}}
                     {{/if}}
                     </li>
                   {{/if}}
