@@ -41,7 +41,9 @@
             <li class="nav-item dropdown">
               <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">             
                 {{#if (eq sec.title "Game")}}
-                  <span class="badge badge-navnotice"> </span>{{{sec.title}}}
+                  {{#if this.model.has_unread}}
+                    <span class="badge badge-navnotice"> </span>{{{sec.title}}}
+                  {{/if}}
                 {{else}}
                   {{{sec.title}}}
                 {{/if}}
