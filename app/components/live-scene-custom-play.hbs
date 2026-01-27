@@ -20,6 +20,7 @@
       >
       {{serumToUse.name}}
     </PowerSelect>
+    <br>
     <PowerSelect
         @options={{this.custom.serumTargets}}
         @onChange={{this.serumTargetChanged}}
@@ -31,8 +32,4 @@
       >
       {{serumTarget.name}}
       </PowerSelect>
-    <p><b>List a Target (optional):</b> </p>
-    <p>
-      Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webUseSerum"}} @value={{this.targetName}} />
-    </p>
 </BsModalSimple>
