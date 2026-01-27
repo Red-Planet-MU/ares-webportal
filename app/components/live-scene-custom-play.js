@@ -7,6 +7,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   selectWebUseSerum: false,
+  serumTargetName: null,
   serums: [ { name: 'Revitalizer' } ],
  
   @action
@@ -18,6 +19,11 @@ export default Component.extend({
     serumToUseChanged(newSerumToUse) {
       this.set('serumToUse', newSerumToUse)
     },  
+
+  @action
+  serumTargetChanged(newSerumTarget) {
+    this.set('serumTargetName', newSerumTarget);
+  },
 
   @action 
     webPalsInvite() {
@@ -38,7 +44,7 @@ export default Component.extend({
     webUseSerum() {
     let api = this.get('gameApi');
     let webSerumToUse = this.serumToUse.name;
-    let webSerumTarget = this.targetName;
+    let webSerumTarget = this.serumTargetName;
 
     if (!webSerumToUse) {
             this.flashMessages.danger("You haven't selected a serum to use.");
