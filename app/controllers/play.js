@@ -7,6 +7,7 @@ import SceneUpdate from 'ares-webportal/mixins/scene-update';
 import { action } from '@ember/object';
 import { pushObject, removeObject } from 'ares-webportal/helpers/object-ext';
 import { scrollElementToBottom } from 'ares-webportal/helpers/scroll-element';
+import { scrollElementToBottomInstantly } from 'ares-webportal/helpers/scroll-element-instantly';
 
 export default Controller.extend(AuthenticatedController, SceneUpdate, {
   gameApi: service(),
@@ -180,29 +181,20 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     if (this.scrollPaused || poseEditActive) {
       return;
     }
-    
-    //Trying to fix weird channel scrolling
-    //try {
-    //  let chatWindow = $('#chat-window')[0];
-    //  if (chatWindow) {
-    //      $('#chat-window').stop().animate({
-    //          scrollTop: chatWindow.scrollHeight
-    //      }, 0);    
-    //  }  
-        
-    //  let sceneWindow = $('#live-scene-log')[0];
-    //  if (sceneWindow) {
-    //    $('#live-scene-log').stop().animate({
-    //        scrollTop: $('#live-scene-log')[0].scrollHeight
-    //    }, 400);           
-    //  }
-    //}
-    //catch(error) {
-      // This happens sometimes when transitioning away from screen.
-    //}
 
     scrollElementToBottom('chat-window');
     scrollElementToBottom('live-scene-log');
+  },
+
+  scrollWindowInstantly: function() {
+    // Unless scrolling paused or edit active.
+    let poseEditActive =  this.currentScene && this.get('currentScene.poses').some(p => p.editActive);
+    if (this.scrollPaused || poseEditActive) {
+      return;
+    }
+
+    scrollElementToBottomInstantly('chat-window');
+    scrollElementToBottomInstantly('live-scene-log');
   },
     
   channelsByActivity: computed('model.chat.channels.@each.last_activity', function() {
@@ -260,7 +252,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     } 
       
     let self = this;
-    setTimeout(() => self.scrollWindow(), 150, self);
+    setTimeout(() => self.scrollWindowInstantly(), 150, self);
   },
     
   updateScene(scene) {
