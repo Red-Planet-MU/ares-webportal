@@ -33,7 +33,9 @@
                            </LinkTo> 
                             |
                            <LinkTo @route="char" @model={{this.currentUser.name}}>
+                            <span class="badge-navbar-bgs">
                              <i class="fa fa-user fa-bounce-hover" aria-label="Profile" style="--fa-bounce-height: .5"></i>
+                            </span>
                            </LinkTo> |
                            <LinkTo @route="mail">
                             <span class="badge-navbar-bgs">
@@ -44,13 +46,19 @@
                             </span>
                            </LinkTo> |
                            <LinkTo @route="jobs">
-                                <i class="fa fa-list fa-bounce-hover" aria-label="Jobs" style="--fa-bounce-height: .5"></i>
+                            <span class="badge-navbar-bgs">
+                              <i class="fa fa-list fa-bounce-hover" aria-label="Jobs" style="--fa-bounce-height: .5"></i>
+                            </span>
                            </LinkTo>
                            | <LinkTo @route="account">
-                              <i class="fa fa-cog fa-spin-hover" aria-label="Account"></i>
+                              <span class="badge-navbar-bgs">
+                                <i class="fa fa-cog fa-spin-hover" aria-label="Account"></i>
+                              </span>
                            </LinkTo>
                            | <LinkTo @route="logout">
-                             <i class="fa fa-sign-out-alt fa-bounce-hover" aria-label="Logout" style="--fa-bounce-height: .5"></i> 
+                              <span class="badge-navbar-bgs">
+                                <i class="fa fa-sign-out-alt fa-bounce-hover" aria-label="Logout" style="--fa-bounce-height: .5"></i> 
+                              </span>
                            </LinkTo>
                        </p>
                     {{else}}
