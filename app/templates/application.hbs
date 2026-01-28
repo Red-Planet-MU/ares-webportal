@@ -33,22 +33,24 @@
                            </LinkTo> 
                             |
                            <LinkTo @route="char" @model={{this.currentUser.name}}>
-                             <i class="fa fa-user fa-bounce-hover" aria-label="Profile"></i>
+                             <i class="fa fa-user fa-bounce-hover" aria-label="Profile" style="--fa-bounce-height: .5"></i>
                            </LinkTo> |
                            <LinkTo @route="mail">
-                            <span class="change-icon">
-                              <i class="fa fa-envelope" aria-label="Mail"></i>
-                              <i class="fa fa-envelope-open-text" aria-label="Mail"></i>
+                            <span class="badge navbar-bgs">
+                              <span class="change-icon">
+                                <i class="fa fa-envelope" aria-label="Mail"></i>
+                                <i class="fa fa-envelope-open-text" aria-label="Mail"></i>
+                              </span>
                             </span>
                            </LinkTo> |
                            <LinkTo @route="jobs">
-                                <i class="fa fa-list fa-bounce-hover" aria-label="Jobs"></i>
+                                <i class="fa fa-list fa-bounce-hover" aria-label="Jobs" style="--fa-bounce-height: .5"></i>
                            </LinkTo>
                            | <LinkTo @route="account">
                               <i class="fa fa-cog fa-spin-hover" aria-label="Account"></i>
                            </LinkTo>
                            | <LinkTo @route="logout">
-                             <i class="fa fa-sign-out-alt" aria-label="Logout"></i> 
+                             <i class="fa fa-sign-out-alt fa-bounce-hover" aria-label="Logout" style="--fa-bounce-height: .5"></i> 
                            </LinkTo>
                        </p>
                     {{else}}
