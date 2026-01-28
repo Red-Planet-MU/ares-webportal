@@ -61,9 +61,9 @@
                            </LinkTo>
                        </p>
                     {{else}}
-                        <p><LinkTo @route="login" @query={{hash redirect=this.currentRoute}}>Login</LinkTo>
-                        | <LinkTo @route="register">Register</LinkTo>
-                        | <LinkTo @route="tour">Tour</LinkTo>
+                        <p><LinkTo @route="login" @query={{hash redirect=this.currentRoute}}><span class="badge-navbar-bgs">Login</span></LinkTo>
+                        <LinkTo @route="register"><span class="badge-navbar-bgs">Register</span></LinkTo>
+                        <LinkTo @route="tour"><span class="badge-navbar-bgs">Tour</span></LinkTo>
                         </p>
                     {{/if}}
                     </div>
