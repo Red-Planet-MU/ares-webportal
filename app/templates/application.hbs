@@ -31,12 +31,11 @@
                                <span id="notificationBadge">{{this.model.notification_count}}</span>
                                </span>
                            </LinkTo> 
-                            |
                            <LinkTo @route="char" @model={{this.currentUser.name}}>
                             <span class="badge-navbar-bgs">
                              <i class="fa fa-user fa-bounce-hover" aria-label="Profile" style="--fa-bounce-height: .5"></i>
                             </span>
-                           </LinkTo> |
+                           </LinkTo>
                            <LinkTo @route="mail">
                             <span class="badge-navbar-bgs">
                               <span class="change-icon">
@@ -44,18 +43,18 @@
                                 <i class="fa fa-envelope-open-text" aria-label="Mail"></i>
                               </span>
                             </span>
-                           </LinkTo> |
+                           </LinkTo>
                            <LinkTo @route="jobs">
                             <span class="badge-navbar-bgs">
                               <i class="fa fa-list fa-bounce-hover" aria-label="Jobs" style="--fa-bounce-height: .5"></i>
                             </span>
                            </LinkTo>
-                           | <LinkTo @route="account">
+                           <LinkTo @route="account">
                               <span class="badge-navbar-bgs">
                                 <i class="fa fa-cog fa-spin-hover" aria-label="Account"></i>
                               </span>
                            </LinkTo>
-                           | <LinkTo @route="logout">
+                           <LinkTo @route="logout">
                               <span class="badge-navbar-bgs">
                                 <i class="fa fa-sign-out-alt fa-bounce-hover" aria-label="Logout" style="--fa-bounce-height: .5"></i> 
                               </span>
