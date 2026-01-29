@@ -100,7 +100,7 @@ export default Component.extend({
         return;
       }
       if (response.private_dice_result) {
-        this.flashMessages.success(private_dice_result);
+        this.flashMessages.success(response.private_dice_result);
         return;
       }
     });
