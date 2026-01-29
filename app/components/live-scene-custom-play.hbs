@@ -1,4 +1,6 @@
-<li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li> 
+<li><hr role="separator" class="dropdown-divider"></li>
+<li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li>
+<li><a href="#" {{on 'click' (fn this.setRollDicePopup true)}} class="dropdown-item">Roll Dice</a></li> 
 <li><a href="#" {{on 'click' this.webPalsInvite}} class="dropdown-item">Invite Pals</a></li> 
 
 <BsModalSimple 
@@ -32,4 +34,17 @@
       >
       {{serumTarget.name}}
       </PowerSelect>
+</BsModalSimple>
+
+<BsModalSimple 
+    @title="Roll Dice"
+    @closeTitle="Cancel"
+    @submitTitle="Roll it!"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.rollDicePopup}}
+    @onSubmit={{this.rollDice}} 
+    @onHide={{(fn this.setRollDicePopup false)}}>
+    {{input value=dice type="number" min="1"}}  {{input value=faces type="number" min="1"}}
+    
 </BsModalSimple>

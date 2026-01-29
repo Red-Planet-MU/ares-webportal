@@ -8,11 +8,17 @@ export default Component.extend({
   flashMessages: service(),
   selectWebUseSerum: false,
   serumTargetName: null,
+  rollDicePopup: false,
   serums: [ { name: 'Revitalizer' } ],
  
   @action
     setSelectWebUseSerum(value) {
       this.set('selectWebUseSerum', value);
+    },
+
+  @action
+    setRollDicePopup(value) {
+      this.set('rollDicePopup', value);
     },
   
   @action 
