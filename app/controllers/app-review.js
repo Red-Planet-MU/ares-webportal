@@ -45,7 +45,7 @@ export default Controller.extend({
   @action
   reset() {
     let api = this.gameApi;
-    api.requestOne('appReset', { id: this.get('model.char.id')})
+    api.requestOne('appReset', { id: this.get('model.id')})
     .then( (response) => {
       if (response.error) {
         return;
