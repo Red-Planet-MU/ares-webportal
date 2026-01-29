@@ -46,10 +46,10 @@
     @onSubmit={{this.rollDice}} 
     @onHide={{(fn this.setRollDicePopup false)}}>
     <label for="dicebox">How many dice?</label> <br>
-    <Input @id="dicebox" @value={{this.dice}} @type="number" @min="1" style="width: 45%"/>
+    <Input @id="dicebox" @value={{this.dice}} @type="number" @inputmode="numeric" @min="1" style="width: 45%"/>
     <br>
-    <label for="facesbox">How many faces?</label>  
-    <Input @id="facesbox" @value={{this.faces}} @type="number" @min="1" style="width: 45%"/>
+    <label for="facesbox">How many faces?</label> <br>
+    <Input @id="facesbox" @value={{this.faces}} @type="number" @inputmode="numeric" @min="1" style="width: 45%"/>
     <br> 
     <label for="privatebox">Private roll?</label>
     <Input @id="privatebox" @checked={{this.private_dice}} @type="checkbox"/>
