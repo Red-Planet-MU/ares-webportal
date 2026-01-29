@@ -40,7 +40,7 @@ export default Controller.extend({
   @action
   responseSelected(resp) {
     this.set('appNotes', resp.value);
-  }
+  },
 
   @action
   reset() {
