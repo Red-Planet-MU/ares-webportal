@@ -9,6 +9,9 @@ export default Component.extend({
   selectWebUseSerum: false,
   serumTargetName: null,
   rollDicePopup: false,
+  dice: '',
+  faces: '',
+  private_dice: false,
   serums: [ { name: 'Revitalizer' } ],
  
   @action
@@ -70,6 +73,37 @@ export default Component.extend({
         }
       
     });
-  }
+  },
+
+  @action
+  rollDice() {
+    let api = this.gameApi;
+    let dice = this.dice;
+    let faces = this.faces;
+    let private_dice = this.private_dice;
+    this.set('rollDicePopup', false);
+    this.set('dice', '');
+    this.set('faces', '');
+    this.set('private_dice', false)
+    if (!dice) {
+      this.flashMessages.danger("You haven't specified how many dice to roll.");
+      return;
+    }
+    if (!faces) {
+      this.flashMessages.danger("You haven't specified how many faces the dice should use.");
+      return;
+    }
+
+    api.requestOne('rollDice', { id: this.get('scene.id'), dice: dice, faces: faces, private_dice: private_dice }, null)
+    .then( (response) => {
+      if (response.error) {
+        return;
+      }
+      if (response.private_dice_result) {
+        this.flashMessages.success(private_dice_result);
+        return;
+      }
+    });
+  },
 
 });

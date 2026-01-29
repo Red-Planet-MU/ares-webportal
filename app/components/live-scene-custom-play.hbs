@@ -45,6 +45,8 @@
     @open={{this.rollDicePopup}}
     @onSubmit={{this.rollDice}} 
     @onHide={{(fn this.setRollDicePopup false)}}>
-    <Input value=dice type="number" min="1"/>  <Input value=faces type="number" min="1"/>
-    
+    <label for="dicebox">How many dice?</label> <label for="facesbox">How many faces?</label>
+    <Input @id="dicebox" @value={{this.dice}} @type="number" @min="1" @width="45%"/>  <Input @id="facesbox" @value={{this.faces}} @type="number" @min="1" @width="45%"/> 
+    <label for="privatebox">Private roll?</label>
+    <Input @id="privatebox" @value={{this.private_dice}} @type="checkbox"/>
 </BsModalSimple>
