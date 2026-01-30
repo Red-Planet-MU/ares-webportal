@@ -20,4 +20,20 @@ export default Component.extend({
 
     });
   },
+
+  @action
+    webGetBook() {
+    let api = this.get('gameApi');
+    api.requestOne('getBook', {
+      id: this.get('scene.id'),
+      char_id: this.get('char.id'),
+      char: this.get('char.name'),
+    }, null)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+
+    });
+  },
 });

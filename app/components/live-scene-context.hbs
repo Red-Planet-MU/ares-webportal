@@ -32,6 +32,12 @@
                 <p><i><a {{on 'click' (fn this.webGetFortune)}}>Fortunes:</a></i> <AnsiFormat @text={{detail.desc}} /></p>
                 </div>
               {{/if}}
+            {{else if this.scene.location.can_use_book}}
+              {{#if (eq detail.name "Biblio-Mat")}}
+                <div class="fortunes_detail">
+                <p><i><a {{on 'click' (fn this.webGetBook)}}>Biblio-Mat:</a></i> <AnsiFormat @text={{detail.desc}} /></p>
+                </div>
+              {{/if}}
             {{else}}
             <p><i>{{detail.name}}:</i> <AnsiFormat @text={{detail.desc}} /></p>
             {{/if}}
