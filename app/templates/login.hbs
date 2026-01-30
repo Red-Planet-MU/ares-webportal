@@ -12,7 +12,7 @@
 <div class="card card-default">
     <div class="card-body">
 
-        <p><Input @type="text" id="name" placeholder="Name" @enter={{this.login}} @value={{this.name}} autofocus={{true}} /></p>
+        <p><Input @type="text" id="name" @name="username" placeholder="Name" @enter={{this.login}} @value={{this.name}} autofocus={{true}} /></p>
         <p><Input @type="password" placeholder="Password" @enter={{this.login}} id="password" @value={{this.password}} /></p>
         
         <button {{on 'click' this.login}} class="btn btn-primary">Login</button>
