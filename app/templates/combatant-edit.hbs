@@ -125,21 +125,15 @@
 
 <div class="form-item">
     <div class="form-item-label">
-            <b>Vehicle:</b>           
-            <TooltipIcon @position="right" @message="Enter a vehicle type to get in your own vehicle, or a character name to get into theirs." @icon="fa fa-question-circle" />
-
+            <b>Mount:</b>           
+            <TooltipIcon @position="right" @message="Check the box to mount up on your horse, or enter a name below to ride with someone else." @icon="fa fa-question-circle" />
     </div>
-    <div class="form-item-entry">
-        
-            <Input @type="text" size={{25}} id="vehicleName" @value={{this.model.vehicle}} />
-            <br>
-            <b>Passenger Type:</b> <PowerSelect @selected={{this.model.passenger_type}} @options={{this.passengerTypes}} @onChange={{this.passengerTypeChanged}} as |passengerType|>
-              {{passengerType}}
-            </PowerSelect>
-            
-            
-    </div>
- 
+    <div class="form-item-entry"> 
+        <Input @type="checkbox" @checked={{comb.mounted}} />
+        <br>
+        <label>Ride With</label>
+        <Input @type="text" @size={{15}} @id="ridewith" @value={{comb.riding_with}} />
+    </div>    
 </div>
 
 
