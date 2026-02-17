@@ -56,7 +56,7 @@
         <SceneTypeTag @scene={{this.model}} />
          
         {{#if this.isApproved}}
-            <button {{on 'click' (fn this.like false)}} class="badge badge-likes"><i class="fa fa-heart" aria-label="Liked"></i> {{this.model.likes}}</button>
+            <button {{on 'click' (fn this.setShowSceneComp true)}} class="badge badge-likes"><i class="fa fa-heart" aria-label="CompScene"></i></button>
         {{/if}} 
         
          </div>
