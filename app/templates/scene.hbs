@@ -56,13 +56,20 @@
         <SceneTypeTag @scene={{this.model}} />
          
         {{#if this.isApproved}}
-            <button {{on 'click' (fn this.setShowSceneComp true)}} class="badge badge-likes"><i class="fa fa-heart" aria-label="CompScene"></i></button>
+            <a data-bs-toggle="collapse" href="#comp" {{on 'click' (fn this.setShowSceneComp true)}} class="badge badge-likes"><i class="fa fa-heart" aria-label="CompScene"></i></a>
         {{/if}} 
         
          </div>
          
     </div>
-    
+    <div id="comp" class="card-collapse collapse" data-bs-parent="#comp-wrap">
+    <b>Give a Compliment</b>
+    <MarkdownEditor @text={{this.char.comp_msg}} />
+        <div class="action-buttons">
+            <a data-bs-toggle="collapse" href="#comps-holder" class="btn btn-secondary btn-collapse">Cancel</a>
+            <button class="btn btn-primary" {{on 'click' this.save}} >Save</button>
+        </div>
+    </div>
     <div class="log-participants-box">
         
     <div class="icon-gallery">    
