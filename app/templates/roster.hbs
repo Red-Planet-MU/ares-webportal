@@ -10,11 +10,7 @@
 {{/each}}
 </ul>
 
-<div class="tab-content" role="tablist">    
-
 {{#each this.model.roster as |group|}}
-
-  <div id="{{group.key}}" class="tab-pane fade show {{group.active_class}}">
 
     {{#each group.chars as |char|}}
     
@@ -63,16 +59,8 @@
         
     </div>
     
-    
-    
-    
-    
     {{/each}}
 
-</div>
-
 {{/each}}
-
-</div>
 
 {{outlet}}
