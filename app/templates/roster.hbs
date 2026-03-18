@@ -3,13 +3,6 @@
 
 <p>The roster contains ready-made characters.  Some have been played before, as indicated by a <span class="badge bg-info">Previously Played</span> tag.  Roster characters require an application.</p>
 
-<ul class="nav nav-tabs">
-{{#each this.model.roster as |group|}}
-
-      <li class="nav-item"><a data-bs-toggle="tab" href="#{{group.key}}" class="nav-link {{group.active_class}}">{{group.name}}</a></li>
-{{/each}}
-</ul>
-
 {{#each this.model.roster as |group|}}
 
     {{#each group.chars as |char|}}
