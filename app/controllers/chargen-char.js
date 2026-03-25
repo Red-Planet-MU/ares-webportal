@@ -109,6 +109,8 @@ export default Controller.extend({
     folder = folder.toLowerCase();
     name = name.toLowerCase();
     this.set('model.char.profile_image', `${folder}/${name}`);
+    let profileImage = this.get('model.char.profile_image')
+    api.requestOne('chargenProfile', id: this.get('model.char.id'), profile_image_to_set: profileImage)
   },
         
   @action
