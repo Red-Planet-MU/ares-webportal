@@ -110,6 +110,7 @@ export default Controller.extend({
     name = name.toLowerCase();
     this.set('model.char.profile_image', `${folder}/${name}`);
     let profileImage = this.get('model.char.profile_image');
+    console.log(profileImage);
     api.requestOne('chargenProfile', { id: this.get('model.char.id'), profile_image_to_set: profileImage})
     .then( (response) => {
       if (response.error) {
