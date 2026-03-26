@@ -83,7 +83,8 @@ export default Controller.extend({
       tags: this.get('model.scene.tags'),
       content_warning: this.get('model.scene.content_warning'),
       limit: this.get('model.scene.limit'),
-      log: this.get('model.scene.log')
+      log: this.get('model.scene.log'),
+      invitePals: this.get('model.invitePals')
     }, null)
     .then( (response) => {
       if (response.error) {
