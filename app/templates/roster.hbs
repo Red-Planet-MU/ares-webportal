@@ -46,8 +46,6 @@
          {{#if (not char.app_pending)}}
           {{#if this.isAuthenticated}}
             <LinkTo @route="roster-claim" @model={{char.id}} class="btn btn-primary">Claim</LinkTo>
-          {{else}}
-            <LinkTo @route="roster-claim" @model={{char.id}} class="btn btn-primary" disabled="true">Claim</LinkTo>
           {{/if}}
          {{/if}}
        </div>
