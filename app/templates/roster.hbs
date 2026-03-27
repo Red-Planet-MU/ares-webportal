@@ -1,7 +1,7 @@
 {{page-title 'Roster'" | Red Planet"}}
 <h1>Roster</h1>
 
-<p>The roster contains ready-made characters.  Some have been played before, as indicated by a <span class="badge bg-info">Previously Played</span> tag.  Roster characters require an application.</p>
+<p>The roster contains ready-made characters.  Some have been played before, as indicated by a <span class="badge bg-info">Previously Played</span> tag.  Roster characters require an application. Please use the <LinkTo @route="tour">Tour</LinkTo> function to get started, then come back here to submit a claim on the roster you'd like to play.</p>
 <br>
 {{#each this.model.roster as |group|}}
 
@@ -44,7 +44,11 @@
       <div class="roster-buttons">  
          <LinkTo @route="char" @model={{char.name}} class="btn btn-secondary">Profile</LinkTo>
          {{#if (not char.app_pending)}}
-         <LinkTo @route="roster-claim" @model={{char.id}} class="btn btn-primary">Claim</LinkTo>
+          {{#if this.isAuthenticated}}
+            <LinkTo @route="roster-claim" @model={{char.id}} class="btn btn-primary">Claim</LinkTo>
+          {{else}}
+            <LinkTo @route="roster-claim" @model={{char.id}} class="btn btn-primary" disabled="true">Claim</LinkTo>
+          {{/if}}
          {{/if}}
        </div>
         
