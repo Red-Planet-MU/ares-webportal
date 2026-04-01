@@ -10,7 +10,10 @@ export default Component.extend({
   selectSerumGive: false,
   selectGetHorse: false,
   selectManagePals: false,
-  serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand'],
+  selectManagePatients: false,
+  serums: ['Revitalizer', 'Adreno', 'Glass Cannon', 'Hardy', 'Quickhand', 'Equine Elixir'],
+
+  serumTargetName: null,
  
   @action
     setSelectGetHorse(value) {
@@ -36,6 +39,11 @@ export default Component.extend({
     setSelectManagePals(value) {
       this.set('selectManagePals', value);
     },
+
+  @action
+    setSelectManagePatients(value) {
+      this.set('selectManagePatients', value);
+    },
   
   @action 
     serumToGiveChanged(newSerumToGive) {
@@ -45,7 +53,22 @@ export default Component.extend({
   @action 
     changeGiveTarget(newSerumGiveTarget) {
       this.set('selectedGiveTarget', newSelectedGiveTarget)
-    },  
+    },
+
+  @action
+  palsChanged(newPals) {
+    this.set('char.custom.pals', newPals);
+  },
+
+  @action
+  patientsChanged(newPatients) {
+    this.set('char.custom.patients', newPatients);
+  },
+
+  @action
+  serumTargetChanged(newSerumGiveTarget) {
+    this.set('serumTargetName', newSerumGiveTarget);
+  },
 
   @action
     reloadChar() {
@@ -75,7 +98,7 @@ export default Component.extend({
     webGiveSerum() {
     let api = this.get('gameApi');
     let webSerumToGive = this.serumToGive;
-    let webSerumGiveTarget = this.targetName;
+    let webSerumGiveTarget = this.serumTargetName;
     this.set('selectSerumGive', false);
     api.requestOne('giveSerum', {
       char_id: this.get('char.id'),
@@ -146,6 +169,37 @@ export default Component.extend({
         }
     this.flashMessages.success('Pal Removed!');
     this.reloadChar();
+    });
+  },
+
+  @action 
+    webManagePals() {
+      let api = this.get('gameApi');
+      this.set('selectManagePals', false);
+      api.requestOne('webManagePals', {
+        pals: (this.get('char.custom.pals') || []).map(p => p.name),
+      }, null)
+      .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Pals Updated!');
+    });
+  },
+
+  @action 
+    webManagePatients() {
+      let api = this.get('gameApi');
+      this.set('selectManagePatients', false);
+      api.requestOne('webManagePatients', {
+        patients: (this.get('char.custom.patients') || []).map(p => p.name),
+      }, null)
+      .then( (response) => {
+       if (response.error) {
+             this.reloadChar();
+             return;
+        }
+    this.flashMessages.success('Patients Updated!');
     });
   },
 

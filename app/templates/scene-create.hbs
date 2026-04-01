@@ -1,4 +1,4 @@
-{{page-title 'Create a Scene'}}
+{{page-title 'Create a Scene'" | Red Planet"}}
 <h1>Create a Scene</h1>
     {{!-- <div class="alert alert-info">
         Scene Completed? <Input @type="checkbox" @checked={{this.model.scene.completed}} /> 
@@ -122,6 +122,17 @@
         </PowerSelectMultiple>
     </div> 
   </div>
+
+   <div class="form-item">
+    <div class="form-item-label">
+        Invite Pals?          
+        <TooltipIcon @position="right" @message="Check the box to let all of your Pals know they are welcome to join this scene. Set up Pals on your profile." @icon="fa fa-question-circle" />
+    </div>
+    <div class="form-item-entry"> 
+        <Input @type="checkbox" @checked={{this.model.invitePals}} />
+        <br>
+    </div>    
+  </div>  
   
    <div class="form-item">
     <div class="form-item-label">

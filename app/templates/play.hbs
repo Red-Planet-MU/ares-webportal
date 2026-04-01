@@ -11,7 +11,7 @@
 	  }
   }
 </style>
-{{page-title 'Play'}}
+{{page-title 'Play'" | Red Planet"}}
 <div class="play-screen">
        
   <div class="play-sidebar">     
@@ -99,9 +99,9 @@
            {{/if}}
          {{/if}}
        {{/each}}
+      <PlayCustom @custom_play={{this.model.app.game.custom_play}} @refresh={{this.refresh}}/> 
      </div>
-
-     <PlayCustom @custom_play={{this.model.app.game.custom_play}} @refresh={{this.refresh}}/>      
+   
    </div>
    
    <div class="play-main">

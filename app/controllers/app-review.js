@@ -7,6 +7,7 @@ export default Controller.extend({
   router: service(),
   flashMessages: service(),
   appNotes: '',
+
     
   @action
   approveChar() {
@@ -39,5 +40,18 @@ export default Controller.extend({
   @action
   responseSelected(resp) {
     this.set('appNotes', resp.value);
-  }
+  },
+
+  @action
+  reset() {
+    let api = this.gameApi;
+    api.requestOne('appReset', { id: this.get('model.id')})
+    .then( (response) => {
+      if (response.error) {
+        return;
+      }
+      this.send('reloadModel');
+      this.flashMessages.success('Abilities reset.');
+    });    
+  },
 });

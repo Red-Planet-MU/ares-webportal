@@ -37,7 +37,9 @@ export default Controller.extend(ConfirmAction, {
       action_args: this.get('model.action_args'),
       npc_skill: this.get('model.npc_skill'),
       weapon_specials: this.get('model.weapon_specials') || [],
-      armor_specials: this.get('model.armor_specials') || []
+      armor_specials: this.get('model.armor_specials') || [],
+      mounted: this.get('model.mounted'),
+      riding_with: this.get('model.riding_with')
     }, null )
     .then( (response) => {
       if (response.error) {

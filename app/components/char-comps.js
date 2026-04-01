@@ -25,10 +25,10 @@ export default Component.extend({
     });
   },
 
-@action
-  reloadChar() {
-    this.reloadChar();
-  },
+  @action
+    reloadChar() {
+      this.onReloadChar();
+    },
     
   @action
   save() {

@@ -1,4 +1,4 @@
-{{page-title 'Review Character'}}
+{{page-title 'Review Character'" | Red Planet"}}
 <h1>Review {{this.model.name}}</h1>
 
 
@@ -50,5 +50,10 @@
                    
     </div>
 </div>
+
+<h2>Start Fresh</h2>
+
+<p>If you need to start this character's skills over completely, you can reset to a fresh starting basis based on current groups (if any). This action cannot be undone!</p>
+<button name="reset" {{on 'click' this.reset}} class="btn btn-warning">Reset Abilities</button>
 
 {{outlet}}

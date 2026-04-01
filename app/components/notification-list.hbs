@@ -28,6 +28,8 @@
           <TooltipButton @position="left" @message="View" @icon="fa fa-eye" @route="event" @model={{notification.reference_id}} />
         {{else if (eq notification.type 'achievement')}}
           <TooltipButton @position="left" @message="View" @icon="fa fa-eye" @route="char" @model={{this.char.name}} />
+        {{else if (eq notification.type 'comp')}}
+          <TooltipButton @position="left" @message="View" @icon="fa fa-eye" @route="char" @model={{this.char.name}} />
         {{/if}}
       
         {{#if notification.is_unread}}

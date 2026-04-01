@@ -1,7 +1,7 @@
-{{page-title this.pageTitle}}
+{{page-title this.model.title " | Red Planet"}}
 <a name="top"></a>
 
-<h1>{{this.model.icdate}} - {{this.model.title}}</h1>
+<h1>{{this.model.title}}</h1>
         
 <div class="log-wrap">
        
@@ -13,7 +13,7 @@
         <div class="alert alert-danger"><b>Content Warning:</b> {{this.model.content_warning}}</div>
         {{/if}}
 
-        <p><b>IC Date:</b> {{this.model.icdate}}</p>
+        <p><b>IC Date:</b> {{this.model.icmonth}}/{{this.model.icday}}/{{this.model.icyear}}</p>
 
         <p><b>OOC Date:</b> {{this.model.date_created}}</p>
 
@@ -55,20 +55,22 @@
             
         <SceneTypeTag @scene={{this.model}} />
          
-        {{!--{{#if this.isApproved}}
-            {{#if this.model.has_liked}}
-            <button {{on 'click' (fn this.like false)}} class="badge badge-likes"><i class="fa fa-heart" aria-label="Liked"></i> {{this.model.likes}}</button>
-            {{else}}
-            <button {{on 'click' (fn this.like true)}} class="badge badge-likes"><i class="far fa-heart" area-hidden="Like"></i> {{this.model.likes}}</button>
-            {{/if}}
-        {{else}}
-            <span class="badge badge-likes"><i class="far fa-heart" area-label="Likes"></i> {{this.model.likes}}</span>
-        {{/if}} --}}
+        {{#if this.isApproved}}
+            <a data-bs-toggle="collapse" href="#comp" class="badge badge-likes"><i class="fa fa-heart" aria-label="CompScene"></i></a>
+        {{/if}} 
         
          </div>
          
     </div>
-    
+    <div id="comp" class="card-collapse collapse" data-bs-parent="#comp-wrap">
+    <br>
+    <b>Compliment Scene Participants</b>
+    <MarkdownEditor @text={{this.comp_msg}} />
+        <div class="action-buttons">
+            <a data-bs-toggle="collapse" href="#comp" class="btn btn-secondary btn-collapse">Cancel</a>
+            <button class="btn btn-primary" {{on 'click' this.saveComp}}>Save</button>
+        </div>
+    </div>
     <div class="log-participants-box">
         
     <div class="icon-gallery">    

@@ -30,6 +30,47 @@
             At Max
             </div>
           {{/if}}
+          {{#if ability.a_has_spec}}
+            {{#if (not ability.c_has_spec)}}
+            <div class="break" style="flex-basis: 100%; height: 0;"></div> 
+              <div class="xp-specialty-name" style="flex-basis: 20%;"> <i>Specialty:</i></div>
+                <div class="xp-progress">
+                  <ProgressBar @currentValue={{ability.spec_xp}} @maxValue={{ability.spec_xp_needed}} @bgColor="bg-success" @showLabel=true>
+                  </ProgressBar>
+                  <div class="progress-value">{{ability.spec_xp}} / {{ability.spec_xp_needed}}</div>
+              </div>
+              <div class="xp-learning">
+              {{#if (and (gt this.xp 0) (not (eq ability.spec_xp 15)))}}
+                <button class="btn btn-secondary" {{on 'click' (fn this.learnSpecAbility ability)}} >Learn</button>
+              {{else if (gt this.xp 0)}}
+                <button class="btn btn-secondary" {{on 'click' (fn this.setShowFinishSpecAbility true)}} >Finish</button>
+              {{else}}
+                Out of XP
+              {{/if}}
+              <BsModalSimple 
+                @title="Select a Specialty"
+                @closeTitle="Cancel"
+                @submitTitle="Finish"
+                @size={{null}}
+                @fade={{true}}
+                @open={{this.showFinishSpecAbility}}
+                @onSubmit={{this.webFinishSpecAbility2 ability.name}} 
+                @onHide={{(fn this.setShowFinishSpecAbility false)}}
+                @renderInPlace={{true}}>
+                  <PowerSelect
+                    @options={{ability.a_has_spec}}
+                    @onChange={{this.specToAddChanged}}
+                    @selected={{this.specToAdd}}
+                    @labelText="Choose a Specialty"
+                    as |spec|
+                  >
+                  {{spec}}
+                  </PowerSelect>
+              </BsModalSimple>
+              </div>
+            {{/if}}
+          {{/if}}
         </div>
       {{/each}}
+
 </div>

@@ -46,7 +46,8 @@ export default Controller.extend(AuthenticatedController, {
       if (response.error) {
         return;
       }
-      this.send('reloadModel');
+      //this.send('reloadModel');
+      window.location.reload(true);
       this.flashMessages.success('All topics marked as read!');
     });
   },

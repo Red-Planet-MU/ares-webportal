@@ -10,6 +10,8 @@
 
   <b>Hardy Serums: </b>{{{this.char.custom.h_serums}}} <br />
 
+  <b>Equine Elixir Serums: </b>{{{this.char.custom.e_serums}}} <br />
+
   <div class="action-buttons">
   <button class="btn btn-primary" id="getserum" {{on "click" (fn this.setSelectSerum true)}}>Get a Serum</button> 
   <button class="btn btn-secondary" id="giveserum" {{on "click" (fn this.setSelectSerumGive true)}}>Give a Serum</button> 
@@ -55,10 +57,18 @@
       >
       {{serum}}
       </PowerSelect>
-      <p><b>Who Do You Want to Give a Serum To?</b> </p>
-      <p>
-      Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webGiveSerum"}} @value={{this.targetName}} />
-      </p>
+      <br>
+      <PowerSelect
+        @options={{this.char.custom.possible_serum_receivers}}
+        @onChange={{this.serumTargetChanged}}
+        @selected={{this.serumTargetName}}
+        @searchEnabled=true 
+        @searchField="name"
+        @labelText="Who do you want to give a Serum to?"
+        as |serumTarget|
+      >
+      {{serumTarget.name}}
+      </PowerSelect>
   </BsModalSimple>
 
 </div>
@@ -108,6 +118,7 @@
       <CharIconInline @char={{char}}/>
     </div>
   {{/each}}
+  <FlashMessages />
   <div class="action-buttons">
     <button class="btn btn-primary" id="addpal" {{on "click" (fn this.setSelectManagePals true)}}>Manage Pals</button> 
   </div>
@@ -115,14 +126,63 @@
   <BsModalSimple 
     @title="Manage Pals"
     @closeTitle="Cancel"
+    @submitTitle="Update Pals"
     @size={{null}}
     @fade={{true}}
     @open={{this.selectManagePals}}
-    @onSubmit={{this.webGetHorse}} 
-    @onHide={{(fn this.setSelectGetHorse false)}}
+    @onSubmit={{this.webManagePals}} 
+    @onHide={{(fn this.setSelectManagePals false)}}
     @renderInPlace={{true}}>
-    Character: <Input @type="text" @size={{15}} @id="palsTargetName" @enter={{action "webManagePal"}} @value={{this.palsTargetName}} />
-    <button class="btn btn-primary" id="addpal" {{on "click" (fn this.webAddPal)}}>Add Pal</button>
-    <button class="btn btn-secondary" id="removepall" {{on "click" (fn this.webRemovePal)}}>Remove Pal</button>
+    <PowerSelectMultiple
+        @options={{this.char.custom.possible_pals}}
+        @selected={{this.char.custom.pals}}
+        @onChange={{this.palsChanged}}
+        @searchEnabled=true 
+        @searchField="name"
+        @labelText="Select Characters"
+        as |pal|
+      >
+      {{pal.name}}
+    </PowerSelectMultiple>
+    <i>Note: No changes are made unless you click 'Update Pals'.</i>
+  </BsModalSimple>
+</div>
+
+<div id="systemmedical" class="tab-pane fade">
+  <h3>Current Patients</h3>
+  {{#each this.char.custom.patients as |char|}}
+    <div class="patients-row">
+      <CharIconInline @char={{char}}/>
+    </div>
+  {{/each}}
+  <br>
+  <p><b>Maximum Patients: </b>{{{this.char.custom.max_patients}}}</p>
+  <FlashMessages />
+  <div class="action-buttons">
+    <button class="btn btn-primary" id="addpatient" {{on "click" (fn this.setSelectManagePatients true)}}>Manage Patients</button> 
+  </div>
+
+  <BsModalSimple 
+    @title="Manage Patients"
+    @closeTitle="Cancel"
+    @submitTitle="Update Patients"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectManagePatients}}
+    @onSubmit={{this.webManagePatients}} 
+    @onHide={{(fn this.setSelectManagePatients false)}}
+    @renderInPlace={{true}}>
+    <PowerSelectMultiple
+        @options={{this.char.custom.possible_patients}}
+        @selected={{this.char.custom.patients}}
+        @onChange={{this.patientsChanged}}
+        @searchEnabled=true 
+        @searchField="name"
+        @labelText="Select Characters"
+        as |patient|
+      >
+      {{patient.name}}
+    </PowerSelectMultiple>
+    <i>Note: No changes are made unless you click 'Update Patients'.</i>
   </BsModalSimple>
 </div>

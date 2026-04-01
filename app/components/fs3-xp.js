@@ -20,6 +20,41 @@ export default Component.extend({
       this.abilityLearned();
     });
   },
+
+  @action
+  learnSpecAbility(ability) {
+    let api = this.gameApi;
+    api.requestOne('learnSpecAbility', { ability: ability.name, char: this.get('char.name') }, null)
+    .then( (response) => {
+      if (response.error) {
+        return;
+      }
+            
+      this.flashMessages.success('Learned!');
+      this.abilityLearned();
+    });
+  },
+
+  @action
+  webFinishSpecAbility() {
+    let api = this.gameApi;
+    let webSpecToAdd = this.specToAdd;
+    this.set('showFinishSpecAbility', false);
+    api.requestOne('webFinishSpecAbility', {
+      ability: ability.name,
+      char_id: this.get('char.id'),
+      char: this.get('char.name'),
+      spec: webSpecToAdd
+    }, null)
+    .then( (response) => {
+       if (response.error) {
+             return;
+        }
+    this.flashMessages.success('Finished!');
+    this.abilityLearned();
+    });
+  },
+
         
   @action
   learnNewAbility() {

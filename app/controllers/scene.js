@@ -24,6 +24,22 @@ export default Controller.extend(AuthenticatedController, {
       this.send('reloadModel');
     });
   },
+
+  @action
+  saveComp() {
+    let api = this.get('gameApi');
+    api.requestOne('addSceneComp', {
+      id: this.get('model.id'),
+      comp_msg: this.get('comp_msg')
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+      this.flashMessages.success('Compliment added!');
+      this.send('reloadModel');
+    });
+  },
         
   @action
   unshareScene() {

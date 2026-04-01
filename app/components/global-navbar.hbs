@@ -17,11 +17,11 @@
                     {{/if}}
                     </button>
                     <ul class="dropdown-menu">
-                      <li><LinkTo class="dropdown-item" @route="notifications">Notifications</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="char" @model={{this.currentUser.name}}>Profile</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="mail">Mail</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="jobs">{{#if this.model.jobs_admin}}Jobs{{else}}Requests{{/if}}</LinkTo></li>
-                      <li><LinkTo class="dropdown-item" @route="account">Account</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="notifications" {{on "click" (fn this.closeNavbar)}}>Notifications</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="char" @model={{this.currentUser.name}} {{on "click" (fn this.closeNavbar)}}>Profile</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="mail" {{on "click" (fn this.closeNavbar)}}>Mail</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="jobs" {{on "click" (fn this.closeNavbar)}}>{{#if this.model.jobs_admin}}Jobs{{else}}Requests{{/if}}</LinkTo></li>
+                      <li><LinkTo class="dropdown-item" @route="account" {{on "click" (fn this.closeNavbar)}}>Account</LinkTo></li>
 
                       {{#if this.model.alts}}
                           <li><a class="dropdown-item" href="#" {{on 'click' (fn this.setAltSelectionVisible true)}}>Switch Alt</a></li>
@@ -32,7 +32,7 @@
                     </ul>
                   </li>
                 {{else}}
-                <li class="nav-item d-lg-none"><LinkTo class="nav-link" @route="login" @query={{hash redirect=this.currentRoute}}>Login</LinkTo></li>
+                <li class="nav-item d-lg-none"><LinkTo class="nav-link" @route="login" @query={{hash redirect=this.currentRoute}} {{on "click" (fn this.closeNavbar)}}>Login</LinkTo></li>
                 {{/if}}
 
         
@@ -40,9 +40,15 @@
           {{#if sec.menu }}
             <li class="nav-item dropdown">
               <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">             
-                {{{sec.title}}}
+                {{#if (and (eq sec.title "Game") this.model.has_unread)}}
+                  {{#if this.model.has_unread}}
+                    <span class="badge badge-navnotice"> </span>{{{sec.title}}}
+                  {{/if}}
+                {{else}}
+                  {{{sec.title}}}
+                {{/if}}
               </button>
-              <ul class="dropdown-menu  dropdown-menu-end">
+              <ul class="dropdown-menu  dropdown-menu-end animate slideIn">
                 {{#each sec.menu as |navItem|}}
                   {{#if navItem.url}}
                       <li><a class="dropdown-item" href="{{navItem.url}}" target="{{navItem.target}}">{{{navItem.title}}}</a></li>
@@ -55,7 +61,11 @@
                     {{else if navItem.ids}}
                       <LinkTo class="dropdown-item" @route={{navItem.route}} @models={{navItem.ids}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
                     {{else}}
-                      <LinkTo class="dropdown-item" @route={{navItem.route}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
+                      {{#if (and (eq navItem.title "Forum") this.model.has_unread)}}
+                        <LinkTo class="dropdown-item" @route={{navItem.route}} {{on "click" (fn this.closeNavbar)}}><span class="badge badge-navnotice"> </span>{{{navItem.title}}}</LinkTo>
+                      {{else}}
+                        <LinkTo class="dropdown-item" @route={{navItem.route}} {{on "click" (fn this.closeNavbar)}}>{{{navItem.title}}}</LinkTo>
+                      {{/if}}
                     {{/if}}
                     </li>
                   {{/if}}

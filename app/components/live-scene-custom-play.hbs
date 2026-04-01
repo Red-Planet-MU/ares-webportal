@@ -1,4 +1,6 @@
-<li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li> 
+<li><hr role="separator" class="dropdown-divider"></li>
+<li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li>
+<li><a href="#" {{on 'click' (fn this.setRollDicePopup true)}} class="dropdown-item">Roll Dice</a></li> 
 <li><a href="#" {{on 'click' this.webPalsInvite}} class="dropdown-item">Invite Pals</a></li> 
 
 <BsModalSimple 
@@ -10,7 +12,6 @@
     @open={{this.selectWebUseSerum}}
     @onSubmit={{this.webUseSerum}} 
     @onHide={{(fn this.setSelectWebUseSerum false)}}
-    @renderInPlace={{true}}
     >
       <PowerSelect
         @options={{this.serums}}
@@ -21,8 +22,35 @@
       >
       {{serumToUse.name}}
     </PowerSelect>
-    <p><b>List a Target (optional):</b> </p>
-    <p>
-      Target: <Input @type="text" @size={{15}} @id="targetName" @enter={{action "webUseSerum"}} @value={{this.targetName}} />
-    </p>
+    <br>
+    <PowerSelect
+        @options={{this.custom.serumTargets}}
+        @onChange={{this.serumTargetChanged}}
+        @selected={{this.serumTargetName}}
+        @searchEnabled=true 
+        @searchField="name"
+        @labelText="Select a Target (optional):"
+        as |serumTarget|
+      >
+      {{serumTarget.name}}
+      </PowerSelect>
+</BsModalSimple>
+
+<BsModalSimple 
+    @title="Roll Dice"
+    @closeTitle="Cancel"
+    @submitTitle="Roll it!"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.rollDicePopup}}
+    @onSubmit={{this.rollDice}} 
+    @onHide={{(fn this.setRollDicePopup false)}}>
+    <label for="dicebox">How many dice?</label> <br>
+    <Input @id="dicebox" @value={{this.dice}} @type="number" @inputmode="numeric" @min="1" style="width: 45%"/>
+    <br>
+    <label for="facesbox">How many faces?</label> <br>
+    <Input @id="facesbox" @value={{this.faces}} @type="number" @inputmode="numeric" @min="1" style="width: 45%"/>
+    <br> 
+    <label for="privatebox">Private roll?</label>
+    <Input @id="privatebox" @checked={{this.private_dice}} @type="checkbox"/>
 </BsModalSimple>

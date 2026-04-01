@@ -27,31 +27,43 @@
                        
                        <p>
                            <LinkTo @route="notifications">
-                               <span class="badge rounded-pill bg-primary notification-bell {{if (gt this.model.notification_count 0) 'active' ''}}"><i class="fa fa-bell" aria-label='Unread Notifications'></i>
+                               <span class="badge rounded-pill bg-primary notification-bell {{if (gt this.model.notification_count 0) 'active' ''}}"><i class="fa fa-bell fa-shake-hover" aria-label='Unread Notifications'></i>
                                <span id="notificationBadge">{{this.model.notification_count}}</span>
                                </span>
                            </LinkTo> 
-                            |
                            <LinkTo @route="char" @model={{this.currentUser.name}}>
-                             <i class="fa fa-user" aria-label="Profile"></i>
-                           </LinkTo> |
+                            <span class="badge-navbar-bgs">
+                             <i class="fa fa-user fa-bounce-hover" aria-label="Profile" style="--fa-bounce-height: .5"></i>
+                            </span>
+                           </LinkTo>
                            <LinkTo @route="mail">
-                             <i class="fa fa-envelope" aria-label="Mail"></i>
-                           </LinkTo> |
+                            <span class="badge-navbar-bgs">
+                              <span class="change-icon">
+                                <i class="fa fa-envelope" aria-label="Mail"></i>
+                                <i class="fa fa-envelope-open-text" aria-label="Mail"></i>
+                              </span>
+                            </span>
+                           </LinkTo>
                            <LinkTo @route="jobs">
-                                <i class="fa fa-list" aria-label="Jobs"></i>
+                            <span class="badge-navbar-bgs">
+                              <i class="fa fa-list fa-bounce-hover" aria-label="Jobs" style="--fa-bounce-height: .5"></i>
+                            </span>
                            </LinkTo>
-                           | <LinkTo @route="account">
-                             <i class="fa fa-cogs" aria-label="Account"></i>
+                           <LinkTo @route="account">
+                              <span class="badge-navbar-bgs">
+                                <i class="fa fa-cog fa-spin-hover" aria-label="Account"></i>
+                              </span>
                            </LinkTo>
-                           | <LinkTo @route="logout">
-                             <i class="fa fa-sign-out-alt" aria-label="Logout"></i> 
+                           <LinkTo @route="logout">
+                              <span class="badge-navbar-bgs">
+                                <i class="fa fa-sign-out-alt fa-bounce-hover" aria-label="Logout" style="--fa-bounce-height: .5"></i> 
+                              </span>
                            </LinkTo>
                        </p>
                     {{else}}
-                        <p><LinkTo @route="login" @query={{hash redirect=this.currentRoute}}>Login</LinkTo>
-                        | <LinkTo @route="register">Register</LinkTo>
-                        | <LinkTo @route="tour">Tour</LinkTo>
+                        <p><LinkTo @route="login" @query={{hash redirect=this.currentRoute}}><span class="badge-navbar-bgs">Login</span></LinkTo>
+                        <LinkTo @route="register"><span class="badge-navbar-bgs">Register</span></LinkTo>
+                        <LinkTo @route="tour"><span class="badge-navbar-bgs">Tour</span></LinkTo>
                         </p>
                     {{/if}}
                     </div>
