@@ -124,13 +124,8 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
         this.gameSocket.highlightFavicon();
       }
     }
-    if (channel.is_page) {
-      console.log("inside page loop")
-      console.log(msgData.is_unread_for_play)
-      console.log(isUnread)
-      if (!isUnread) {
-        console.log("We made it")
-      } 
+    if (channel.is_page && !isUnread) {
+      console.log("We made it") 
     }
     else {
       let messageCount = channel.new_messages || 0;
