@@ -100,12 +100,14 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     let author = msgData.author;
     let messageId = msgData.message_id;
     let localTimestamp = localTime(timestamp);
+    let isUnread = msgData.is_unread_for_play;
       
     let channel = this.getChannel(channelKey);
     if (!channel) {
       channel = this.addPageChannel(msgData);
     }
-    console.log(msgData.new_messages)
+    console.log(msgData.is_unread_for_play)
+    console.log(isUnread)
     if (!channel.messages.find(m => m.id === messageId)) {
       pushObject(channel.messages, 
          {message: newMessage, timestamp: localTimestamp, author: author, id: messageId},
@@ -124,10 +126,8 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
         this.gameSocket.highlightFavicon();
       }
     }
-    console.log(channel.new_messages)
-    if (!channel.new_messages ) {
-      console.log("Made it in the loop")
-      //Don't do anything if there are no new messages
+    if (!isUnread) {
+      console.log("We made it")
     }
     else {
       let messageCount = channel.new_messages || 0;
