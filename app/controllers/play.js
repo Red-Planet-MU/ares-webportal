@@ -124,6 +124,9 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
         this.gameSocket.highlightFavicon();
       }
     }
+    if (!channel.new_messages ) {
+      //Don't do anything if there are no new messages
+    }
     else {
       let messageCount = channel.new_messages || 0;
       set(channel, 'new_messages', messageCount + 1);
