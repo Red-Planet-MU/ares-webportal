@@ -124,7 +124,9 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
         this.gameSocket.highlightFavicon();
       }
     }
+    console.log(channel.new_messages)
     if (!channel.new_messages ) {
+      console.log("Made it in the loop")
       //Don't do anything if there are no new messages
     }
     else {
