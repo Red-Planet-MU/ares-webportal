@@ -106,8 +106,6 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     if (!channel) {
       channel = this.addPageChannel(msgData);
     }
-    console.log(msgData.is_unread_for_play)
-    console.log(isUnread)
     if (!channel.messages.find(m => m.id === messageId)) {
       pushObject(channel.messages, 
          {message: newMessage, timestamp: localTimestamp, author: author, id: messageId},
@@ -127,6 +125,9 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
       }
     }
     if (channel.is_page) {
+      console.log("inside page loop")
+      console.log(msgData.is_unread_for_play)
+      console.log(isUnread)
       if (!isUnread) {
         console.log("We made it")
       } 
