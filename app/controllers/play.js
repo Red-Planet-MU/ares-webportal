@@ -105,7 +105,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     if (!channel) {
       channel = this.addPageChannel(msgData);
     }
-      
+    console.log(msgData.new_messages)
     if (!channel.messages.find(m => m.id === messageId)) {
       pushObject(channel.messages, 
          {message: newMessage, timestamp: localTimestamp, author: author, id: messageId},
