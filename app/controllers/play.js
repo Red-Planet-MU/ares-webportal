@@ -124,7 +124,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
         this.gameSocket.highlightFavicon();
       }
     }
-    if (channel.is_page && !isUnread) {
+    else if (channel.is_page && !isUnread) {
       console.log("We made it") 
     }
     else {
