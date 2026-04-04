@@ -101,6 +101,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     let messageId = msgData.message_id;
     let localTimestamp = localTime(timestamp);
     let isUnread = msgData.is_unread_for_play;
+    let currentUsername = this.get('currentUser.name');
       
     let channel = this.getChannel(channelKey);
     if (!channel) {
@@ -125,7 +126,8 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
       }
     }
     else if (channel.is_page && !isUnread) {
-      console.log("We made it") 
+      console.log(currentUsername) 
+      console.log(author)
     }
     else {
       let messageCount = channel.new_messages || 0;
