@@ -128,6 +128,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
     else if (channel.is_page && !isUnread) {
       console.log(currentUsername) 
       console.log(author)
+      console.log(author.name)
     }
     else {
       let messageCount = channel.new_messages || 0;
