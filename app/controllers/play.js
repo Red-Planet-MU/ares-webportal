@@ -125,10 +125,6 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
         this.gameSocket.highlightFavicon();
       }
     }
-    else if (channel.is_page && !isUnread) {
-      console.log(currentUsername) 
-      console.log(author.name)
-    }
     else if (author.name === currentUsername) {
       console.log(currentUsername) 
       console.log(author.name)
