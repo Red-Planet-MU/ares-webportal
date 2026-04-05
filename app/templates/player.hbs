@@ -75,6 +75,8 @@
       {{#if this.model.siteinfo}}
         <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#systemsite">Admin</a></li>
       {{/if}}
+
+      <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#comps">Compliments</a></li>
     </ul>
     
 
@@ -102,6 +104,10 @@
           <ProfileSiteInfo @char={{this.model}} />
       </div>
       {{/if}}
+
+      <div id="comps" class="tab-pane fade">
+        <CharComps @char={{this.model}}  @onReloadChar={{this.reloadChar}} />
+      </div>
       
     </div>
 </div>
