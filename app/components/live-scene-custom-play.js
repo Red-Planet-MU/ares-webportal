@@ -53,7 +53,7 @@ export default Component.extend({
     webUseSerum() {
     let api = this.get('gameApi');
     let webSerumToUse = this.serumToUse.name;
-    let webSerumTarget = this.serumTargetName;
+    let webSerumTarget = this.serumTargetName.name;
 
     if (!webSerumToUse) {
             this.flashMessages.danger("You haven't selected a serum to use.");
