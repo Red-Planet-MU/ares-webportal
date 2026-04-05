@@ -42,7 +42,7 @@ export default Component.extend({
             return;
         }
       this.flashMessages.success('Compliment added!');
-      this.reloadChar();
+      window.location.reload(true);
     });
   },
     
