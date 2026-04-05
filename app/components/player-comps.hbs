@@ -3,14 +3,14 @@
 {{flash-messages}}
 <div id="comp-wrap">
   <div id="comps-holder" class="collapse show" data-bs-parent="#comp-wrap">
-    {{#each this.model.comps.comps as |comp|}}
+    {{#each this.char.comps.comps as |comp|}}
     <div class="comp" data-bs-parent="#comps">
     <p class="comp-msg"><AnsiFormat @text={{comp.msg}} /></p>
     <p class="comp-from"><i>From {{comp.from}} on {{comp.date}}</i></p></div>
     {{/each}}
 
 
-    {{#each this.model.comps.pages as |pg|}}
+    {{#each this.char.comps.pages as |pg|}}
     {{#if (eq pg this.page)}}
     <button class="btn btn-primary" {{on 'click' (fn this.goToPage pg)}}>{{pg}}</button>
     {{else}}
@@ -23,7 +23,7 @@
   </div>
   <div id="comp" class="card-collapse collapse" data-bs-parent="#comp-wrap">
   <b>Give a Compliment</b>
-  <MarkdownEditor @text={{this.model.comp_msg}} />
+  <MarkdownEditor @text={{this.char.comp_msg}} />
     <div class="action-buttons">
         <a data-bs-toggle="collapse" href="#comps-holder" class="btn btn-secondary btn-collapse">Cancel</a>
         <button class="btn btn-primary" {{on 'click' this.save}} >Save</button>
