@@ -11,6 +11,7 @@ export default Component.extend({
 
   @action
   markRead(notification, unread) {
+    console.log("Made it in here");
     let api = this.gameApi;
     set(notification, 'is_unread', unread);
 
