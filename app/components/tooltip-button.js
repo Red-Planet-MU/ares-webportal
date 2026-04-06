@@ -7,7 +7,9 @@ export default Component.extend({
   
   @action
   handleClick() {
+    console.log("inside the handle")
     if (this.onClick) {
+      console.log("inside the if")
       this.onClick();
     }
   }
