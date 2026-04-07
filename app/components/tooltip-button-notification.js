@@ -15,7 +15,7 @@ export default Component.extend({
       console.log("inside the if")
       this.onClick();
     }
-  }
+  },
   
   @action
   markRead(notification, unread) {
