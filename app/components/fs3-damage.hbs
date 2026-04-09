@@ -15,7 +15,7 @@
     </div>
     <div class="fs3-damage-healing">
       {{#if damage.healing}}
-        {{damage.healing_progress}}
+        <Fs3Dots @rating={{damage.healing_progress}} @max=5 />
       {{/if}}
     </div>
     <div class="fs3-damage-sev">
