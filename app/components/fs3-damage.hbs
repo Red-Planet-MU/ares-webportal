@@ -8,16 +8,21 @@
     <div class="fs3-damage-date">{{damage.date}}</div>
     <div class="fs3-damage-treat">
       {{#if damage.is_treatable}}
-        "Yes"
+        Treatable
       {{else if damage.is_serumable}}
-        "Serum"
+        Use a Serum
+      {{/if}}
+    </div>
+    <div class="fs3-damage-healing">
+      {{#if damage.healing}}
+        {{damage.healing_progress}}
       {{/if}}
     </div>
     <div class="fs3-damage-sev">
       
       {{#if this.showOriginal}}
-        <AnsiFormat @text={{damage.original_severity}} /> 
-        ( now <AnsiFormat @text={{damage.severity}} />)
+        <AnsiFormat @text={{damage.severity}} />
+        ( was <AnsiFormat @text={{damage.original_severity}} />)
       {{else}}
         <AnsiFormat @text={{damage.severity}} /> 
       {{/if}}
