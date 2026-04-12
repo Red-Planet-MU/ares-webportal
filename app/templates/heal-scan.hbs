@@ -6,7 +6,7 @@
 <div class="heal-scan-list">
 {{#each this.model.heal_scan_list as |char|}}
   <div class="heal-scan-row">
-    <span class="heal-scan-char"><CharIconInline @char={{char}}/></span> <span class="heal-scan-mod">"    "{{char.damage_mod}}</span>
+    <span class="heal-scan-char"><CharIconInline @char={{char}}/>:</span> <span class="heal-scan-mod">{{char.damage_mod}}</span>
   </div>
 {{/each}}
 </div>

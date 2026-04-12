@@ -23,6 +23,14 @@
           </div>
         {{/if}}
       {{/each}}
+        <div class="profile-item">
+          <div class="profile-item-name">
+            Origin
+          </div>
+          <div class="profile-item-value">
+            {{this.char.origin}}
+          </div>
+        </div>
     </div>
     {{#if (not this.char.demographics)}}
       No demographics available.  Try reloading the scene page.
