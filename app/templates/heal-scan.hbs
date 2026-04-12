@@ -1,0 +1,14 @@
+{{page-title 'Heal Scan'" | Red Planet"}}
+
+<h1>Heal Scan</h1>
+
+<p class="alert alert-info">Please remember to check with that character's player before you treat them or take them as a patient.</p>
+
+{{#each this.model.heal_scan_list as |char|}}
+  <div class="heal-scan-row">
+    <CharIconInline @char={{char}}/>: {{char.damage_mod}}
+  </div>
+{{/each}}
+
+
+{{outlet}}
