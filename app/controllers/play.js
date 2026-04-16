@@ -90,6 +90,7 @@ export default Controller.extend(AuthenticatedController, SceneUpdate, {
       });            
     }
     this.markSceneRead(sceneId);
+    this.scrollWindow();
   },
     
   onChatMessage: function(type, msg, timestamp) {
