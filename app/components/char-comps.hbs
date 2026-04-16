@@ -6,7 +6,11 @@
     {{#each this.char.custom.comps.comps as |comp|}}
     <div class="comp" data-bs-parent="#comps">
     <p class="comp-msg"><AnsiFormat @text={{comp.msg}} /></p>
+    {{#if comp.scene }}
+    <p class="comp-from"><i>From {{comp.from}} on {{comp.date}} for Scene <a href="scene/{{comp.scene}}">{{comp.title}}</a></i></p></div>
+    {{else}}
     <p class="comp-from"><i>From {{comp.from}} on {{comp.date}}</i></p></div>
+    {{/if}}
     {{/each}}
 
 
