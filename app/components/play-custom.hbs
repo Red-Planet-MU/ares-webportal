@@ -7,26 +7,6 @@
   {{else}}
     <TooltipButton @onClick={{(fn this.setShowLFRP true)}} @position="right" @message="Show LFRP" @icon="fa fa-caret-square-down" />
   {{/if}}
-  <BsModalSimple 
-      @title="Look for RP"
-      @closeTitle="Cancel"
-      @submitTitle="Look for RP"
-      @size={{null}}
-      @fade={{true}}
-      @open={{this.selectLFRP}}
-      @onSubmit={{this.setLFRP}} 
-      @onHide={{(fn this.setSelectLFRP false)}}
-      @renderInPlace={{true}}>
-      <PowerSelect
-        @options={{this.hourOptions}}
-        @onChange={{this.hoursToLookChanged}}
-        @selected={{this.hours}}
-        @labelText="How many hours would you like to be looking for?"
-        as |hour|
-        >
-        {{hour}}
-      </PowerSelect>
-    </BsModalSimple>
 </div>
 
 <div class="looking-for-rp">
@@ -38,4 +18,23 @@
     {{/each}}
       <br>
   {{/if}}
+  <BsModalSimple 
+      @title="Look for RP"
+      @closeTitle="Cancel"
+      @submitTitle="Look for RP"
+      @size={{null}}
+      @fade={{true}}
+      @open={{this.selectLFRP}}
+      @onSubmit={{this.setLFRP}} 
+      @onHide={{(fn this.setSelectLFRP false)}}>
+      <PowerSelect
+        @options={{this.hourOptions}}
+        @onChange={{this.hoursToLookChanged}}
+        @selected={{this.hours}}
+        @labelText="How many hours would you like to be looking for?"
+        as |hour|
+        >
+        {{hour}}
+      </PowerSelect>
+    </BsModalSimple>
 </div>
