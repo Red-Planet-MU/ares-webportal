@@ -36,7 +36,7 @@ export default Component.extend({
         if (response.error) {
             return;
         }
-      this.flashMessages.success('Set to Looking for RP for 1 hour!');
+      this.flashMessages.success(`Set to Looking for RP for ${hours} hour(s)!`);
       this.refresh()
     });
   },
