@@ -5,7 +5,14 @@ import { action } from '@ember/object';
 export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
+  selectLFRP: false,
+  hours: 1,
 
+  @action
+    setSelectLFRP(value) {
+      this.set('selectLFRP', value);
+    },
+  
   @action
   reloadChar() {
     this.reloadChar();
@@ -20,8 +27,10 @@ export default Component.extend({
   @action
   setLFRP() {
     let api = this.get('gameApi');
+    let hours = this.hours;
     api.requestOne('setLFRP', {
       char_id: this.get('char.id'),
+      hours: hours
     }, null)
     .then( (response) => {
         if (response.error) {
