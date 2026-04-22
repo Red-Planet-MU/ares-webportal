@@ -7,6 +7,7 @@ export default Component.extend({
   flashMessages: service(),
   selectLFRP: false,
   hourOptions: [1, 2, 3],
+  hours: 1,
 
   @action
     setSelectLFRP(value) {
