@@ -26,6 +26,10 @@ export default Component.extend({
     this.reloadChar();
   },
 
+  @action 
+  hoursToLookChanged(newHoursToLook) {
+    this.set('hours', newHoursToLook)
+  },  
 
     @action
   setLFRP() {
