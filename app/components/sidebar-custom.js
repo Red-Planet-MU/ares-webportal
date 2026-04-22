@@ -33,7 +33,7 @@ export default Component.extend({
   setLFRP() {
     let api = this.get('gameApi');
     let hours = this.hours;
-    this.set('setSelectLFRP', false);
+    this.set('selectLFRP', false);
     api.requestOne('setLFRP', {
       char_id: this.get('char.id'),
       hours: hours
