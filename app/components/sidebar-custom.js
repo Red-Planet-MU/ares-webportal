@@ -6,7 +6,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   selectLFRP: false,
-  hours: 1,
+  hourOptions: [1, 2, 3],
 
   @action
     setSelectLFRP(value) {
@@ -23,6 +23,11 @@ export default Component.extend({
     this.resetOnExit();
     this.send('reloadModel');
   },
+
+  @action 
+    hoursToLookChanged(newHoursToLook) {
+      this.set('hours', newHoursToLook)
+    },  
 
   @action
   setLFRP() {
