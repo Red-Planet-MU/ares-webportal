@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import { action } from '@ember/object';
 
 export default Component.extend({
+  gameApi: service(),
   traitsExtraInstalled: computed('game.extra_plugins', function () {
     return this.get('game.extra_plugins').some((e) => e == 'traits');
   }),
@@ -22,6 +23,19 @@ export default Component.extend({
   prefsExtraInstalled: computed('game.extra_plugins', function () {
     return this.get('game.extra_plugins').some((e) => e == 'prefs');
   }),
+
+  @action 
+  clearCompsNotification() {
+    let api = this.get('gameApi');
+    api.requestOne('markCompsRead', {
+      char_id: this.get('char.id'),
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+    });
+  },
 
   @action
     reloadChar() {
