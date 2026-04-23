@@ -18,8 +18,8 @@ export default Controller.extend({
   @action
   reloadCharBetter() {
     this.send('reloadModel');
-    window.scrollTo(0, 2500)
-    console.log("Made it here")
+    //window.scrollTo(0, 2500)
+    //console.log("Made it here")
   },
         
   @action
