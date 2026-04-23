@@ -7,5 +7,10 @@ export default Component.extend({
   @action
   reloadChar() {
     this.onReloadChar();
+  },
+
+  @action
+  reloadCharBetter() {
+  this.send('reloadModel')
   }
 });
