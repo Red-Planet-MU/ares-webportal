@@ -19,11 +19,7 @@ export default Controller.extend({
   @action
   reloadCharBetter() {
     this.send('reloadModel');
-    await render(
-    hbs`<div profile-tab>`
-    );
-    let element = document.getElementById("profile-tab");
-    element.scrollIntoView();
+    window.scrollTo(0, 2500)
     console.log("Made it here")
   },
         
