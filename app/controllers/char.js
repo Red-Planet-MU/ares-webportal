@@ -14,6 +14,13 @@ export default Controller.extend({
   reloadChar() {
     this.send('reloadModel');
   },
+
+  @action
+  reloadCharBetter() {
+    this.send('reloadModel');
+    let element = document.getElementById("profile-tab");
+    element.scrollIntoView()
+  },
         
   @action
   fileUploaded(folder, file) {
