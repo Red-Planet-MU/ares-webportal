@@ -19,7 +19,8 @@ export default Controller.extend({
   reloadCharBetter() {
     this.send('reloadModel');
     let element = document.getElementById("profile-tab");
-    element.scrollIntoView()
+    element.scrollIntoView();
+    console.log("Made it here")
   },
         
   @action
