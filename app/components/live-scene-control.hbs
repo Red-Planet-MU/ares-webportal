@@ -254,13 +254,12 @@
                </DropdownMenu>
              {{/if}}
 
-
+             {{#if this.scene.can_edit}}
              <DropdownMenu @id="otherMenu" @title="Other" @dropup={{true}} class="scene-menu">
-               {{#if this.scene.can_edit}}
                    <li><LinkTo @route="scene-download" @model={{this.scene.id}} class="dropdown-item">Download Scene</LinkTo></li> 
                    <li><button {{on 'click' (fn this.setConfirmReportScene true)}} class="dropdown-item">Report Scene</button></li>
-               {{/if}}
              </DropdownMenu>
+             {{/if}}
                      
              </div>
              
