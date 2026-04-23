@@ -1,6 +1,5 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { render } from '@ember/test-helpers';
 import { pushObject } from 'ares-webportal/helpers/object-ext';
 
 export default Controller.extend({
