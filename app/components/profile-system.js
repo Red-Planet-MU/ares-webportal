@@ -38,6 +38,19 @@ export default Component.extend({
     });
   },
 
+  @action 
+  clearAchievementsNotification() {
+    let api = this.get('gameApi');
+    api.requestOne('markAchievementsRead', {
+      char_id: this.get('char.id'),
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+    });
+  },
+
   @action
     reloadChar() {
       this.onReloadChar();
