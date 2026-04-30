@@ -7,15 +7,15 @@
       
       
       {{#each this.custom.lfrp_icons as |char|}}
-      {{!--{{#if (not char.lfrp_type)}} --}}
+      {{#if (eq char.lfrp_type 'scene')}}
       <div class="lfrp-row">
         <CharIconInline @char={{char}}/>
       </div>
       {{!--{{else}}
       <div class="lfrp-row">
         <CharIconInlineLFRPTxt @char={{char}}/>
-      </div>
-      {{/if}} --}}
+      </div> --}}
+      {{/if}} 
       {{/each}}
       <br>
       <div class="lfrp-buttons">
