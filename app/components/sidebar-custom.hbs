@@ -5,15 +5,15 @@
     <div class="looking-for-rp">
       
       {{#each this.custom.lfrp_icons as |char|}}
-      {{#if (not char.lfrp_type)}}
+      {{!--{{#if (not char.lfrp_type)}}
       <div class="lfrp-row">
         <CharIconInline @char={{char}}/>
       </div>
-      {{else}}
+      {{else}} --}}
       <div class="lfrp-row">
         <CharIconInlineLFRPTxt @char={{char}}/>
       </div>
-      {{/if}}
+      {{!-- {{/if}} --}}
       {{/each}}
       <br>
       <div class="lfrp-buttons">
