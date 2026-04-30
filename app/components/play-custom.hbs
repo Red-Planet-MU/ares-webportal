@@ -12,9 +12,15 @@
 <div class="looking-for-rp">
   {{#if this.showLFRP}}
     {{#each this.custom_play.lfrp_icons as |char|}}
+    {{#if (eq char.lfrp_type 'scene')}}
     <div class="lfrp-row">
       <CharIconInline @char={{char}}/>
     </div>
+    {{else}}
+    <div class="lfrp-row">
+      <CharIconInlineLfrpTxt @char={{char}}/>
+    </div>
+    {{/if}} 
     {{/each}}
       <br>
   {{/if}}
@@ -36,5 +42,8 @@
         >
         {{hour}}
       </PowerSelect>
+      <br>
+      <label for="txtonly">Only look for a TXT Scene?</label>
+      <Input @id="txtonly" @type="checkbox" @checked={{this.lfrpTxt}} />
     </BsModalSimple>
 </div>

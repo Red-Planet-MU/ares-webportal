@@ -10,6 +10,7 @@ export default Component.extend({
   selectLFRP: false,
   hourOptions: [1, 2, 3],
   hours: 1,
+  lfrpTxt: false,
 
   @action
     setSelectLFRP(value) {
@@ -35,10 +36,12 @@ export default Component.extend({
   setLFRP() {
     let api = this.get('gameApi');
     let hours = this.hours;
+    let textType = this.lfrpTxt;
     this.set('selectLFRP', false);
     api.requestOne('setLFRP', {
       char_id: this.get('char.id'),
-      hours: hours
+      hours: hours,
+      textType: textType
     }, null)
     .then( (response) => {
         if (response.error) {
