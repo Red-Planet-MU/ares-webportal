@@ -7,6 +7,7 @@ export default Component.extend({
   gameApi: service(),
   flashMessages: service(),
   selectWebUseSerum: false,
+  selectInvitePals: false,
   serumTargetName: null,
   rollDicePopup: false,
   dice: '',
@@ -17,6 +18,11 @@ export default Component.extend({
   @action
     setSelectWebUseSerum(value) {
       this.set('selectWebUseSerum', value);
+    },
+
+  @action
+    setSelectInvitePals(value) {
+      this.set('selectInvitePals', value);
     },
 
   @action
@@ -34,12 +40,21 @@ export default Component.extend({
     this.set('serumTargetName', newSerumTarget);
   },
 
+  @action
+  palsInviteListChanged(newPalsInviteList) {
+    this.set('char.custom.pals', newPalsInviteList);
+  },
+
   @action 
-    webPalsInvite() {
+    webInvitePals() {
     let api = this.get('gameApi');
+    let webPalsCap = this.palscap;
+    this.set('selectInvitePals', false);
     api.requestOne('webPalsInvite', {
       id: this.get('scene.id'),
-      char_id: this.get('char.id')
+      char_id: this.get('char.id'),
+      pals_cap: webPalsCap,
+      pals_list: this.palsInviteListForWeb
     }, null)
     .then( (response) => {
         if (response.error) {

@@ -1,7 +1,7 @@
 <li><hr role="separator" class="dropdown-divider"></li>
 <li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li>
 <li><a href="#" {{on 'click' (fn this.setRollDicePopup true)}} class="dropdown-item">Roll Dice</a></li> 
-<li><a href="#" {{on 'click' this.webPalsInvite}} class="dropdown-item">Invite Pals</a></li> 
+<li><a href="#" {{on 'click' (fn this.setSelectInvitePals true)}} class="dropdown-item">Invite Pals</a></li> 
 
 <BsModalSimple 
     @title="Use a Serum"
@@ -53,4 +53,28 @@
     <br> 
     <label for="privatebox">Private roll?</label>
     <Input @id="privatebox" @checked={{this.private_dice}} @type="checkbox"/>
+</BsModalSimple>
+
+<BsModalSimple 
+    @title="Invite Pals"
+    @closeTitle="Cancel"
+    @submitTitle="Invite"
+    @size={{null}}
+    @fade={{true}}
+    @open={{this.selectInvitePals}}
+    @onSubmit={{this.webInvitePals}} 
+    @onHide={{(fn this.setSelectInvitePals false)}}
+    >
+      <PowerSelectMultiple
+        @options={{this.custom.allPalsListForWeb}}
+        @onChange={{this.palsInviteListChanged}}
+        @selected={{this.palsInviteListForWeb}}
+        @labelText="Who would you like to leave the door open for?"
+        as |palsToInvite|
+      >
+      {{palsToInvite.name}}
+    </PowerSelectMultiple>
+    <br>
+    <label for="palscap">Would you like to cap the number of pals who join?</label> <br>
+    <Input @id="palscap" @value={{this.palscap}} @type="number" @inputmode="numeric" @min="1" style="width: 45%"/>
 </BsModalSimple>
