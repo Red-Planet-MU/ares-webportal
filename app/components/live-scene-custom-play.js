@@ -42,7 +42,7 @@ export default Component.extend({
 
   @action
   palsInviteListChanged(newPalsInviteList) {
-    this.set('char.custom.pals', newPalsInviteList);
+    this.set('custom.palsInviteListForWeb', newPalsInviteList);
   },
 
   @action 
@@ -52,9 +52,8 @@ export default Component.extend({
     this.set('selectInvitePals', false);
     api.requestOne('webPalsInvite', {
       id: this.get('scene.id'),
-      char_id: this.get('char.id'),
       pals_cap: webPalsCap,
-      pals_list: this.palsInviteListForWeb
+      pals_list: (this.get('custom.palsInviteListForWeb') || []).map(p => p.name),
     }, null)
     .then( (response) => {
         if (response.error) {
