@@ -64,6 +64,20 @@ export default Component.extend({
   },
 
   @action 
+    uninvitePals() {
+    let api = this.get('gameApi');
+    api.requestOne('webPalsUninvite', {
+      id: this.get('scene.id'),
+    }, null)
+    .then( (response) => {
+        if (response.error) {
+            return;
+        }
+      this.flashMessages.success('Pals uninvited!');
+    });
+  },
+
+  @action 
     webUseSerum() {
     let api = this.get('gameApi');
     let webSerumToUse = this.serumToUse.name;

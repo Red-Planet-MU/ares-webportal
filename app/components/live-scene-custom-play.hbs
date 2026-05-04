@@ -2,6 +2,7 @@
 <li><a href="#" {{on 'click' (fn this.setSelectWebUseSerum true)}} class="dropdown-item">Use a Serum</a></li>
 <li><a href="#" {{on 'click' (fn this.setRollDicePopup true)}} class="dropdown-item">Roll Dice</a></li> 
 <li><a href="#" {{on 'click' (fn this.setSelectInvitePals true)}} class="dropdown-item">Invite Pals</a></li> 
+<li><a href="#" {{on 'click' this.uninvitePals}} class="dropdown-item">Uninvite Pals</a></li> 
 
 <BsModalSimple 
     @title="Use a Serum"
