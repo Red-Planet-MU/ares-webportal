@@ -159,7 +159,7 @@ export default Service.extend(AresConfig, {
     handleError(self, evt) {
       let message = 'Your connection to the game has been lost!  You will no longer see updates.  Try reloading the page.  If the problem persists, the game may be down.';
       console.error("Websocket closed: ", evt);
-      self.notify(message, 10, 'error');
+      //self.notify(message, 10, 'error');
       self.set('connected', false);
       self.set('socket', null);
       setTimeout(() => self.reconnect(), 5000);      
