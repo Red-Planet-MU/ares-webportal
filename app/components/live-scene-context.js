@@ -10,7 +10,7 @@ export default Component.extend({
     let api = this.get('gameApi');
     api.requestOne('getFortune', {
       id: this.get('scene.id'),
-      char_id: this.get('char.id'),
+      char_id: this.get('scene.poseChar.id'),
       char: this.get('char.name'),
     }, null)
     .then( (response) => {
@@ -26,7 +26,7 @@ export default Component.extend({
     let api = this.get('gameApi');
     api.requestOne('getBook', {
       id: this.get('scene.id'),
-      char_id: this.get('char.id'),
+      char_id: this.get('scene.poseChar.id'),
       char: this.get('char.name'),
     }, null)
     .then( (response) => {
