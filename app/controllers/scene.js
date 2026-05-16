@@ -43,7 +43,7 @@ export default Controller.extend(AuthenticatedController, {
 
   resetOnExit: function() {
     this.set('comp_msg', '');
-  }
+  },
         
   @action
   unshareScene() {
