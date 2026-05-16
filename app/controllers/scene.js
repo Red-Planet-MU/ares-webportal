@@ -40,6 +40,10 @@ export default Controller.extend(AuthenticatedController, {
       this.send('reloadModel');
     });
   },
+
+  resetOnExit: function() {
+    this.set('comp_msg', '');
+  }
         
   @action
   unshareScene() {
